@@ -20,3 +20,14 @@ We welcome contributions from almost anyone as long as these contributions are m
     - `Docs`: Changes made to the documentation.
     - `Refactor`: Changes that re-structure the code without changing its functionality.
 - The `<subject>` must start with a capital letter and it should always be in the present tense. ie. it should be `add` instead of `added` or `adds`.
+
+### Running
+Install dependencies, currently using pnpm, but other package managers should work too.
+```
+pnpm i
+```
+Start the project on development mode
+```
+pnpm dev
+```
+App should be running now.In order to add more componen. A dashboard is added where other page view can be handle.
