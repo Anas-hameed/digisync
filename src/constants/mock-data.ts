@@ -524,8 +524,8 @@ export const images = [
   },
   {
     id: 1683492,
-    width: 3648,
-    height: 3648,
+    width: 1080,
+    height: 1920,
     url: "https://www.pexels.com/photo/ocean-wave-splashing-on-dock-1683492/",
     photographer: "Ricardo Esquivel",
     photographer_url: "https://www.pexels.com/@rickyrecap",
