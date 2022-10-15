@@ -1,56 +1,33 @@
-# Design Editor
+# DigiSync
 
-If you are worrying about something like a designer tool, such as graphic editor, presentation editor, video editor, etc. Layerhub is a perfect choice for you.  
-Try demo here [react-design-editor-dev.up.railway.app](https://react-design-editor-dev.up.railway.app/)
+<p>DigiSync is a project that is going to revolutionalize the way digital marketing. It make use of advanced AI algorithm to automate the process of Post, Email and SMS generation. Marketers can use the platform to do all their marketing through a single platform without the hustle of moving around different social media handle.</p>
 
-<p>
-    <a href="https://discord.gg/7jxnh8rHDV">
-        <img src="https://discordapp.com/api/guilds/1001450881448951838/widget.png?style=banner2" alt="Discord Banner 2"/>
-    </a>
-</p>
+Some stats regarding this project are:
 
-## Screenshots
+[![Generic badge](https://img.shields.io/badge/Project%20Status-Active-{}.svg)](#) [![Generic badge](https://img.shields.io/badge/Framework-ReactJS/ExpressJS-blue.svg)](#) [![Generic badge](https://img.shields.io/badge/API%20Type-REST-orange.svg)](#) [![Generic badge](https://img.shields.io/badge/Current%20Version-v0.1%20Beta-purple.svg)](#)  [![Generic badge](https://img.shields.io/badge/OS-Windows-red.svg)](#)
 
-React editor created editors for graphics, presentations and video.
+## Contributing to This Repository
 
-![Select Editor](https://i.ibb.co/y0L2C4c/select-editor.png)
+We welcome contributions from almost anyone as long as these contributions are meaningful. You need a properly configured `.env` file to run this project. Due to security reasons the original `.env` file is only accessible by the project admins. You can either contact them to ask for this file directly or you can setup your own by following the `.env.sample` present in the repository. Also, keep in mind the following guidelines before pushing your code to this repository:
 
-![Video Editor](https://i.ibb.co/TTgdsk2/video-editor.png)
+- DO NOT DIRECTLY PUSH YOUR CHANGES TO THE MAIN BRANCH! Always create a seperate branch for all of the changes you make to this project and when you're done implementing your changes push your branch and create a pull request. Your branch will be merged after its reviewed and approved by one of the moderators.
+- Your commit messages must be in the form: `<type>: <subject>` 
+- The `<type>` must start with a capital letter and it should be one of the following:
+    - `Build`: Changes that add new package/module or modify the directory structure.
+    - `Feat`: Changes that add new features.
+    - `Fix`: Changes that fix bugs.
+    - `Perf`: Changes that improve application performance.
+    - `Docs`: Changes made to the documentation.
+    - `Refactor`: Changes that re-structure the code without changing its functionality.
+- The `<subject>` must start with a capital letter and it should always be in the present tense. ie. it should be `add` instead of `added` or `adds`.
 
-## Components
-
-- @layerhub-io/react: This editor is using SDK for react.
-
-## How to start
-
-Clone the project:
-
-```
-git clone https://github.com/layerhub-io/react-editor
-```
-
+### Running
 Install dependencies, currently using pnpm, but other package managers should work too.
-
 ```
 pnpm i
 ```
-
 Start the project on development mode
-
 ```
 pnpm dev
 ```
-
-App should be running now.
-
-## Contribution
-
-Feel free to contribute by opening issues with any questions, bug reports or feature requests.
-
-## Get in touch
-
-You can reach us at cloud@scenify.io
-
-## License
-
-[MIT](LICENSE)
+App should be running now.In order to add more componen. A dashboard is added where other page view can be handle.
