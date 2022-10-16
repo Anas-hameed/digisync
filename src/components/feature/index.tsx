@@ -1,4 +1,4 @@
-import Heading3 from "../heading3";
+import Heading3 from "../heading3/index.jsx";
 import CardParagraph from "../cardParagraph";
 import Heading from "../heading";
 import Paragraph from "../paragraph";

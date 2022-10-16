@@ -1,5 +1,5 @@
 
-import Heading3 from "../heading3";
+import Heading3 from "../heading3/index.jsx";
 import CardParagraph from "../cardParagraph";
 function FeatureCard({imgSrc,spanText,heading,paragraph,buttonText,flexDirection}){
     return(
