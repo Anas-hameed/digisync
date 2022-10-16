@@ -2,7 +2,7 @@
 function SignIn(){
 
     return(
-        <div className=" w-screen ">
+        // <div className=" w-screen ">
 
             <div className="flex justify-center md:my-16">
             <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
@@ -54,7 +54,7 @@ function SignIn(){
             </div>
         </div>
 
-        </div>
+        //</div>
         
         
 
