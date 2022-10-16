@@ -2,7 +2,9 @@
 function SignIn(){
 
     return(
-        <div className="flex justify-center md:my-16">
+        <div className=" w-screen ">
+
+            <div className="flex justify-center md:my-16">
             <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
                 <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                 <p className="text-sm text-center dark:text-gray-400">Dont have account?
@@ -51,6 +53,9 @@ function SignIn(){
                 </form>
             </div>
         </div>
+
+        </div>
+        
         
 
     )
