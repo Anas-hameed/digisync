@@ -1,0 +1,2 @@
+- name: Setup pnpm
+  uses: pnpm/action-setup@v2.2.4
