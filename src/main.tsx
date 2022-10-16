@@ -6,8 +6,8 @@ import "./styles/styles.css"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider>
-    <Container>
+    {/* <Container> */}
       <Router />
-    </Container>
+    {/* </Container> */}
   </Provider>
 )
