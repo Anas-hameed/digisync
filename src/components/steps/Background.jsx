@@ -23,7 +23,7 @@ export default function Background() {
             </div>
           </div>
         </form>
-        <p className="mt-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>
+        <p className="mt-10">Select your Background Image by tapping the image and press next to continue </p>
       </div>
     </div>
   );
