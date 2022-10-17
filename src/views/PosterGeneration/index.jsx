@@ -4,12 +4,12 @@ import Stepper from "~/components/stepper";
 import StepperControl from "~/components/stepperControl";
 
 import Background from "~/components/steps/Background";
-import Payment from "~/components/steps/Payment";
 import Text from "~/components/steps/Text";
 import Final from "~/components/steps/Final";
 import SectionIntro from "~/components/sectionIntro";
 import Heading from "~/components/heading";
 import Paragraph from "~/components/paragraph";
+import Additionals from "~/components/steps/Additionals";
 
 
 function PosterGeneration() {
@@ -29,7 +29,7 @@ function PosterGeneration() {
       case 2:
         return <Text />;
       case 3:
-        return <Payment />;
+        return <Additionals />;
       case 4:
         return <Final />;
       default:
@@ -48,7 +48,8 @@ function PosterGeneration() {
 
     <section className="p-4 lg:p-8 bg-white text-black md:mb-16 ">
 
-<SectionIntro heading={"Create Poster"} paragraph={"Start creating poster in just few steps"}/>
+      <SectionIntro heading={"Create Poster"} paragraph={"Start creating poster in just few steps"}/>
+      
       
       <div className="flex justify-center ">  
       <div className="w-full max-w-md p-4  dark:bg-gray-900 dark:text-gray-100">

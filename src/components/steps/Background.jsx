@@ -1,6 +1,8 @@
 // import { useStepperContext } from "../../contexts/StepperContext";
 import { useStepperContext } from "../contexts/StepperContext";
-export default function Account() {
+import Heading3 from "../heading3";
+import Paragraph from "../paragraph";
+export default function Background() {
   const { userData, setUserData } = useStepperContext();
 
   const handleChange = (e) => {
@@ -11,7 +13,8 @@ export default function Account() {
   return (
     <div className="flex flex-col ">
       <div className="mx-2 w-full flex-1">
-        
+        <h4 className="text-xl font-semibold">Description:</h4>
+        <p className="mb-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>
         <form  action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
           <div className="space-y-4">
             <div className="space-y-2">
@@ -20,6 +23,7 @@ export default function Account() {
             </div>
           </div>
         </form>
+        <p className="mt-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>
       </div>
     </div>
   );

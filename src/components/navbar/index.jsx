@@ -20,7 +20,7 @@ function Nav() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <a
-                    href="#"
+                    href="/poster-generation"
                     className=" hover:animate-pulse hover:underline text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Create
