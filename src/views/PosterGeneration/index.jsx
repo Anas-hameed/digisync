@@ -42,8 +42,8 @@ function PosterGeneration() {
   };
 
   return (
-    <div className="flex justify-center md:my-16">
-        <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-1/2">
+    <div className="flex justify-center my-16">
+        <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
       {/* Stepper */}
       <div className="horizontal container mt-5 ">
         <Stepper steps={steps} currentStep={currentStep} />
