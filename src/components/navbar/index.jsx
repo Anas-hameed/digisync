@@ -15,7 +15,7 @@ function Nav() {
                   src="/"
                   alt="Workflow"
                 /> */}
-                <div className="text-white">Logo</div>
+                <div className="text-white"><a href="/">Logo</a></div>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">

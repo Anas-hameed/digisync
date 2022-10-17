@@ -48,8 +48,10 @@ function PosterGeneration() {
 
     <section className="p-4 lg:p-8 bg-white text-black md:mb-16 ">
 
-      <SectionIntro heading={"Create Poster"} paragraph={"Start creating poster in just few steps"}/>
-      
+      <div className="container mx-auto flex flex-col items-center px-4 py-10 text-center md:px-10 lg:px-32 xl:max-w-3xl">
+            <Heading content={"Create Poster"}/>
+            <Paragraph content={"Start creating poster in just few steps"}/>
+      </div>
       
       <div className="flex justify-center ">  
       <div className="w-full max-w-md p-4  dark:bg-gray-900 dark:text-gray-100">
