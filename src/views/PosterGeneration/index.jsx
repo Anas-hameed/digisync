@@ -7,15 +7,16 @@ import Account from "~/components/steps/Account";
 import Payment from "~/components/steps/Payment";
 import Details from "~/components/steps/Details";
 import Final from "~/components/steps/Final";
+import SectionIntro from "~/components/sectionIntro";
 
 
 function PosterGeneration() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const steps = [
-    "Account Information",
-    "Personal Details",
-    "Payment",
+    "Background Image",
+    "Text",
+    "Additionals",
     "Complete",
   ];
 
@@ -42,7 +43,14 @@ function PosterGeneration() {
   };
 
   return (
-    <div className="flex justify-center my-16">
+
+    <section className="p-4 lg:p-8 bg-white text-black">
+      <SectionIntro
+            heading={"Poster Generation"} 
+            paragraph={"DigiSync is a platform that uses A.I. technology to allow users to create Posters in just few minutes"} 
+      />
+
+      <div className="flex justify-center">
         <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
       {/* Stepper */}
       <div className="horizontal container mt-5 ">
@@ -64,7 +72,10 @@ function PosterGeneration() {
     </div>
 
     </div>
-    
+
+
+    </section>
+        
   );
 }
 
