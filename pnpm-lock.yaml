@@ -5,6 +5,8 @@ specifiers:
   '@dnd-kit/modifiers': ^6.0.0
   '@dnd-kit/sortable': ^7.0.1
   '@dnd-kit/utilities': ^3.2.0
+  '@headlessui/react': ^1.7.3
+  '@heroicons/react': ^2.0.12
   '@layerhub-io/react': ^0.3.0
   '@layerhub-io/react-custom-scrollbar': ^0.0.1
   '@layerhub-io/types': ^0.3.0
@@ -27,6 +29,7 @@ specifiers:
   mime: ^3.0.0
   nanoid: ^3.3.4
   pixi.js: ^6.5.0
+  pnpm: ^7.13.5
   postcss: ^8.4.18
   react: ^18.0.0
   react-colorful: ^5.5.1
@@ -50,6 +53,8 @@ dependencies:
   '@dnd-kit/modifiers': 6.0.0_vvd3dzag27tc7rclyb2whqqnpe
   '@dnd-kit/sortable': 7.0.1_vvd3dzag27tc7rclyb2whqqnpe
   '@dnd-kit/utilities': 3.2.0_react@18.2.0
+  '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
+  '@heroicons/react': 2.0.12_react@18.2.0
   '@layerhub-io/react': 0.3.0
   '@layerhub-io/react-custom-scrollbar': 0.0.1_react@18.2.0
   '@layerhub-io/use-timer': 0.1.1_react@18.2.0
@@ -65,6 +70,7 @@ dependencies:
   mime: 3.0.0
   nanoid: 3.3.4
   pixi.js: 6.5.0
+  pnpm: 7.13.5
   react: 18.2.0
   react-colorful: 5.5.1_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
@@ -435,6 +441,25 @@ packages:
     dependencies:
       react: 18.2.0
       tslib: 2.4.0
+    dev: false
+
+  /@headlessui/react/1.7.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-LGp06SrGv7BMaIQlTs8s2G06moqkI0cb0b8stgq7KZ3xcHdH3qMP+cRyV7qe5x4XEW/IGY48BW4fLesD6NQLng==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@heroicons/react/2.0.12_react@18.2.0:
+    resolution: {integrity: sha512-FZxKh3i9aKIDxyALTgIpSF2t6V6/eZfF5mRu41QlwkX3Oxzecdm1u6dpft6PQGxIBwO7TKYWaMAYYL8mp/EaOg==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -2792,6 +2817,12 @@ packages:
       '@pixi/text-bitmap': 6.5.0_ik7r76sodqjqmskibt4guz47km
       '@pixi/ticker': 6.5.0_@pixi+settings@6.5.0
       '@pixi/utils': 6.5.0_cz2z7ym3piwcb6m6ck3kc5c7ga
+    dev: false
+
+  /pnpm/7.13.5:
+    resolution: {integrity: sha512-7+xyYPunBiAAJclpmUU2CTqe7uHipDjguUF2qmd9+r8hfZEVj0TnMTfblPnRF9aiVsmE4X3zRPlY3A5zk7r73w==}
+    engines: {node: '>=14.6'}
+    hasBin: true
     dev: false
 
   /polished/3.7.2:

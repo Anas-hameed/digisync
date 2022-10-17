@@ -3,18 +3,20 @@ import { UseContextProvider } from "~/components/contexts/StepperContext";
 import Stepper from "~/components/stepper";
 import StepperControl from "~/components/stepperControl";
 
-import Account from "~/components/steps/Account";
+import Background from "~/components/steps/Background";
 import Payment from "~/components/steps/Payment";
-import Details from "~/components/steps/Details";
+import Text from "~/components/steps/Text";
 import Final from "~/components/steps/Final";
 import SectionIntro from "~/components/sectionIntro";
+import Heading from "~/components/heading";
+import Paragraph from "~/components/paragraph";
 
 
 function PosterGeneration() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const steps = [
-    "Background Image",
+    "Background",
     "Text",
     "Additionals",
     "Complete",
@@ -23,9 +25,9 @@ function PosterGeneration() {
   const displayStep = (step) => {
     switch (step) {
       case 1:
-        return <Account />;
+        return <Background />;
       case 2:
-        return <Details />;
+        return <Text />;
       case 3:
         return <Payment />;
       case 4:
@@ -44,16 +46,17 @@ function PosterGeneration() {
 
   return (
 
-    <section className="p-4 lg:p-8 bg-white text-black">
-      <SectionIntro
-            heading={"Poster Generation"} 
-            paragraph={"DigiSync is a platform that uses A.I. technology to allow users to create Posters in just few minutes"} 
-      />
+    <section className="p-4 lg:p-8 bg-white text-black md:mb-16 ">
 
-      <div className="flex justify-center">
-        <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
+<SectionIntro heading={"Create Poster"} paragraph={"Start creating poster in just few steps"}/>
+      
+      <div className="flex justify-center ">  
+      <div className="w-full max-w-md p-4  dark:bg-gray-900 dark:text-gray-100">
+            
       {/* Stepper */}
       <div className="horizontal container mt-5 ">
+      
+        
         <Stepper steps={steps} currentStep={currentStep} />
 
         <div className="my-10 p-10 ">

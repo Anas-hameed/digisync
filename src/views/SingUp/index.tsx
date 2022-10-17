@@ -36,7 +36,7 @@ function SignUp(){
                             </div>
                             
                         </div>
-                        <button type={"submit"} className="w-full px-8 py-3 font-semibold rounded-md  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign up</button>
+                        <button type={"submit"} className="w-full px-8 py-3 font-semibold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign up</button>
                     </form>
                 </div>
             </div>
