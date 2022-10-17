@@ -26,12 +26,13 @@ export default function Final() {
         <div className="mt-3 text-xl font-semibold uppercase text-violet-400">
           Congratulations!
         </div>
-        <div className="text-lg font-semibold text-gray-500">
-          Your templates have been created
+        <div className=" text-black text-center">
+          Your templates have been created.<br/> 
+          Press continue to see.
         </div>
         <a className="mt-10" href="/templates">
           <button className="h-10 px-5 bg-violet-400 text-white transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-violet-500 hover:text-green-100">
-            Close
+            Continue
           </button>
         </a>
       </div>
