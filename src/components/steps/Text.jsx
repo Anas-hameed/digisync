@@ -24,7 +24,7 @@ export default function Details() {
             </div>
           </div>
         </form>
-        <p className="mt-10">Select your text and press next to continue </p>
+        <p className="mt-10">Select your Category and press next to continue</p>
       
       </div>
     </div>

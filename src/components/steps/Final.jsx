@@ -27,9 +27,9 @@ export default function Final() {
           Congratulations!
         </div>
         <div className="text-lg font-semibold text-gray-500">
-          Your Poster has been created
+          Your templates have been created
         </div>
-        <a className="mt-10" href="/user/dashboard">
+        <a className="mt-10" href="/templates">
           <button className="h-10 px-5 bg-violet-400 text-white transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-violet-500 hover:text-green-100">
             Close
           </button>
