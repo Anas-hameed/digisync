@@ -2,7 +2,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import Card from '../card'
 
-export default function Accordion() {
+export default function Accordion({content}) {
   return (
     <div className="w-full mt-6  ">
       <div className="mx-auto w-full max-w-md bg-white  ">
@@ -17,19 +17,7 @@ export default function Accordion() {
                   } h-5 w-5 text-black`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="  grid grid-cols-2 pt-4  text-black ">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                
-                {/* <ol>
-                <li>- Nature is the art of God</li>
-                <li>- Nature is the art of God</li>
-                <li>- Nature is the art of God</li>
-                </ol> */}
-                
-              </Disclosure.Panel>
+              {content}
             </>
           )}
         </Disclosure>

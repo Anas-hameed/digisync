@@ -1,4 +1,5 @@
 // import { useStepperContext } from "../../contexts/StepperContext";
+import { Disclosure } from '@headlessui/react'
 import Accordion from "../accordion";
 import { useStepperContext } from "../contexts/StepperContext";
 import ListBox from "../listBox";
@@ -25,7 +26,15 @@ export default function Details() {
             </div>
           </div>
         </form>
-        <Accordion/>
+        <Accordion content={<Disclosure.Panel className=" pt-4  text-black ">
+                
+                <ol>
+                <li>- Nature is the art of God</li>
+                <li>- Nature is the art of God</li>
+                <li>- Nature is the art of God</li>
+                </ol>
+                
+              </Disclosure.Panel>}/>
         <p className="mt-10">Select your Category and press next to continue</p>
       
       </div>

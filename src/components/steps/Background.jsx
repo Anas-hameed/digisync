@@ -5,6 +5,8 @@ import Paragraph from "../paragraph";
 import axios from "axios";
 import { useState } from "react";
 import Accordion from "../accordion";
+import { Disclosure } from '@headlessui/react'
+import Card from "../card";
 
 
 export default function Background() {
@@ -98,7 +100,19 @@ export default function Background() {
             );
           })}
         </div> */}
-        <Accordion/>
+        <Accordion content={<Disclosure.Panel className="  grid grid-cols-2 pt-4  text-black ">
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
+                
+                {/* <ol>
+                <li>- Nature is the art of God</li>
+                <li>- Nature is the art of God</li>
+                <li>- Nature is the art of God</li>
+                </ol> */}
+                
+              </Disclosure.Panel>}/>
         
         <p className="mt-10">Select your Background Image by tapping the image and press next to continue </p>
 
