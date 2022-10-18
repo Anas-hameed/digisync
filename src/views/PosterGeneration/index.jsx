@@ -10,6 +10,7 @@ import SectionIntro from "~/components/sectionIntro";
 import Heading from "~/components/heading";
 import Paragraph from "~/components/paragraph";
 import Additionals from "~/components/steps/Additionals";
+import Accordion from "~/components/accordion";
 
 
 function PosterGeneration() {
@@ -66,6 +67,10 @@ function PosterGeneration() {
           <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
         </div>
       </div>
+
+      
+
+
 
       {/* navigation button */}
       {currentStep !== steps.length && (

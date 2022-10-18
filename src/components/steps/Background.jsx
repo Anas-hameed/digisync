@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState } from "react";
 import Accordion from "../accordion";
 
+
 export default function Background() {
 
   const [token, setToken] = useState("");
@@ -42,6 +43,7 @@ export default function Background() {
   };
 
   return (
+    <>
     <div className="flex flex-col ">
       <div className="mx-2 w-full flex-1">
         <h4 className="text-xl font-semibold">Description:</h4>
@@ -68,7 +70,7 @@ export default function Background() {
                   placeholder="Prompt"
                   className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
                 />
-                <button  className="px-10 py-3 mt-2 text-lg border rounded bg-black hover:bg-gray-800 text-white " onClick={getDalle2}>Get</button>
+                <button  className="px-10 py-2 mt-2 text-lg border rounded bg-black hover:bg-gray-800 text-white " onClick={getDalle2}>Get</button>
             </div>
           </div>
         </form>
@@ -96,11 +98,16 @@ export default function Background() {
             );
           })}
         </div> */}
-
+        <Accordion/>
         
         <p className="mt-10">Select your Background Image by tapping the image and press next to continue </p>
 
       </div>
+      
+      
     </div>
+    
+    </>
+    
   );
 }

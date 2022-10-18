@@ -1,4 +1,5 @@
 // import { useStepperContext } from "../../contexts/StepperContext";
+import Accordion from "../accordion";
 import { useStepperContext } from "../contexts/StepperContext";
 import ListBox from "../listBox";
 export default function Details() {
@@ -24,6 +25,7 @@ export default function Details() {
             </div>
           </div>
         </form>
+        <Accordion/>
         <p className="mt-10">Select your Category and press next to continue</p>
       
       </div>
