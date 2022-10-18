@@ -4,7 +4,7 @@ function SignUp(){
     return(
         // <div className="w-screen">
 
-            <div className="flex justify-center md:my-16">
+            <div className="flex justify-center my-16">
                 <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
                     <h2 className="mb-3 text-3xl font-semibold text-center">Create an account</h2>
                     <p className="text-sm text-center dark:text-gray-400">Have an account?
@@ -36,7 +36,7 @@ function SignUp(){
                             </div>
                             
                         </div>
-                        <button type={"submit"} className="w-full px-8 py-3 font-semibold rounded-md  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign up</button>
+                        <button type={"submit"} className="w-full px-8 py-3 font-semibold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign up</button>
                     </form>
                 </div>
             </div>

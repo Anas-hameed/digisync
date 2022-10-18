@@ -3,30 +3,34 @@ import { UseContextProvider } from "~/components/contexts/StepperContext";
 import Stepper from "~/components/stepper";
 import StepperControl from "~/components/stepperControl";
 
-import Account from "~/components/steps/Account";
-import Payment from "~/components/steps/Payment";
-import Details from "~/components/steps/Details";
+import Background from "~/components/steps/Background";
+import Text from "~/components/steps/Text";
 import Final from "~/components/steps/Final";
+import SectionIntro from "~/components/sectionIntro";
+import Heading from "~/components/heading";
+import Paragraph from "~/components/paragraph";
+import Additionals from "~/components/steps/Additionals";
+import Accordion from "~/components/accordion";
 
 
 function PosterGeneration() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const steps = [
-    "Account Information",
-    "Personal Details",
-    "Payment",
+    "Background",
+    "Text",
+    "Additionals",
     "Complete",
   ];
 
   const displayStep = (step) => {
     switch (step) {
       case 1:
-        return <Account />;
+        return <Background />;
       case 2:
-        return <Details />;
+        return <Text />;
       case 3:
-        return <Payment />;
+        return <Additionals />;
       case 4:
         return <Final />;
       default:
@@ -42,16 +46,31 @@ function PosterGeneration() {
   };
 
   return (
-    <div className="flex justify-center md:my-16">
-        <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-1/2">
+
+    <section className="p-4 lg:p-8 bg-white text-black md:mb-16 ">
+
+      <div className="container mx-auto flex flex-col items-center px-4 py-10 text-center md:px-10 lg:px-32 xl:max-w-3xl">
+            <Heading content={"Create Poster"}/>
+            <Paragraph content={"Start creating poster in just few steps"}/>
+      </div>
+      
+      <div className="flex justify-center ">  
+      <div className="w-full max-w-md p-4  dark:bg-gray-900 dark:text-gray-100">
+            
       {/* Stepper */}
       <div className="horizontal container mt-5 ">
+      
+        
         <Stepper steps={steps} currentStep={currentStep} />
 
         <div className="my-10 p-10 ">
           <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
         </div>
       </div>
+
+      
+
+
 
       {/* navigation button */}
       {currentStep !== steps.length && (
@@ -64,7 +83,10 @@ function PosterGeneration() {
     </div>
 
     </div>
-    
+
+
+    </section>
+        
   );
 }
 
