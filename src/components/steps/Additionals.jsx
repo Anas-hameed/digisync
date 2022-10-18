@@ -32,7 +32,7 @@ export default function Additionals() {
                 </div>
             </div>
         </form>
-        <p className="mt-10">Fill your details and press generate to see your poster</p>
+        <p className="mt-10">Fill your details and press generate to see your templates</p>
       
       </div>
     </div>
