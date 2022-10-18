@@ -16,6 +16,15 @@ export default function Background() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  
+  const handleClick = event => {
+    // 👇️ refers to the image element
+    event.preventDefault();
+    console.log(event.target);
+
+    alert('Image clicked');
+  };
+
 
   function getDalle2() {
     if (token != "" && query != "") {
@@ -55,14 +64,7 @@ export default function Background() {
             <div className="space-y-2">
                 <label htmlFor="prompt" className="block text-sm">Image Prompt</label>
                 {/* <input type="text" name="prompt" id="email" placeholder="Prompt" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" /> */}
-                <input
-                  id="token"
-                  type="text"
-                  value={token}
-                  onChange={(e) => setToken(e.target.value)}
-                  placeholder="Bearer Token"
-                  className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
-                />
+                
                 
                 <input
                   id="query"
@@ -72,7 +74,7 @@ export default function Background() {
                   placeholder="Prompt"
                   className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
                 />
-                <button  className="px-10 py-2 mt-2 text-lg border rounded bg-black hover:bg-gray-800 text-white " onClick={getDalle2}>Get</button>
+                <button  className="px-10 py-1 mt-2 w-full text-md border rounded bg-black hover:bg-gray-800 text-white " onClick={getDalle2}>Search</button>
             </div>
           </div>
         </form>
@@ -101,16 +103,10 @@ export default function Background() {
           })}
         </div> */}
         <Accordion content={<Disclosure.Panel className="  grid grid-cols-2 pt-4  text-black ">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                
-                {/* <ol>
-                <li>- Nature is the art of God</li>
-                <li>- Nature is the art of God</li>
-                <li>- Nature is the art of God</li>
-                </ol> */}
+                <a href="" onClick={handleClick}><Card/></a>
+                <a href="" onClick={handleClick}><Card/></a>
+                <a href="" onClick={handleClick}><Card/></a>
+                <a href="" onClick={handleClick}><Card/></a>
                 
               </Disclosure.Panel>}/>
         

@@ -69,13 +69,13 @@ const Stepper = ({ steps, currentStep }) => {
         key={index}
         className={
           index !== newStep.length - 1
-            ? "w-full flex items-center"
+            ? "w-full flex  items-center"
             : "flex items-center"
         }
       >
         <div className="relative flex flex-col items-center text-sm">
           <div
-            className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3  ${
+            className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center py-3  ${
               step.selected
                 ? "bg-violet-400 text-white font-bold border border-violet-500 "
                 : ""
