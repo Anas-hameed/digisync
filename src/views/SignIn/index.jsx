@@ -59,7 +59,7 @@ function SignIn(){
                         <div className="space-y-2">
                             <label htmlFor="email" className="block text-sm">Email address</label>
                             <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                            { formik.touched && formik.errors.email? <p className="text-red-600 text-sm">{formik.errors.email}</p>:null}
+                            { formik.touched && formik.errors.email? <p className="text-red-600 text-xs">{formik.errors.email}</p>:null}
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">
@@ -67,7 +67,7 @@ function SignIn(){
                                 <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
                             </div>
                             <input type="password" name="password" id="password" placeholder="*****" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                            { formik.touched && formik.errors.password? <p className="text-red-600 text-sm">{formik.errors.password}</p>:null}
+                            { formik.touched && formik.errors.password? <p className="text-red-600 text-xs">{formik.errors.password}</p>:null}
                         </div>
                     </div>
                     <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign in</button>
