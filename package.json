@@ -23,6 +23,7 @@
     "axios": "^0.27.2",
     "baseui": "^12.0.0",
     "dalle-node": "^1.0.7",
+    "formik": "^2.2.9",
     "i18next": "^21.8.13",
     "immutability-helper": "^3.1.1",
     "install": "^0.13.0",
@@ -42,7 +43,8 @@
     "resize-observer-polyfill": "^1.5.1",
     "styletron-engine-atomic": "1.5.0-beta.2",
     "styletron-react": "6.1.0-beta.2",
-    "use-latest": "^1.2.1"
+    "use-latest": "^1.2.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@layerhub-io/types": "^0.3.0",
