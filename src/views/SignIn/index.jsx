@@ -56,8 +56,8 @@ function SignIn(){
                 </div>
                 <form onSubmit={formik.handleSubmit} action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
-                        <div className="space-y-2">
-                            <label htmlFor="email" className="block text-sm">Email address</label>
+                        <div className="space-y-2 relative">
+                            <label htmlFor="email" className="block text-sm ">Email address</label>
                             <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                             { formik.touched && formik.errors.email? <p className="text-red-600 text-xs">{formik.errors.email}</p>:null}
                         </div>
