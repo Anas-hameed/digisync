@@ -15,9 +15,9 @@ export default function Additionals() {
         
         <form  action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
             <div className="space-y-4">
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                     <input type="text" name="type" id="type" placeholder="Type" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                </div>
+                </div> */}
                 <div className="space-y-2">
                     <input type="text" name="title" id="title" placeholder="Title" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 </div>
