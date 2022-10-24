@@ -27,7 +27,8 @@ axiosInstance.interceptors.response.use(
         }
         else if (error.response.status === 401)
         {
-            let userObject = JSON.parse(localStorage.getItem('userObject')||"");
+            let sample= '{"message":"Unauthorized"}';
+            let userObject = JSON.parse(localStorage.getItem('userObject')||sample);
             if(userObject && userObject.requestTime)
 			{
 				var requestTime = userObject.requestTime;

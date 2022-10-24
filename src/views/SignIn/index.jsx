@@ -1,29 +1,51 @@
-import {useFormik} from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup"
-function SignIn(){
+import axiosInstance from '../../axios/axiosinstance';
+import {toast} from 'react-toastify';
+
+function SignIn() {
 
     const formik = useFormik({
         initialValues: {
-            email:"",
-            password:""
+            email: "",
+            password: ""
         },
-        validationSchema:Yup.object({
-            email:Yup.string().email('Invalid email').required('Required'),
-            password:Yup.string().min(8,"Must be 8 chars or greater").required("Required")
+        validationSchema: Yup.object({
+            email: Yup.string().email('Invalid email').required('Required'),
+            password: Yup.string().min(8, "Must be 8 chars or greater").required("Required")
 
         }),
-        
-        onSubmit:(values)=>{
-            console.log(values)
 
+        onSubmit: (values) => {
+            console.log(values);
+            axiosInstance.post('/user/signin', {
+                email: values.email,
+                password: values.password
+            }).then(
+                result => {
+                    if (result.status === 200) {
+                        localStorage.setItem('token', result.data.token);
+                        window.location.href = "/";
+                    }
+                }
+            ).catch(error => {
+                console.log(error);
+                if('response' in error && 'data' in error.response && 'message' in error.response.data)
+                {
+                    toast.error(error.response.data.message);
+                }
+                else
+                {
+                    toast.error("Something went wrong! Please try again.");
+                }
+            })
         }
     });
-   console.log(formik.errors);
 
-    return(
+    return (
         // <div className=" w-screen ">
 
-            <div className="flex justify-center my-16">
+        <div className="flex justify-center my-16">
             <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
                 <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                 <p className="text-sm text-center dark:text-gray-400">Dont have account?
@@ -50,16 +72,16 @@ function SignIn(){
                     </button>
                 </div>
                 <div className="flex items-center w-full my-4">
-                    <hr className="w-full dark:text-gray-400"/>
+                    <hr className="w-full dark:text-gray-400" />
                     <p className="px-3 dark:text-gray-400">OR</p>
-                    <hr className="w-full dark:text-gray-400"/>
+                    <hr className="w-full dark:text-gray-400" />
                 </div>
                 <form onSubmit={formik.handleSubmit} action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
                         <div className="space-y-2 relative">
                             <label htmlFor="email" className="block text-sm ">Email address</label>
                             <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                            { formik.touched && formik.errors.email? <p className="text-red-600 text-xs">{formik.errors.email}</p>:null}
+                            {formik.touched && formik.errors.email ? <p className="text-red-600 text-xs">{formik.errors.email}</p> : null}
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">
@@ -67,7 +89,7 @@ function SignIn(){
                                 <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
                             </div>
                             <input type="password" name="password" id="password" placeholder="*****" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                            { formik.touched && formik.errors.password? <p className="text-red-600 text-xs">{formik.errors.password}</p>:null}
+                            {formik.touched && formik.errors.password ? <p className="text-red-600 text-xs">{formik.errors.password}</p> : null}
                         </div>
                     </div>
                     <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign in</button>
@@ -76,8 +98,8 @@ function SignIn(){
         </div>
 
         //</div>
-        
-        
+
+
 
     )
 

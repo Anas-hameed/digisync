@@ -12,12 +12,13 @@ var UserProfile = (function() {
 			var token = localStorage.getItem('token');
 			if(token)
 			{
-				var userObject = JSON.parse(localStorage.getItem('userObject')||"");
+				let sampleJson= '{"message":"Unauthorized"}';
+				var userObject = JSON.parse(localStorage.getItem('userObject')||sampleJson);
 				if(userObject!=="")
 				{
-					await axiosInstance.get('/users/whoami')
+					await axiosInstance.get('/user/whoami')
 						.then((response) => {
-							var newUserObject = {
+							var newUserObject = {							
 								'userID': response.data.userId,
 								'email': response.data.email,
 								'firstName': response.data.firstName, 
