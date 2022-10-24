@@ -29,6 +29,7 @@ const Router= ({user}:RouterProp) => {
         <Route path="/templates" element={<Templates />} />
       </Route >
       <Route path='*' element={<PageNotFound />} />
+      
     </Routes>
   )
 }
