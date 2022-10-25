@@ -41,6 +41,7 @@ specifiers:
   react-redux: ^8.0.1
   react-responsive-carousel: ^3.2.23
   react-router-dom: ^6.3.0
+  react-toastify: ^9.0.8
   resize-observer-polyfill: ^1.5.1
   styletron-engine-atomic: 1.5.0-beta.2
   styletron-react: 6.1.0-beta.2
@@ -84,6 +85,7 @@ dependencies:
   react-redux: 8.0.2_fzknh3pugl53jp7xsetxkg5ani
   react-responsive-carousel: 3.2.23
   react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
+  react-toastify: 9.0.8_biqbaboplfbrettd7655fr4n2y
   resize-observer-polyfill: 1.5.1
   styletron-engine-atomic: 1.5.0-beta.2
   styletron-react: 6.1.0-beta.2_react@18.2.0
@@ -3507,6 +3509,17 @@ packages:
     dependencies:
       history: 5.3.0
       react: 18.2.0
+    dev: false
+
+  /react-toastify/9.0.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-EwM+teWt49HSHx+67qI08yLAW1zAsBxCXLCsUfxHYv1W7/R3ZLhrqKalh7j+kjgPna1h5LQMSMwns4tB4ww2yQ==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.1.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-uid/2.3.2_luyos4mouogwq6z3wafb3re4ce:

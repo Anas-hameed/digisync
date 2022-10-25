@@ -1,19 +1,18 @@
 
-
 const templatePreview = ({ data }) => {
     return (
-        <div className="w-[400px] h-[400px] relative overflow-hidden rounded-lg shadow-lg cursor-pointer border-2 border-r-2">
-            {/* <img className="object-cover w-full h-full" src={data.imageurl} alt="Flower and sky" /> */}
-            <p className={`object-cover w-full h-full bg-black`} alt="Flower and sky" style={{background:`rgba(${data.bgcolor[0]},${data.bgcolor[1]},${data.bgcolor[2]},${data.bgcolor[3]})`}} ></p>
-            <div className="absolute right-0 top-0 px-6 py-4">
-                <img className="object-cover w-[200px] h-[200px]" src={data.imageurl} alt="Flower and sky" />
+        <div className="w-[500px] h-[500px] relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+            <img className="object-cover w-full h-full" src={data.image_path} alt="Flower and sky" />
+            <div className="absolute top-0 left-0 px-6 py-12">
+                <h4 className="mb-3 mx-w-[400px] text-[40px] font-semibold tracking-tight text-gray-100 font-poppins">AI Conference</h4>
+                <p className="max-w-[250px] text-[20px] leading-normal text-gray-100">The most intrestring Artificial Inteligence Projects 2022</p>
             </div>
-            <div className="absolute top-0 left-0 px-6 py-4">
-                <h4 className="mb-3 text-xl font-semibold tracking-tight text-gray-100">Summer Offer</h4>
-                <p className="text-sm leading-normal text-gray-100">Get an ammazing discount on the lestest collection</p>
+            <div className="absolute top-[50%] left-0 px-6">
+                <h4 className="font-extrabold text-2xl text-gray-100 font-poppins"> Venue: FAST Auditorium</h4>
+                <h4 className="font-extrabold text-2xl text-gray-100 font-poppins"> Speaker: Talha Buddy</h4>
             </div>
-            <div className="absolute top-[60%] left-0 px-6">
-                <h4 className="font-extrabold text-2xl text-gray-100"> Buy one <br />Get one free</h4>
+            <div className="absolute top-[75%] left-0 px-6">
+                <h4 className="text-sm text-gray-100 font-poppins">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum vel dicta accusantium rerum et illo incidunt deserunt repudiandae cupiditate autem!</h4>
             </div>
             <div className="absolute right-0 bottom-0 p-2">
                 <div className="flex items-center">

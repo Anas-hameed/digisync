@@ -1,6 +1,7 @@
 import {useFormik} from "formik";
 import * as Yup from "yup"
-
+import axiosInstance from '../../axios/axiosinstance';
+import {toast} from 'react-toastify';
 function SignUp(){
 
     const formik = useFormik({
@@ -10,8 +11,6 @@ function SignUp(){
             email:"",
             password:"",
             confirmPassword:"",
-            // country:"",
-            // phoneNumber:"",
 
         },
         validationSchema:Yup.object({
@@ -38,6 +37,31 @@ function SignUp(){
         
         onSubmit:(values)=>{
             console.log(values)
+            axiosInstance.post('/user', {
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                password: values.password
+            }).then(
+                result => {
+                    if (result.status === 201) {
+                        console.log(result);
+                        console.log(result.data);
+                        localStorage.setItem('token', result.data.token);
+                        window.location.href = "/poster-generation";
+                    }
+                }
+            ).catch(error => {
+                console.log(error);
+                if('response' in error && 'data' in error.response && 'message' in error.response.data)
+                {
+                    toast.error(error.response.data.message);
+                }
+                else
+                {
+                    toast.error("Something went wrong! Please try again.");
+                }
+            })
 
         }
     });

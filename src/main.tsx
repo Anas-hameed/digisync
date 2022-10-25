@@ -1,6 +1,9 @@
 import React from "react";
 import UserProfile from './utils/userProfile';
 import Router from "./Router";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 type MyProps = any;
 type MyState = {
@@ -38,7 +41,21 @@ class App extends React.Component<MyProps, MyState> {
   render() {
     if (this.state.initialized) {
       return (
-        <Router user={this.state.user} />
+        <>
+          <Router user={this.state.user} />
+          <ToastContainer
+            position="top-right"
+            theme="colored"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={true}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
       )
     }
     else {
