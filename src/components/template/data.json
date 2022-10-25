@@ -8,7 +8,11 @@
         18,
         166,
         255
-      ]
+      ],
+      "headingfont": "Reef",
+      "paragraphfont1": "MBFEdge",
+      "paragraphfont2": "Poppins",
+      "paragraphfont3": "gilroy"
     },
     {
       "image_path": "http://localhost:4000/digsync/api/v0.1/uploads/0.oscimoyse5m0.ve3w1z9xiw.png",
@@ -17,7 +21,11 @@
         46,
         132,
         255
-      ]
+      ],
+      "headingfont": "Aleo Regular",
+      "paragraphfont1": "gilroy",
+      "paragraphfont2": "Aleo Bold",
+      "paragraphfont3": "Aleo Light Italic"
     },
     {
       "image_path": "http://localhost:4000/digsync/api/v0.1/uploads/0.370ben6i1pg0.0xk4te1vy1ha.png",
@@ -26,7 +34,11 @@
         33,
         166,
         255
-      ]
+      ],
+      "headingfont": "Glamor Bold",
+      "paragraphfont1": "morish",
+      "paragraphfont2": "Coldiac",
+      "paragraphfont3": "reef"
     },
     {
       "image_path": "http://localhost:4000/digsync/api/v0.1/uploads/0.8mdoiynnefu0.0geg7vjy2deo.png",
@@ -35,7 +47,11 @@
         80,
         189,
         255
-      ]
+      ],
+      "headingfont": "AvenueX",
+      "paragraphfont1": "Albert",
+      "paragraphfont2": "Action Man Bold",
+      "paragraphfont3": "Action Man"
     }
   ]
 }
