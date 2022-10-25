@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button, KIND } from 'baseui/button';
 import { ThemeProvider, createTheme, lightThemePrimitives } from 'baseui';
 
-import MainLogo from "../../media/Images/Logo.png";
+import MainLogo from "../../media/Images/logo.png";
 import { Fragment } from 'react';
 
 
