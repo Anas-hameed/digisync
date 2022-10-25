@@ -12,8 +12,8 @@ module.exports = {
         andreas:["Andreas", "sans-serif"],
         black_willow:["Black-willow", "sans-serif"],
         phenomena_regular:["phenomena_regular"],
-        reef:["Reef"]
-        
+        reef:["Reef"],
+        originals:["originals"]
       },
     },
   },
