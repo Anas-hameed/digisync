@@ -2,6 +2,125 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Alora";
+    src: url("../media/fonts/Alora-Typeface/Alora.ttf");
+}
+@font-face {
+    font-family: "Ancient_medium";
+    src: url("../media/fonts/ancient/Ancient.ttf");
+}
+
+@font-face {
+    font-family: "Andreas";
+    src: url("../media/fonts/andreas/Andreas.ttf");
+}
+
+@font-face {
+    font-family: "Black-willow";
+    src: url("../media/fonts/black-willow/BlackWillow.otf");
+}
+
+@font-face {
+    font-family: "blankeny";
+    src: url("../media/fonts/blankeny/blankeny.otf");
+}
+
+@font-face {
+    font-family: "blephyca";
+    src: url("../media/fonts/blephyca/Blephyca.ttf");
+}
+
+/* 7th fonts */
+@font-face {
+    font-family: "brandon_regular";
+    src: url("../media/fonts/Brandon/Brandon_r.otf");
+}
+
+@font-face {
+    font-family: "brandon_black";
+    src: url("../media/fonts/Brandon/brandon_b.otf");
+}
+
+/* 8th font */
+@font-face {
+    font-family: "GRIFON_regular";
+    src: url("../media/fonts/GRIFON/GRIFON_r.otf");
+}
+@font-face {
+    font-family: "GRIFON_black";
+    src: url("../media/fonts/GRIFON/GRIFON_b.otf");
+}
+@font-face {
+    font-family: "GRIFON_bold";
+    src: url("../media/fonts/GRIFON/GRIFON_bo.otf");
+}
+
+/* 9th font */
+@font-face {
+    font-family: "ironclad";
+    src: url("../media/fonts/ironclad/ironclad.ttf");
+}
+
+/* 10th font */
+@font-face {
+    font-family: "LeagueGothic";
+    src: url("../media/fonts/League-Gothic/LeagueGothic-Regular.otf");
+}
+
+/* 11th font */
+@font-face {
+    font-family: "MBFEdge";
+    src: url("../media/fonts/MBF-Edge-Font/MBFEdge-Regular.ttf");
+}
+
+/* 12th font */
+@font-face {
+    font-family: "Morish";
+    src: url("../media/fonts/morish-display/Morish\ Serif.ttf");
+}
+
+
+/* 13th font */
+@font-face {
+    font-family: "originals";
+    src: url("../media/fonts/Originals/Hand\ Originals.ttf");
+}
+
+/* 14th font */
+@font-face {
+    font-family: "phenomena_regular";
+    src: url("../media/fonts/Phenomena/Phenomena-Regular.otf");
+}
+
+@font-face {
+    font-family: "phenomena_regular";
+    src: url("../media/fonts/Phenomena/Phenomena-Regular.otf");
+}
+
+@font-face {
+    font-family: "phenomena_black";
+    src: url("../media/fonts/Phenomena/Phenomena-Black.otf");
+}
+
+/* 15 fonts */
+@font-face {
+    font-family: "reef";
+    src: url("../media/fonts/reef/Reef.otf");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 * {
     user-select: none;
 }
