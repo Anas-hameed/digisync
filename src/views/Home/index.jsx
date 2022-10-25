@@ -1,13 +1,13 @@
-import CTA from '../../components/cta'
-import FAQ from '../../components/faq'
-import Feature from '../../components/feature'
-import Hero from '../../components/hero'
+import CTA from '../../components/home/cta'
+import FAQ from '../../components/home/faq'
+import Feature from '../../components/home/feature'
+import Hero from '../../components/home/hero'
 
 
  function Home() {
   return (
     <div>
-      <main >
+      <main className='mx-auto xl:max-w-6xl' >
         <section id='hero'>
           <Hero/>
         </section>

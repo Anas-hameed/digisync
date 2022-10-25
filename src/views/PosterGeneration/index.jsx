@@ -7,8 +7,8 @@ import Background from "~/components/steps/Background";
 import Text from "~/components/steps/Text";
 import Final from "~/components/steps/Final";
 import SectionIntro from "~/components/sectionIntro";
-import Heading from "~/components/heading";
-import Paragraph from "~/components/paragraph";
+import Heading from "~/components/home/heading";
+import Paragraph from "~/components/home/paragraph";
 import Additionals from "~/components/steps/Additionals";
 import Accordion from "~/components/accordion";
 
