@@ -76,7 +76,7 @@
 
 /* 12th font */
 @font-face {
-    font-family: "Morish";
+    font-family: "morish";
     src: url("../media/fonts/morish-display/Morish\ Serif.ttf");
 }
 
@@ -105,7 +105,7 @@
 
 /* 15 fonts */
 @font-face {
-    font-family: "reef";
+    font-family: "Reef";
     src: url("../media/fonts/reef/Reef.otf");
 }
 

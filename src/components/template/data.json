@@ -8,7 +8,9 @@
         18,
         166,
         255
-      ]
+      ],
+      "headingfont":"Reef",
+      "paragraphfont":"Reef"
     },
     {
       "image_path": "http://localhost:4000/digsync/api/v0.1/uploads/0.oscimoyse5m0.ve3w1z9xiw.png",
@@ -17,7 +19,9 @@
         46,
         132,
         255
-      ]
+      ],
+      "headingfont":"reef",
+      "paragraphfont":"reef"
     },
     {
       "image_path": "http://localhost:4000/digsync/api/v0.1/uploads/0.370ben6i1pg0.0xk4te1vy1ha.png",
@@ -26,7 +30,9 @@
         33,
         166,
         255
-      ]
+      ],
+      "headingfont":"Reef",
+      "paragraphfont":"reef"
     },
     {
       "image_path": "http://localhost:4000/digsync/api/v0.1/uploads/0.8mdoiynnefu0.0geg7vjy2deo.png",
@@ -35,7 +41,9 @@
         80,
         189,
         255
-      ]
+      ],
+      "headingfont":"Reef",
+      "paragraphfont":"reef"
     }
   ]
 }
