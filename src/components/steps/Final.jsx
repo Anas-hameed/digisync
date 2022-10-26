@@ -31,7 +31,7 @@ export default function Final() {
           Press continue to see.
         </div>
         <a className="mt-10" href="/templates">
-          <button className="h-10 px-5 bg-violet-400 text-white transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-violet-500 hover:text-green-100">
+          <button className="h-10 px-5 bg-violet-400 text-white font-roboto font-bold transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-violet-500 hover:text-green-100">
             Continue
           </button>
         </a>
