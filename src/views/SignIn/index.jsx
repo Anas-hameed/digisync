@@ -2,8 +2,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup"
 import axiosInstance from '../../axios/axiosinstance';
 import {toast} from 'react-toastify';
-function SignIn() {
 
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
+
+function SignIn() {
+    
+    const [disable, setDisable] = useState(true);
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -32,8 +37,10 @@ function SignIn() {
                 }
             ).catch(error => {
                 console.log(error);
-                if('response' in error && 'data' in error.response && 'message' in error.response.data)
-                {
+                if(error?.code==="ERR_NETWORK"){
+                    toast.error("Network Error!");
+                }
+                else if('response' in error && 'data' in error.response && 'message' in error?.response?.data){
                     toast.error(error.response.data.message);
                 }
                 else
@@ -44,14 +51,24 @@ function SignIn() {
         }
     });
 
+    const handleDisable= ()=>{
+        // check if all the fields are filled
+        if(formik.values?.email && formik.values?.password.length>8){
+            setDisable(false);
+        }
+        else{
+            setDisable(true);
+        }
+    }
+
     return (
         // <div className=" w-screen ">
 
         <div className="flex justify-center my-16 font-poppins">
-            <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
+            <div className="w-full max-w-md p-4 rounded-lg shadow-2xl sm:p-8 dark:bg-gray-900 dark:text-gray-100">
                 <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                 <p className="text-sm text-center dark:text-gray-400">Dont have account?
-                    <a href="/signup" rel="noopener noreferrer" className="focus:underline hover:underline">Sign up here</a>
+                    <Link to="/signup" rel="noopener noreferrer" className="focus:underline hover:underline text-blue-900"> Sign up here</Link>
                 </p>
                 <div className="my-6 space-y-4">
                     <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md bg-neutral-300 focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400">
@@ -82,19 +99,26 @@ function SignIn() {
                     <div className="space-y-4">
                         <div className="space-y-2 relative">
                             <label htmlFor="email" className="block text-sm ">Email address</label>
-                            <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                            {formik.touched && formik.errors.email ? <p className="text-red-600 text-xs">{formik.errors.email}</p> : null}
+                            <input type="email" name="email" id="email" placeholder="anas@gmail.com" onBlur={formik.handleBlur} onChange={(e)=>{
+                                formik.handleChange(e);
+                                handleDisable();
+                                }} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                            {formik.touched && formik.errors.email ? <p className="text-red-600 text-xs font-poppins">{formik.errors.email}</p> : null}
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">
                                 <label htmlFor="password" className="text-sm">Password</label>
                                 <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
                             </div>
-                            <input type="password" name="password" id="password" placeholder="*****" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                            {formik.touched && formik.errors.password ? <p className="text-red-600 text-xs">{formik.errors.password}</p> : null}
+                            <input type="password" name="password" id="password" placeholder="*****" onBlur={formik.handleBlur} onChange={(e)=>{
+                                formik.handleChange(e);
+                                handleDisable();
+
+                                }} value={formik.values.password} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                            {formik.touched && formik.errors.password ? <p className="text-red-600 text-xs font-poppins">{formik.errors.password}</p> : null}
                         </div>
                     </div>
-                    <button type="submit" className="w-full px-8 py-3 font-bold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign in</button>
+                    <button type="submit" className={`w-full px-8 py-3 font-bold rounded-md text-white  bg-violet-400 dark:text-gray-900 ${disable?'bg-violet-400':'bg-violet-900'}`}>Sign in</button>
                 </form>
             </div>
         </div>
