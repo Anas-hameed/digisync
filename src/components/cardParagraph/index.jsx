@@ -1,7 +1,7 @@
 function CardParagraph({content}){
 
     return(
-        <p className="my-6 text-black">
+        <p className="my-6 text-black font-poppins">
          {content}
         </p>   
     )
