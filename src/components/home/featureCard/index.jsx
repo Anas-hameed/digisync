@@ -14,7 +14,10 @@ function FeatureCard({imgSrc,spanText,heading,paragraph,buttonText,flexDirection
                         <span className="text-xs uppercase text-black">{spanText}</span>
                         <Heading3 content={heading}/>
                         <CardParagraph content={paragraph}/>
+
                         <button  onClick={navigateToPage} type="button" className="self-start bg-violet-400 text-white p-2 rounded-md hover:bg-violet-500">{buttonText}</button>
+
+                        
                     </div>
         </div>
 

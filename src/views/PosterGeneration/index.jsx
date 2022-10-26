@@ -47,7 +47,7 @@ function PosterGeneration() {
 
   return (
 
-    <section className="p-4 lg:p-8 bg-white text-black md:mb-16 ">
+    <section className="p-4 lg:p-8 bg-white text-black md:mb-16 font-poppins ">
 
       <div className="container mx-auto flex flex-col items-center px-4 py-10 text-center md:px-10 lg:px-32 xl:max-w-3xl">
             <Heading content={"Create Poster"}/>

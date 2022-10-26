@@ -10,8 +10,8 @@ function CTA(){
                 <Heading content={"Sign up now"}/>
                 <Paragraph content={"Start creating cool stuff with us ..."}/>
                 <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8">
-                    <button className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-white">Get started</button>
-                    <button className="px-8 py-3 text-lg font-normal border rounded bg-black text-white border-gray-300">Learn more</button>
+                    <button className="px-8 py-3 text-lg font-bold font-roboto rounded bg-violet-400 text-white">Get started</button>
+                    <button className="px-8 py-3 text-lg font-bold font-roboto border rounded bg-black text-white border-gray-300">Learn more</button>
                 </div>
             </div>
         </section>
