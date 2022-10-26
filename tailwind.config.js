@@ -13,7 +13,8 @@ module.exports = {
         black_willow:["Black-willow", "sans-serif"],
         phenomena_regular:["phenomena_regular"],
         reef:["Reef"],
-        originals:["originals"]
+        originals:["originals"],
+        roboto: ['Roboto', 'sans-serif'],
       },
 
     },
