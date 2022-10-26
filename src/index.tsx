@@ -3,7 +3,7 @@ import Provider from "./Provider"
 import Router from "./Router"
 import Container from "./Container"
 import "./styles/styles.css"
-import Nav from "./components/navbar/navbar1"
+import Nav from "./components/navbar/index"
 import Footer from "./components/footer"
 import { BrowserRouter } from 'react-router-dom';
 import MainApp from './main';
