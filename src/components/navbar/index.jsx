@@ -91,23 +91,23 @@ const Navbar = (props) => {
                                                             })
                                                         }
                                                     }}
-                                                ><span style={{ color: "#1976d2" }}>Login</span></Button>
+                                                ><span style={{ color: "rgb(167 139 250)" }}>Login</span></Button>
                                             </Link>
                                             <ThemeProvider
                                                 theme={createTheme(lightThemePrimitives, {
                                                     colors: {
-                                                        buttonPrimaryHover: "#1565c0",
+                                                        buttonPrimaryHover: "rgb(139 92 246);",
                                                         buttonPrimaryActive: "#1565c0"
                                                     }
                                                 })}
                                             >
                                                 <Link to="/signup" className="text-inherit no-underline md:mr-5 lg:mr-10">
-                                                    <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                                    <Button  style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto',  } }
                                                         kind={KIND.primary}
                                                         overrides={{
                                                             BaseButton: {
                                                                 style: ({ $theme }) => ({
-                                                                    backgroundColor: "#1976d2",
+                                                                    backgroundColor: "rgb(167 139 250)",
                                                                     button: "#fff"
                                                                 })
                                                             }
