@@ -9,7 +9,7 @@ function FeatureCard({imgSrc,spanText,heading,paragraph,buttonText,flexDirection
                         <span className="text-xs uppercase text-black">{spanText}</span>
                         <Heading3 content={heading}/>
                         <CardParagraph content={paragraph}/>
-                        <button type="button" className="self-start bg-violet-400 font-roboto text-white p-2 rounded-md hover:bg-violet-500">{buttonText}</button>
+                        <button type="button" className="self-start bg-violet-400 font-roboto font-bold text-white p-2 rounded-md hover:bg-violet-500">{buttonText}</button>
                     </div>
         </div>
 
