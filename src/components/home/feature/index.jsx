@@ -15,11 +15,11 @@ function Feature(){
             
             <div className="container mx-auto space-y-12">
                 
-                <FeatureCard imgSrc={poster} heading={"Poster Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Posters with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"}/>
+                <FeatureCard imgSrc={poster} heading={"Poster Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Posters with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/poster-generation"}/>
                 
-                <FeatureCard imgSrc={email} heading={"Email Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Emails with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row-reverse"}/>
+                <FeatureCard imgSrc={email} heading={"Email Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Emails with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row-reverse"} buttonRef={"/email-generation"}/>
                 
-                <FeatureCard imgSrc={sms} heading={"SMS Generation"} spanText={"Create, it's free"} paragraph={"Create amazing SMS with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"}/>
+                <FeatureCard imgSrc={sms} heading={"SMS Generation"} spanText={"Create, it's free"} paragraph={"Create amazing SMS with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/sms-generation"}/>
                 
             </div>
         </section>
