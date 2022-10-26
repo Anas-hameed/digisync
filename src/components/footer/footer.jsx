@@ -12,8 +12,8 @@ const Footer=(props)=> {
                 </div>
                 <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
-                        <ul className="text-gray-600">
+                        <h2 className="mb-6 text-sm font-poppins font-semibold text-gray-900 uppercase">Resources</h2>
+                        <ul className="text-gray-600 font-poppins">
                             <li className="mb-4">
                                 <Link to="https://flowbite.com" className="hover:underline">Features</Link>
                             </li>
@@ -23,8 +23,8 @@ const Footer=(props)=> {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
-                        <ul className="text-gray-600">
+                        <h2 className="mb-6 text-sm font-semibold font-poppins text-gray-900 uppercase">Follow us</h2>
+                        <ul className="text-gray-600 font-poppins">
                             <li className="mb-4">
                                 <Link to="https://github.com/themesberg/flowbite" className="hover:underline ">Github</Link>
                             </li>
@@ -34,8 +34,8 @@ const Footer=(props)=> {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
-                        <ul className="text-gray-600">
+                        <h2 className="mb-6 text-sm font-semibold font-poppins text-gray-900 uppercase">Legal</h2>
+                        <ul className="text-gray-600 font-poppins">
                             <li className="mb-4">
                                 <Link to="#" className="hover:underline">Privacy Policy</Link>
                             </li>
@@ -48,7 +48,7 @@ const Footer=(props)=> {
             </div>
             <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <Link to="#" className="hover:underline">DigiSync™</Link>. All Rights Reserved.
+                <span className="text-sm text-gray-500 font-poppins sm:text-center dark:text-gray-400">© 2022 <Link to="#" className="hover:underline">DigiSync™</Link>. All Rights Reserved.
                 </span>
                 <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                     <Link to="#" className="text-gray-500 hover:text-gray-900">
