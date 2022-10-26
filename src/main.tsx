@@ -3,6 +3,7 @@ import UserProfile from './utils/userProfile';
 import Router from "./Router";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Nav from "./components/navbar";
 
 
 type MyProps = any;
@@ -38,10 +39,23 @@ class App extends React.Component<MyProps, MyState> {
     });
     console.log(this.state.user);
   }
+
+
   render() {
+	const logout= () => {  
+
+		this.setState({
+			...this.state, 
+			user: {
+				...this.state.user,
+				loggedIn: false,
+			}
+		});
+	}
     if (this.state.initialized) {
       return (
         <>
+         <Nav user={this.state.user} logout={logout} />
           <Router user={this.state.user} />
           <ToastContainer
             position="top-right"

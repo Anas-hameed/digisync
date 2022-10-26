@@ -49,6 +49,7 @@ function SignUp(){
                         console.log(result.data);
                         localStorage.setItem('token', result.data.token);
                         window.location.href = "/poster-generation";
+                        toast.success("Account Registered Successfully");
                     }
                 }
             ).catch(error => {

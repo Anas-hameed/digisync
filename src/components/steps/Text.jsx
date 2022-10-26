@@ -64,15 +64,14 @@ export default function Details() {
         <h4 className="text-xl font-semibold">Description:</h4>
         <p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
 
-        <div className="space-y-8 ng-untouched ng-pristine ng-valid flex gap-x-4 items-center">
+        <div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full">
           <div className="space-y-4 flex-1">
             <div className="space-y-2">
               <label htmlFor="prompt" className="block text-sm">Category</label>
-              {/* <input type="text" name="prompt" id="email" placeholder="Prompt" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" /> */}
-              <ListBox setSelected={setSelected} selected={selected} />
+              <ListBox setSelected={setSelected} selected={selected}  className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
             </div>
           </div>
-          <Button type="submit" onClick={fetchData} isLoading={isLoading}>Submit</Button>
+          <Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
         </div>
         {/* <Accordion content={<Disclosure.Panel className=" pt-4  text-black "> */}
 
@@ -83,7 +82,6 @@ export default function Details() {
             <p className='p-4 shadow-lg rounded-lg mt-4 text-sm font-poppins' key={index}>{item}</p>
           )
         })}
-        <p className="mt-10">Select your Category and press next to continue</p>
       </div>
     </div>
   );

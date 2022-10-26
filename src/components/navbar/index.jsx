@@ -1,13 +1,20 @@
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, KIND } from 'baseui/button';
 import { ThemeProvider, createTheme, lightThemePrimitives } from 'baseui';
 import MainLogo from "../../media/Images/logo.png";
 import { Fragment, useState } from 'react';
+import {toast} from 'react-toastify';
 
 
 const Navbar = (props) => {
     const navigate = useNavigate();
     const [openNav, setOpenNav] = useState(false);
+    const handleLogout= async()=>{
+        props.logout();
+        toast.success("Logout was Successful"); 
+        localStorage.removeItem('token');
+        localStorage.removeItem('userObject');
+    }
     const toogleMenu = () => {
         setOpenNav(!openNav);
     }
@@ -21,7 +28,6 @@ const Navbar = (props) => {
             })}
         >
             <div className='mx-auto 2xl:max-w-[1400px]'>
-
                 <nav className=" bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
                     <div className="container flex flex-wrap justify-between items-center mx-auto">
                         <div onClick={() => { navigate("/home"); }} className="flex-grow-[1] ml-5 lg:ml-12">
@@ -74,10 +80,29 @@ const Navbar = (props) => {
                                             }}
                                         ><span style={{ color: "#000" }}>FAQs</span></Button>
                                     </Link>
-                                    {props?.config?.loggedIn ? (
-                                        <Fragment>
-                                            <Button style={{ margin: '5px', fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }} aria-haspopup="true" onClick={handleProfileMenuOpen}><Avatar alt="Profile Menu" src={props.config.avatar} style={{ height: '35px', width: '35px', backgroundColor: '#bbb', fontSize: '14px' }}>{`${props.config.firstName[0]}${props.config.lastName[0]}`}</Avatar></Button>
-                                        </Fragment>
+                                    {props?.user?.loggedIn ? (
+                                        <ThemeProvider
+                                            theme={createTheme(lightThemePrimitives, {
+                                                colors: {
+                                                    buttonPrimaryHover: "#1565c0",
+                                                    buttonPrimaryActive: "#1565c0"
+                                                }
+                                            })}
+                                        >
+                                            <Link to="/" onClick={handleLogout}  className="text-inherit no-underline md:mr-5 lg:mr-10">
+                                                <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                                    kind={KIND.primary}
+                                                    overrides={{
+                                                        BaseButton: {
+                                                            style: ({ $theme }) => ({
+                                                                backgroundColor: "#1976d2",
+                                                                button: "#fff"
+                                                            })
+                                                        }
+                                                    }}
+                                                >Logout</Button>
+                                            </Link>
+                                        </ThemeProvider>
                                     ) : (
                                         <Fragment>
                                             <Link to="/login" className="text-inherit no-underline">

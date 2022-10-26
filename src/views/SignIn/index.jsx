@@ -2,7 +2,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup"
 import axiosInstance from '../../axios/axiosinstance';
 import {toast} from 'react-toastify';
-
 function SignIn() {
 
     const formik = useFormik({
@@ -25,7 +24,10 @@ function SignIn() {
                 result => {
                     if (result.status === 200) {
                         localStorage.setItem('token', result.data.token);
-                        window.location.href = "/";
+                        // get the location user was trying to access
+                        const redirect = localStorage.getItem('redirect');
+                        toast.success("Login Successful");
+                        window.location.href = redirect ? redirect : '/';
                     }
                 }
             ).catch(error => {

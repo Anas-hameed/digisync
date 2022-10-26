@@ -1,5 +1,6 @@
 import axiosInstance from '../axios/axiosinstance';
 
+
 var UserProfile = (function() {
 
     var loggedIn = false;
