@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {
     return (
-        <div className='container h-[80vh]'>
+        <div className='container h-[80vh] font-poppins'>
             <section className="h-full flex items-center justify-center">
                 <div className="flex px-4">
                     <div className="px-4">
@@ -18,7 +18,7 @@ const PageNotFound = () => {
                             <p className="text-lg  mb-8">
                                 The page you are looking for it maybe deleted
                             </p>
-                            <Link to="/" className="text-base font-semibold  inline-block text-center border border-blue-900 rounded-lg px-8 py-3 hover:bg-blue-900 hover:text-white hover:text-primary  transition">Go To Home</Link>
+                            <Link to="/" className="text-base font-bold  inline-block text-center border bg-violet-400 rounded-lg px-8 py-3 hover:bg-violet-500 text-white hover:text-primary  transition">Go To Home</Link>
                         </div>
                     </div>
                 </div>
