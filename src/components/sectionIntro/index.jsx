@@ -1,5 +1,5 @@
-import Heading from "../heading";
-import Paragraph from "../paragraph";
+import Heading from "../home/heading";
+import Paragraph from "../home/paragraph";
 function SectionIntro({heading,paragraph})
 {
     return(

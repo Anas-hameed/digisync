@@ -1,110 +1,131 @@
-import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
+import { Link,useNavigate } from 'react-router-dom';
+import { Button, KIND } from 'baseui/button';
+import { ThemeProvider, createTheme, lightThemePrimitives } from 'baseui';
+import MainLogo from "../../media/Images/logo.png";
+import { Fragment, useState } from 'react';
 
-function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="sticky top-0 z-50">
-      <nav className="bg-violet-400 ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-12">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                {/* <img
-                  className="h-8 w-8"
-                  src="/"
-                  alt="Workflow"
-                /> */}
-                <div className="text-white"><a href="/">Logo</a></div>
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="/poster-generation"
-                    className=" hover:animate-pulse hover:underline text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Create
-                  </a>
 
-                </div>
-              </div>
-            </div>
-            <div className="-mr-2 flex md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="inline-flex items-center justify-center p-2   hover:text-white hover:animate-pulse "
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <Transition
-          show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
+const Navbar = (props) => {
+    const navigate = useNavigate();
+    const [openNav, setOpenNav] = useState(false);
+    const toogleMenu = () => {
+        setOpenNav(!openNav);
+    }
+    return (
+        <ThemeProvider
+            theme={createTheme(lightThemePrimitives, {
+                colors: {
+                    buttonPrimaryHover: "rgb(241, 245, 249)",
+                    buttonPrimaryActive: "rgb(241, 245, 249)"
+                }
+            })}
         >
-          {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a
-                  href="#"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Create
-                  
-                </a>
-              </div>
-            </div>
-          )}
-        </Transition>
-      </nav>
+            <div className='mx-auto 2xl:max-w-[1400px]'>
 
-      
-      
-    </div>
-  );
+                <nav className=" bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+                    <div className="container flex flex-wrap justify-between items-center mx-auto">
+                        <div onClick={() => { navigate("/home"); }} className="flex-grow-[1] ml-5 lg:ml-12">
+                            <img src={MainLogo} className="w-[160px] md:[180px] lg:w-[220px] cursor-pointer my-[5px]" alt="DigiSync Logo" />
+                        </div>
+                        <button data-collapse-toggle="navbar-default" onClick={toogleMenu} type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false" >
+                            <span className="sr-only">Open main menu</span>
+                            <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
+                        </button>
+                        <div className={`w-full md:block md:w-auto ${openNav || 'hidden'}`}>
+                            <div className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+                                <div className="flex flex-col gap-2 md:flex-row items-center justify-center">
+                                    <Link to="/" className="text-inherit no-underline">
+                                        <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                            kind={KIND.primary}
+                                            overrides={{
+                                                BaseButton: {
+                                                    style: ({ $theme }) => ({
+                                                        backgroundColor: "#fff",
+                                                        button: "#fff"
+                                                    })
+                                                }
+                                            }}
+                                        ><span style={{ color: "#000" }}>Home</span></Button>
+                                    </Link>
+                                    <Link to="/feature" className="text-inherit no-underline">
+                                        <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                            kind={KIND.primary}
+                                            overrides={{
+                                                BaseButton: {
+                                                    style: ({ $theme }) => ({
+                                                        backgroundColor: "#fff",
+                                                        button: "#fff"
+                                                    })
+                                                }
+                                            }}
+                                        ><span style={{ color: "#000" }}>Features</span></Button>
+                                    </Link>
+                                    <Link to="/faqs" className="text-inherit no-underline">
+                                        <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                            kind={KIND.primary}
+                                            overrides={{
+                                                BaseButton: {
+                                                    style: ({ $theme }) => ({
+                                                        backgroundColor: "#fff",
+                                                        button: "#fff"
+                                                    })
+                                                }
+                                            }}
+                                        ><span style={{ color: "#000" }}>FAQs</span></Button>
+                                    </Link>
+                                    {props?.config?.loggedIn ? (
+                                        <Fragment>
+                                            <Button style={{ margin: '5px', fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }} aria-haspopup="true" onClick={handleProfileMenuOpen}><Avatar alt="Profile Menu" src={props.config.avatar} style={{ height: '35px', width: '35px', backgroundColor: '#bbb', fontSize: '14px' }}>{`${props.config.firstName[0]}${props.config.lastName[0]}`}</Avatar></Button>
+                                        </Fragment>
+                                    ) : (
+                                        <Fragment>
+                                            <Link to="/login" className="text-inherit no-underline">
+                                                <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                                    kind={KIND.primary}
+                                                    overrides={{
+                                                        BaseButton: {
+                                                            style: ({ $theme }) => ({
+                                                                backgroundColor: "#fff",
+                                                                button: "#fff"
+                                                            })
+                                                        }
+                                                    }}
+                                                ><span style={{ color: "#1976d2" }}>Login</span></Button>
+                                            </Link>
+                                            <ThemeProvider
+                                                theme={createTheme(lightThemePrimitives, {
+                                                    colors: {
+                                                        buttonPrimaryHover: "#1565c0",
+                                                        buttonPrimaryActive: "#1565c0"
+                                                    }
+                                                })}
+                                            >
+                                                <Link to="/signup" className="text-inherit no-underline md:mr-5 lg:mr-10">
+                                                    <Button style={{ fontWeight: '600', textTransform: 'none', borderRadius: '25px', fontSize: '18px', fontFamily: 'Roboto' }}
+                                                        kind={KIND.primary}
+                                                        overrides={{
+                                                            BaseButton: {
+                                                                style: ({ $theme }) => ({
+                                                                    backgroundColor: "#1976d2",
+                                                                    button: "#fff"
+                                                                })
+                                                            }
+                                                        }}
+                                                    >Sign Up</Button>
+                                                </Link>
+                                            </ThemeProvider>
+                                        </Fragment>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </ThemeProvider>
+    );
 }
 
-export default Nav;
+
+export default Navbar;

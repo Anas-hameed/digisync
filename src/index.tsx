@@ -3,8 +3,8 @@ import Provider from "./Provider"
 import Router from "./Router"
 import Container from "./Container"
 import "./styles/styles.css"
-import Nav from "./components/navbar/navbar1"
-import Footer from "./components/footer"
+import Nav from "./components/navbar";
+import Footer from "./components/footer/footer";
 import { BrowserRouter } from 'react-router-dom';
 import MainApp from './main';
 

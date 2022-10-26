@@ -11,8 +11,7 @@ const people = [
   { name: 'IoT' },
 ]
 
-export default function ListBox() {
-  const [selected, setSelected] = useState(people[0])
+export default function ListBox({selected, setSelected}) {
 
   return (
     <div className="w-full">
