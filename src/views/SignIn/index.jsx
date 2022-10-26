@@ -92,7 +92,7 @@ function SignIn() {
                             {formik.touched && formik.errors.password ? <p className="text-red-600 text-xs">{formik.errors.password}</p> : null}
                         </div>
                     </div>
-                    <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign in</button>
+                    <button type="submit" className="w-full px-8 py-3 font-bold rounded-md text-white  bg-violet-400 dark:bg-violet-400 dark:text-gray-900">Sign in</button>
                 </form>
             </div>
         </div>
