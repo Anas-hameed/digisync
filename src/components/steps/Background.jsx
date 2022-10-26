@@ -53,7 +53,7 @@ export default function Background() {
                 <input  onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.title} type="text" name="prompt" id="prompt" placeholder="prompt" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 { formik.touched && formik.errors.title? <p className="text-red-600 text-xs">{formik.errors.title}</p>:null}
             </div>
-            <button type="submit" className="px-10 py-1 mt-2 w-full text-md border rounded bg-black hover:bg-gray-800 text-white " >Search</button>
+            <button type="submit" className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white " >Search</button>
             
           </div>
         </form>
