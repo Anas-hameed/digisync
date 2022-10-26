@@ -7,9 +7,7 @@ import poster from "../../../media/Images/poster.svg";
 
 function Feature(){
     return(
-        <section className="p-4 lg:p-8 bg-white text-black mb-24">
-            
-            
+        <section className="p-4 lg:p-8 bg-white text-black mb-24">  
             <SectionIntro 
             heading={"All the creative tools you need in one platform"} 
             paragraph={"DigiSync is a platform that uses A.I. technology to allow users to create, edit, and share content."} 
