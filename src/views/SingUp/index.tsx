@@ -152,7 +152,7 @@ function SignUp(){
                             </div>
                             
                         </div>
-                        <button type={"submit"} className={`w-full px-8 py-3 font-bold rounded-md text-white dark:bg-violet-400 dark:text-gray-900 ${disable?'bg-violet-400':'bg-violet-900'}`}>Sign up</button>
+                        <button type={"submit"} className={`w-full px-8 py-3 font-bold rounded-md text-white dark:bg-[#1976d2] dark:text-gray-900 ${disable?'bg-[#1976d2]':'bg-violet-900'}`}>Sign up</button>
                     </form>
                 </div>
             </div>

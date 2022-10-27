@@ -12,14 +12,13 @@ function Feature(){
             heading={"All the creative tools you need in one platform"} 
             paragraph={"DigiSync is a platform that uses A.I. technology to allow users to create, edit, and share content."} 
             />
-            
             <div className="container mx-auto space-y-12">
                 
-                <FeatureCard imgSrc={poster} heading={"Poster Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Posters with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/poster-generation"}/>
+                <FeatureCard imgSrc={poster} heading={"Poster Generation"} spanText={"Create, it's free"} paragraph={"Create amazing poster with AI in just few minutes.Now With simple prompt you can create an amazing poster for next blog,social media post or maketing event."} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/poster-generation"}/>
                 
-                <FeatureCard imgSrc={email} heading={"Email Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Emails with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row-reverse"} buttonRef={"/email-generation"}/>
+                <FeatureCard imgSrc={email} heading={"Email Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Emails with AI in just few minutes. Now it is a clock away for you to generate an awsome email for you next email marketing compaign"} buttonText={"Create"} flexDirection={" lg:flex-row-reverse"} buttonRef={"/email-generation"}/>
                 
-                <FeatureCard imgSrc={sms} heading={"SMS Generation"} spanText={"Create, it's free"} paragraph={"Create amazing SMS with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/sms-generation"}/>
+                <FeatureCard imgSrc={sms} heading={"SMS Generation"} spanText={"Create, it's free"} paragraph={"Woried about traditional SMS marketing, We got you covered on that as well. Now you can generate SMS with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/sms-generation"}/>
                 
             </div>
         </section>

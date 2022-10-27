@@ -99,7 +99,7 @@ export default function Details() {
 				<h4 className="text-xl font-semibold">Description:</h4>
 				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
 
-				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full">
+				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
 					<div className="space-y-4 flex-1">
 						<div className="space-y-2">
 							<label htmlFor="prompt" className="block text-sm">Category</label>
@@ -109,7 +109,7 @@ export default function Details() {
 					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
 				</div>
 				{posterText.length &&
-				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust">
+				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
 					{posterText.map((item, index) => {
 						return (
 							<div className="flex relative">
