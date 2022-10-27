@@ -108,18 +108,19 @@ export default function Details() {
 					</div>
 					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
 				</div>
+				{posterText.length &&
 				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust">
 					{posterText.map((item, index) => {
 						return (
 							<div className="flex relative">
-								<p className={`m-4 p-4 shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
+								<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
 									setSelectedText(index);
 								}} key={index}>{item}</p>
 								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
 							</div>
 						)
 					})}
-				</div>
+				</div>}
 			</div>
 		</div>
 	);
