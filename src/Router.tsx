@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom"
 import DesignEditor from "~/views/DesignEditor"
-import Dashboard from "~/views/Dashboard"
 import SignIn from "./views/SignIn"
 import SignUp from "./views/SingUp"
 import Home from "./views/Home"

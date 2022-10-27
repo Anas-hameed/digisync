@@ -62,7 +62,7 @@ export default function Details() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
-	const { setCatagory, posterText, setPosterText } = usePosterContent();
+	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
 	
 	const fetchData = (e) => {
 		e.preventDefault();
@@ -97,23 +97,24 @@ export default function Details() {
 				<h4 className="text-xl font-semibold">Description:</h4>
 				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
 
-				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full">
+				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
 					<div className="space-y-4 flex-1">
 						<div className="space-y-2">
 							<label htmlFor="prompt" className="block text-sm">Category</label>
 							<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
 						</div>
 					</div>
-					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
+					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
 				</div>
-				{posterText.length &&
-				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust">
+				{posterText.length!==0 &&
+				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
 					{posterText.map((item, index) => {
 						return (
-							<div className="flex relative">
+							<div className="flex relative" key={index}>
 								<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
 									setSelectedText(index);
-								}} key={index}>{item}</p>
+									setIndex(index);
+								}} >{item}</p>
 								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
 							</div>
 						)

@@ -117,12 +117,12 @@ const Navbar = (props) => {
                                                             })
                                                         }
                                                     }}
-                                                ><span style={{ color: "rgb(167 139 250)" }}>Login</span></Button>
+                                                ><span style={{ color: "#1976d2" }}>Login</span></Button>
                                             </Link>
                                             <ThemeProvider
                                                 theme={createTheme(lightThemePrimitives, {
                                                     colors: {
-                                                        buttonPrimaryHover: "rgb(139 92 246);",
+                                                        buttonPrimaryHover: "#1565c0",
                                                         buttonPrimaryActive: "#1565c0"
                                                     }
                                                 })}
@@ -133,7 +133,7 @@ const Navbar = (props) => {
                                                         overrides={{
                                                             BaseButton: {
                                                                 style: ({ $theme }) => ({
-                                                                    backgroundColor: "rgb(167 139 250)",
+                                                                    backgroundColor: "#1976d2",
                                                                     button: "#fff"
                                                                 })
                                                             }

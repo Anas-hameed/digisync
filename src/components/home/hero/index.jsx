@@ -15,7 +15,7 @@ function Hero() {
 
                     <div className="flex gap-4">
                         <Link to={"/login"}>
-                            <button className="px-8 py-2 text-lg font-bold font-roboto rounded bg-violet-400 hover:bg-violet-500 text-white">Get started</button>
+                            <button className="px-8 py-2 text-lg font-bold font-roboto rounded bg-[#1976d2] hover:bg-[#1565c0] text-white">Get started</button>
                         </Link>
                         <button className="px-8 py-2 text-lg font-bold font-roboto border rounded bg-black hover:bg-gray-800 text-white ">Read more</button>
                     </div>

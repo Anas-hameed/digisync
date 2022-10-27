@@ -108,7 +108,7 @@ function SignIn() {
                             <input type="email" name="email" id="email" placeholder="anas@gmail.com" onBlur={formik.handleBlur} onChange={(e)=>{
                                 formik.handleChange(e);
                                 handleDisable();
-                                }} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                }} value={formik.values.email} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                             {formik.touched && formik.errors.email ? <p className="text-red-600 text-xs font-poppins">{formik.errors.email}</p> : null}
                         </div>
                         <div className="space-y-2">
@@ -120,11 +120,11 @@ function SignIn() {
                                 formik.handleChange(e);
                                 handleDisable();
 
-                                }} value={formik.values.password} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                }} value={formik.values.password} className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                             {formik.touched && formik.errors.password ? <p className="text-red-600 text-xs font-poppins">{formik.errors.password}</p> : null}
                         </div>
                     </div>
-                    <button type="submit" className={`w-full px-8 py-3 font-bold rounded-md text-white  bg-violet-400 dark:text-gray-900 ${disable?'bg-violet-400':'bg-violet-900'}`}>Sign in</button>
+                    <button type="submit" className={`w-full px-8 py-3 font-bold rounded-md text-white dark:text-gray-900 ${disable?'bg-blue-400':'bg-[#1565c0]'}`}>Sign in</button>
                 </form>
             </div>
         </div>

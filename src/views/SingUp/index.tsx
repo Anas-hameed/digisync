@@ -108,7 +108,7 @@ function SignUp(){
                                 <input onBlur={formik.handleBlur} onChange={(e)=>{
                                     formik.handleChange(e);
                                     handleDisable();
-                                }} value={formik.values.firstName} type="text" name="firstName" id="firstName" placeholder="First Name" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                }} value={formik.values.firstName} type="text" name="firstName" id="firstName" placeholder="First Name" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                                 { formik.touched && formik.errors.firstName? <p className="text-red-600 text-xs">{formik.errors.firstName}</p>:null}
                                 
                             </div>
@@ -118,7 +118,7 @@ function SignUp(){
                                     formik.handleChange(e);
                                     handleDisable();
                                 }}
-                                value={formik.values.lastName} type="text" name="lastName" id="lastName" placeholder="Last Name" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                value={formik.values.lastName} type="text" name="lastName" id="lastName" placeholder="Last Name" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                                 { formik.touched && formik.errors.lastName? <p className="text-red-600 text-xs">{formik.errors.lastName}</p>:null}
                             
                             </div>
@@ -129,7 +129,7 @@ function SignUp(){
                                     formik.handleChange(e);
                                     handleDisable();
                                 
-                                }} value={formik.values.email} type="email" name="email" id="email" placeholder="E-mail" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                }} value={formik.values.email} type="email" name="email" id="email" placeholder="E-mail" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                                 { formik.touched && formik.errors.email? <p className="text-red-600 text-xs font-poppins">{formik.errors.email}</p>:null}
                             </div>
                 
@@ -137,7 +137,7 @@ function SignUp(){
                                 <input onBlur={formik.handleBlur} onChange={(e)=>{
                                     formik.handleChange(e);
                                     handleDisable();
-                                }} value={formik.values.password} type="password" name="password" id="password" placeholder="Password" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                }} value={formik.values.password} type="password" name="password" id="password" placeholder="Password" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                                 { formik.touched && formik.errors.password? <p className="text-red-600 text-xs font-poppins">{formik.errors.password}</p>:null}
                             </div>
                             <div className="space-y-2">
@@ -147,12 +147,12 @@ function SignUp(){
                                 }} onChange={(e)=>{
                                     formik.handleChange(e);
                                     handleDisable();
-                                }} value={formik.values.confirmPassword} type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                                }} value={formik.values.confirmPassword} type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" className="w-full px-3 py-2 border rounded-md bg-neutral-100 placeholder:text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
                                 { formik.touched && formik.errors.confirmPassword? <p className="text-red-600 text-xs font-poppins">{formik.errors.confirmPassword}</p>:null}
                             </div>
                             
                         </div>
-                        <button type={"submit"} className={`w-full px-8 py-3 font-bold rounded-md text-white dark:bg-violet-400 dark:text-gray-900 ${disable?'bg-violet-400':'bg-violet-900'}`}>Sign up</button>
+                        <button type={"submit"} className={`w-full px-8 py-3 font-bold rounded-md text-white dark:bg-[#1976d2] dark:text-gray-900 bg-[#1565c0] ${disable?'bg-opacity-70':'opacity-100'}`}>Sign up</button>
                     </form>
                 </div>
             </div>

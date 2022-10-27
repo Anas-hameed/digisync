@@ -21,6 +21,10 @@ const usePosterContent = () => {
         setDescription,
         Font,
         setFont,
+        index,
+        setIndex,
+        selectedPoster,
+        setSelectedPoster
     } = useContext(PosterContext);
 
     return {
@@ -42,6 +46,10 @@ const usePosterContent = () => {
         setDescription,
         Font,
         setFont,
+        index,
+        setIndex,
+        selectedPoster,
+        setSelectedPoster
     };
 }
 
