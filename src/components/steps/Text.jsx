@@ -4,60 +4,7 @@ import { useState } from 'react';
 import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
 import axiosInstance from '../../axios/axiosinstance';
-import usePosterContent from "../../hooks/usePosterContent";
-import selectIcon from '../../media/Images/check.png';
 
-const people = [
-	{ name: 'Artificial Intelligence' },
-	{ name: 'Software Engineering' },
-	{ name: 'Data Science' },
-	{ name: 'Cyber Security' },
-	{ name: 'Robotics' },
-	{ name: 'IoT' },
-	{ name: 'Artificial Intelligence' },
-	{ name: 'Software Engineering' },
-	{ name: 'Data Science' },
-	{ name: 'Cyber Security' },
-	{ name: 'Robotics' },
-	{ name: 'IoT' },
-	{ name: 'life' },
-	{ name: 'happiness' },
-	{ name: 'love' },
-	{ name: 'truth' },
-	{ name: 'inspiration' },
-	{ name: 'humor' },
-	{ name: 'philosophy' },
-	{ name: 'science' },
-	{ name: 'soul' },
-	{ name: 'books' },
-	{ name: 'wisdom' },
-	{ name: 'knowledge' },
-	{ name: 'education' },
-	{ name: 'poetry' },
-	{ name: 'hope' },
-	{ name: 'friendship' },
-	{ name: 'writing' },
-	{ name: 'religion' },
-	{ name: 'death' },
-	{ name: 'romance' },
-	{ name: 'success' },
-	{ name: 'arts' },
-	{ name: 'relationship' },
-	{ name: 'motivation' },
-	{ name: 'faith' },
-	{ name: 'mind' },
-	{ name: 'god' },
-	{ name: 'funny' },
-	{ name: 'quotes' },
-	{ name: 'positive' },
-	{ name: 'purpose' },
-	{ name: 'fashion' },
-	{ name: 'sports' },
-	{ name: 'nature' },
-	{ name: 'technology' },
-	{ name: 'food' }
-
-]
 
 
 export default function Details() {
