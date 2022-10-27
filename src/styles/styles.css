@@ -6,6 +6,7 @@
     font-family: "Alora";
     src: url("../media/fonts/Alora-Typeface/Alora.ttf");
 }
+
 @font-face {
     font-family: "Ancient_medium";
     src: url("../media/fonts/ancient/Ancient.ttf");
@@ -15,58 +16,72 @@
     font-family: "Andreas";
     src: url("../media/fonts/andreas/Andreas.ttf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Black";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-black-58a8a3e824392.otf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Bold";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-bold-italic-58a8a48221563.otf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Light";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-light-58a8a4b38001d.otf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Italic";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-light-italic-58a8a4ccb88be.otf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Medium";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-medium-italic-58a8a3c40866a.otf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Regular";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-regular-italic-58a8a456c4724.otf");
 }
+
 @font-face {
     font-family: "Brandon Grotesque Thin";
     src: url("../media/fonts/Brandon-Grotesque/brandon-grotesque-thin-italic-58a8a3a8861fe.otf");
 }
+
 @font-face {
     font-family: "Bebas";
     src: url("../media/fonts/poster/BEBAS__.ttf");
 }
+
 @font-face {
     font-family: "BebasNeue";
     src: url("../media/fonts/poster/BebasNeue-Regular.otf");
 }
+
 @font-face {
     font-family: "gilroy";
     src: url("../media/fonts/poster/gilroy-extrabold.otf");
 }
+
 @font-face {
     font-family: "Aleo Bold";
     src: url("../media/fonts/poster/Aleo-Bold.otf");
 }
+
 @font-face {
     font-family: "Aleo Bold Italic";
     src: url("../media/fonts/poster/Aleo-BoldItalic.otf");
 }
+
 @font-face {
     font-family: "Aleo Italic";
     src: url("../media/fonts/poster/Aleo-Italic.otf");
 }
+
 @font-face {
     font-family: "Aleo Light";
     src: url("../media/fonts/poster/Aleo-Light.otf");
@@ -76,58 +91,72 @@
     font-family: "Aleo Light Italic";
     src: url("../media/fonts/poster/Aleo-LightItalic.otf");
 }
+
 @font-face {
     font-family: "Aleo Regular";
     src: url("../media/fonts/poster/Aleo-Regular.otf");
 }
+
 @font-face {
     font-family: "Coldiac";
     src: url("../media/fonts/poster/Coldiac.otf");
 }
+
 @font-face {
     font-family: "Coldiac Italic";
     src: url("../media/fonts/poster/ColdiacItalic.otf");
 }
+
 @font-face {
     font-family: "Glamor Regular";
     src: url("../media/fonts/poster/Glamor-Regular.ttf");
 }
+
 @font-face {
     font-family: "Glamor Bold";
     src: url("../media/fonts/poster/Glamor-Bold.ttf");
 }
+
 @font-face {
     font-family: "Goldleaf";
     src: url("../media/fonts/poster/GoldleafBoldPersonalUseBold-eZ4dO.ttf");
 }
+
 @font-face {
     font-family: "MangabeyRegular";
     src: url("../media/fonts/poster/MangabeyRegular-rgqVO.otf");
 }
+
 @font-face {
     font-family: "Anton";
     src: url("../media/fonts/poster/Anton.ttf");
 }
+
 @font-face {
     font-family: "Albert";
     src: url("../media/fonts/poster/AlbertTextBold.otf");
 }
+
 @font-face {
     font-family: "Action Man";
     src: url("../media/fonts/poster/Action_Man.ttf");
 }
+
 @font-face {
     font-family: "Action Man Bold";
     src: url("../media/fonts/poster/Action_Man_Bold.ttf");
 }
+
 @font-face {
     font-family: "Masque";
     src: url("../media/fonts/poster/MASQUE__.ttf");
 }
+
 @font-face {
     font-family: "FredokaOne";
     src: url("../media/fonts/poster/FredokaOne-Regular.ttf");
 }
+
 @font-face {
     font-family: "AvenueX";
     src: url("../media/fonts/poster/AvenueX-Regular.otf");
@@ -164,10 +193,12 @@
     font-family: "GRIFON_regular";
     src: url("../media/fonts/GRIFON/GRIFON_r.otf");
 }
+
 @font-face {
     font-family: "GRIFON_black";
     src: url("../media/fonts/GRIFON/GRIFON_b.otf");
 }
+
 @font-face {
     font-family: "GRIFON_bold";
     src: url("../media/fonts/GRIFON/GRIFON_bo.otf");
@@ -232,9 +263,24 @@
 
 
 
+@layer utilities {
+    /* Chrome, Edge, and Safari */
+    .scroll_w_adjust::-webkit-scrollbar {
+        width: 10px !important;
+    }
 
+    .scroll_r_adjust::-webkit-scrollbar-track {
+        border-radius: 200px !important;
+        background-color: #EEE !important;
+    }
 
+    .scroll_t_adjust::-webkit-scrollbar-thumb {
+        background-color: #AAA !important;
+        border-radius: 20px !important;
+        border: 3px solid #AAA !important;
+    }
 
+}
 
 
 
