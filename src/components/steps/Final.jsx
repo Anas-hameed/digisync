@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 export default function Final() {
   return (
     <div className="container md:mt-10">
@@ -27,14 +28,14 @@ export default function Final() {
           Congratulations!
         </div>
         <div className=" text-black text-center">
-          Your templates have been created.<br/> 
+          Your templates have been created.<br />
           Press continue to see.
         </div>
-        <a className="mt-10" href="/templates">
+        <Link className="mt-10" to="/templates">
           <button className="h-10 px-5 bg-violet-400 text-white font-roboto font-bold transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-violet-500 hover:text-green-100">
             Continue
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

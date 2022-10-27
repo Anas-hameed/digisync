@@ -1,23 +1,19 @@
 import TemplatePreview from "../../components/template";
-import data from "~/components/template/data.json";
-import {  useEffect, useState } from "react";
+import usePosterContent from "../../hooks/usePosterContent";
 
 const Templates = () => {
-    console.log(data);
-    const [template, setTemplate] = useState(data.generation);
-    useEffect(()=>{
-        setTemplate(data.generation);
-    }, [template]);
+    const { image } = usePosterContent();
+    console.log(image);
 
-    if (template.length === 0) {
-        return <div className="flex justify-center items-center h-screen">
-            <h1 className="text-2xl font-semibold">No Template Found</h1>
+    if (image.length === 0) {
+        return <div className="flex justify-center items-center h-[80vh]">
+            <h2 className="text-2xl font-semibold font-poppins">No Template Generated</h2>
         </div>
     } else {
         return (
             <div className="flex flex-wrap py-24 px-8">
                 {
-                    template.map((item, index) => {
+                    image.map((item, index) => {
                         return (
                             <div key={index} className="m-8">
                                 <TemplatePreview data={item} />
