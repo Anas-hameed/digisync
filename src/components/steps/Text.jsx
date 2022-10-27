@@ -8,6 +8,8 @@ import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
 import axiosInstance from '../../axios/axiosinstance';
 
+// 'life', 'happiness', 'love', 'truth', 'inspiration', 'humor', 'philosophy', 'science', 'soul', 'books', 'wisdom', 'knowledge', 'education', 'poetry', 'hope', 'friendship', 'writing', 'religion', 'death', 'romance', 'success', 'arts', 'relationship', 'motivation', 'faith', 'mind', 'god', 'funny', 'quotes', 'positive', 'purpose', 'fashion', 'sports', 'nature', 'technology', 'food', 'Robotics', 'IoT', 'Cyber Security', 'Artificial Intelligence', 'Data Science', 'Software Engineering'
+
 const people = [
   { name: 'Artificial Intelligence' },
   { name: 'Software Engineering' },
@@ -15,6 +17,43 @@ const people = [
   { name: 'Cyber Security' },
   { name: 'Robotics' },
   { name: 'IoT' },
+  {name:'life'},
+  {name:'happiness'},
+  {name:'love'},
+  {name: 'truth'},
+  {name: 'inspiration'},
+  {name:'humor'},
+  {name: 'philosophy'},
+  {name: 'science'},
+  {name: 'soul'},
+  {name:'books'},
+  {name: 'wisdom'},
+  {name:'knowledge'},
+  {name:'education'},
+  {name: 'poetry'},
+  {name:'hope'},
+  {name:'friendship'},
+  {name:'writing'},
+  {name:'religion'},
+  {name:'death'},
+  {name:'romance'},
+  {name:'success'},
+  {name:'arts'},
+  {name:'relationship'},
+  {name:'motivation'},
+  {name:'faith'},
+  {name: 'mind'},
+  {name: 'god'},
+  {name: 'funny'},
+  {name:'quotes'},
+  {name:'positive'},
+  {name:'purpose'},
+  {name:'fashion'},
+  {name:'sports'},
+  {name:'nature'},
+  {name:'technology'},
+  {name:'food'}
+
 ]
 
 
