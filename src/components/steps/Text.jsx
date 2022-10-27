@@ -1,88 +1,87 @@
-// import { useStepperContext } from "../../contexts/StepperContext";
-import { Disclosure } from '@headlessui/react'
-import Accordion from "../accordion";
 import { useStepperContext } from "../contexts/StepperContext";
 import ListBox from "../listBox";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
 import axiosInstance from '../../axios/axiosinstance';
+import usePosterContent from "../../hooks/usePosterContent";
+import selectIcon from '../../media/Images/check.png';
 
 const people = [
-  { name: 'Artificial Intelligence' },
-  { name: 'Software Engineering' },
-  { name: 'Data Science' },
-  { name: 'Cyber Security' },
-  { name: 'Robotics' },
-  { name: 'IoT' },
+	{ name: 'Artificial Intelligence' },
+	{ name: 'Software Engineering' },
+	{ name: 'Data Science' },
+	{ name: 'Cyber Security' },
+	{ name: 'Robotics' },
+	{ name: 'IoT' },
 ]
 
 
-
 export default function Details() {
-  const { userData, setUserData } = useStepperContext();
+	const [selected, setSelected] = useState(people[0]);
+	const [isLoading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
+	const [selectedText, setSelectedText]= useState(0);
 
-  const [text, setText] = useState(["some text1", "some text2"]);
-  const [selected, setSelected] = useState(people[0]);
-  const [isLoading, setLoading] = useState(false);
+	const {  setCatagory,posterText,setPosterText}= usePosterContent();
 
 
-  const fetchData = (e) => {
-    e.preventDefault();
-    // if (!setLoading) {
-      setLoading(true);
-      axiosInstance.post('/post/posterContent', {
-        "prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
-        "temperature": 0.7,
-        "batch_size": 10
-      },).then(
-        result => {
-          setLoading(false);
-          setText(result.data);
-          console.log(result.data);
-        }
-      ).catch(error => {
-        console.log(error);
-        if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-          toast.error(error.response.data.message);
-        }
-        else {
-          toast.error("Something went wrong! Please try again.");
-        }
-      });
-  }
+	const fetchData = (e) => {
+		e.preventDefault();
+		setLoading(true);
+		axiosInstance.post('/post/posterContent', {
+			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
+			"temperature": 0.7,
+			"batch_size": 10
+		}).then(
+			result => {
+				setLoading(false);
+				setPosterText(result.data);
+				setCatagory(selected.name);
+				toast.success('Text Generated, Move forward to next step');
+				console.log(result.data);
+			}
+		).catch(error => {
+			setLoading(false);
+			console.log(error);
+			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+				toast.error(error.response.data.message);
+			}
+			else {
+				toast.error("Something went wrong! Please try again.");
+			}
+		});
+	}
 
-  return (
-    <div className="flex flex-col ">
-      <div className="mx-2 w-full flex-1">
+	return (
+		<div className="flex flex-col">
+			<div className="mx-2 w-full flex-1">
+				<h4 className="text-xl font-semibold">Description:</h4>
+				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
 
-        <h4 className="text-xl font-semibold">Description:</h4>
-        <p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
-
-        <div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full">
-          <div className="space-y-4 flex-1">
-            <div className="space-y-2">
-              <label htmlFor="prompt" className="block text-sm">Category</label>
-              <ListBox setSelected={setSelected} selected={selected}  className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
-            </div>
-          </div>
-          <Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
-        </div>
-        {/* <Accordion content={<Disclosure.Panel className=" pt-4  text-black "> */}
-
-
-        {/* </Disclosure.Panel>} /> */}
-        {text.map((item, index) => {
-          return (
-            <p className='p-4 shadow-lg rounded-lg mt-4 text-sm font-poppins' key={index}>{item}</p>
-          )
-        })}
-      </div>
-    </div>
-  );
+				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full">
+					<div className="space-y-4 flex-1">
+						<div className="space-y-2">
+							<label htmlFor="prompt" className="block text-sm">Category</label>
+							<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
+						</div>
+					</div>
+					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
+				</div>
+				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust">
+					{posterText.map((item, index) => {
+						return (
+							<div className="flex relative">
+								<p className={`m-4 p-4 shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index===selectedText)&&'border-green-600 border-2'} `} onClick={()=>{
+									setSelectedText(index);
+								}}  key={index}>{item}</p>
+								{(index===selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
+							</div>
+						)
+					})}
+				</div>
+			</div>
+		</div>
+	);
 }
+

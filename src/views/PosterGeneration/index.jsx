@@ -2,15 +2,12 @@ import { useState } from "react";
 import { UseContextProvider } from "~/components/contexts/StepperContext";
 import Stepper from "~/components/stepper";
 import StepperControl from "~/components/stepperControl";
-
 import Background from "~/components/steps/Background";
 import Text from "~/components/steps/Text";
 import Final from "~/components/steps/Final";
-import SectionIntro from "~/components/sectionIntro";
 import Heading from "~/components/home/heading";
 import Paragraph from "~/components/home/paragraph";
 import Additionals from "~/components/steps/Additionals";
-import Accordion from "~/components/accordion";
 
 
 function PosterGeneration() {

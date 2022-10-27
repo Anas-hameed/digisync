@@ -8,13 +8,14 @@ import axiosInstance from '../../axios/axiosinstance';
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import { Button, SIZE } from "baseui/button";
+import usePosterContent  from "../../hooks/usePosterContent";
 
 export default function Background() {
 	const [loading, setloading]= useState(false);
-	const [image, setImage] = useState([]);
+	const { prompt,setPrompt,image,setImage}= usePosterContent();
 	const formik = useFormik({
 		initialValues: {
-			prompt: "",
+			prompt: prompt,
 		},
 		validationSchema: Yup.object({
 			prompt: Yup.string()
@@ -30,8 +31,10 @@ export default function Background() {
 				}).then(result => {
 					console.log(result.data);
 					setImage(result.data.generation);
+					setPrompt(values.prompt);
 					setloading(false);
 					toast.success('Background Generated, Move forward to next step');
+
 				}
 				).catch(error => {
 					setloading(false);
@@ -60,8 +63,6 @@ export default function Background() {
 						<div className="space-y-4">
 							<div className="space-y-2">
 								<label htmlFor="prompt" className="block text-sm">Image Prompt</label>
-								{/* <input type="text" name="prompt" id="email" placeholder="Prompt" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" /> */}
-
 								<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.title} type="text" name="prompt" id="prompt" placeholder="prompt" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
 								{formik.touched && formik.errors.title ? <p className="text-red-600 text-xs">{formik.errors.title}</p> : null}
 							</div>
@@ -69,7 +70,7 @@ export default function Background() {
 						</div>
 					</form>
 					<Accordion content={
-						<Disclosure.Panel className="grid grid-cols-2 pt-4 text-black ">
+						<Disclosure.Panel className="grid grid-cols-2 pt-4 text-black">
 							{image.map((item, index) => {
 								return (
 									<Card key={index} image={item} />
@@ -78,11 +79,7 @@ export default function Background() {
 						</Disclosure.Panel>
 					} />
 				</div>
-
-
 			</div>
-
 		</>
-
 	);
 }

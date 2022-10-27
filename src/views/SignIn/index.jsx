@@ -32,7 +32,13 @@ function SignIn() {
                         // get the location user was trying to access
                         const redirect = localStorage.getItem('redirect');
                         toast.success("Login Successful");
-                        window.location.href = redirect ? redirect : '/';
+                        if (redirect) {
+                            localStorage.removeItem('redirect');
+                            window.location.href = redirect;
+                        }
+                        else {
+                            window.location.href = "/";
+                        }
                     }
                 }
             ).catch(error => {

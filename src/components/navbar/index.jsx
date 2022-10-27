@@ -14,6 +14,7 @@ const Navbar = (props) => {
         toast.success("Logout was Successful"); 
         localStorage.removeItem('token');
         localStorage.removeItem('userObject');
+        localStorage.removeItem('redirect');
     }
     const toogleMenu = () => {
         setOpenNav(!openNav);
