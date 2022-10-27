@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 export default function Final() {
   return (
     <div className="container md:mt-10">
@@ -28,7 +28,7 @@ export default function Final() {
           Congratulations!
         </div>
         <div className=" text-black text-center">
-          Your templates have been created.<br/> 
+          Your templates have been created.<br />
           Press continue to see.
         </div>
         <Link className="mt-10" to="/templates">

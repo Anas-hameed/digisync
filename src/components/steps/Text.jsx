@@ -14,18 +14,58 @@ const people = [
 	{ name: 'Cyber Security' },
 	{ name: 'Robotics' },
 	{ name: 'IoT' },
+	{ name: 'Artificial Intelligence' },
+	{ name: 'Software Engineering' },
+	{ name: 'Data Science' },
+	{ name: 'Cyber Security' },
+	{ name: 'Robotics' },
+	{ name: 'IoT' },
+	{ name: 'life' },
+	{ name: 'happiness' },
+	{ name: 'love' },
+	{ name: 'truth' },
+	{ name: 'inspiration' },
+	{ name: 'humor' },
+	{ name: 'philosophy' },
+	{ name: 'science' },
+	{ name: 'soul' },
+	{ name: 'books' },
+	{ name: 'wisdom' },
+	{ name: 'knowledge' },
+	{ name: 'education' },
+	{ name: 'poetry' },
+	{ name: 'hope' },
+	{ name: 'friendship' },
+	{ name: 'writing' },
+	{ name: 'religion' },
+	{ name: 'death' },
+	{ name: 'romance' },
+	{ name: 'success' },
+	{ name: 'arts' },
+	{ name: 'relationship' },
+	{ name: 'motivation' },
+	{ name: 'faith' },
+	{ name: 'mind' },
+	{ name: 'god' },
+	{ name: 'funny' },
+	{ name: 'quotes' },
+	{ name: 'positive' },
+	{ name: 'purpose' },
+	{ name: 'fashion' },
+	{ name: 'sports' },
+	{ name: 'nature' },
+	{ name: 'technology' },
+	{ name: 'food' }
+
 ]
 
 
 export default function Details() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
-
-	const [selectedText, setSelectedText]= useState(0);
-
-	const {  setCatagory,posterText,setPosterText}= usePosterContent();
-
-
+	const [selectedText, setSelectedText] = useState(0);
+	const { setCatagory, posterText, setPosterText } = usePosterContent();
+	
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -72,10 +112,10 @@ export default function Details() {
 					{posterText.map((item, index) => {
 						return (
 							<div className="flex relative">
-								<p className={`m-4 p-4 shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index===selectedText)&&'border-green-600 border-2'} `} onClick={()=>{
+								<p className={`m-4 p-4 shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
 									setSelectedText(index);
-								}}  key={index}>{item}</p>
-								{(index===selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
+								}} key={index}>{item}</p>
+								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
 							</div>
 						)
 					})}
