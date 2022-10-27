@@ -15,6 +15,7 @@ module.exports = {
         reef:["Reef"],
         originals:["originals"],
         roboto: ['Roboto', 'sans-serif'],
+        display: ["group-hover"],
       },
 
     },

@@ -2,16 +2,62 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
-const people = [
-  { name: 'Artificial Intelligence' },
-  { name: 'Software Engineering' },
-  { name: 'Data Science' },
-  { name: 'Cyber Security' },
-  { name: 'Robotics' },
-  { name: 'IoT' },
-]
+
 
 export default function ListBox({selected, setSelected}) {
+
+  const people = [
+    { name: 'Artificial Intelligence' },
+    { name: 'Software Engineering' },
+    { name: 'Data Science' },
+    { name: 'Cyber Security' },
+    { name: 'Robotics' },
+    { name: 'IoT' },
+    { name: 'Artificial Intelligence' },
+    { name: 'Software Engineering' },
+    { name: 'Data Science' },
+    { name: 'Cyber Security' },
+    { name: 'Robotics' },
+    { name: 'IoT' },
+    { name: 'life' },
+    { name: 'happiness' },
+    { name: 'love' },
+    { name: 'truth' },
+    { name: 'inspiration' },
+    { name: 'humor' },
+    { name: 'philosophy' },
+    { name: 'science' },
+    { name: 'soul' },
+    { name: 'books' },
+    { name: 'wisdom' },
+    { name: 'knowledge' },
+    { name: 'education' },
+    { name: 'poetry' },
+    { name: 'hope' },
+    { name: 'friendship' },
+    { name: 'writing' },
+    { name: 'religion' },
+    { name: 'death' },
+    { name: 'romance' },
+    { name: 'success' },
+    { name: 'arts' },
+    { name: 'relationship' },
+    { name: 'motivation' },
+    { name: 'faith' },
+    { name: 'mind' },
+    { name: 'god' },
+    { name: 'funny' },
+    { name: 'quotes' },
+    { name: 'positive' },
+    { name: 'purpose' },
+    { name: 'fashion' },
+    { name: 'sports' },
+    { name: 'nature' },
+    { name: 'technology' },
+    { name: 'food' }
+  
+  ]
+  
 
   return (
     <div className="w-full">
@@ -32,7 +78,7 @@ export default function ListBox({selected, setSelected}) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="scroll_w_adjust scroll_r_adjust scroll_t_adjust absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 z-10 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {people.map((person, personIdx) => (
                 <Listbox.Option
                   key={personIdx}

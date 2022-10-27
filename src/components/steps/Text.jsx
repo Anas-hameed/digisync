@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
 import axiosInstance from '../../axios/axiosinstance';
-import usePosterContent from "../../hooks/usePosterContent";
 import selectIcon from '../../media/Images/check.png';
-
+import usePosterContent from "~/hooks/usePosterContent";
 const people = [
 	{ name: 'Artificial Intelligence' },
 	{ name: 'Software Engineering' },
@@ -59,12 +58,11 @@ const people = [
 
 ]
 
-
 export default function Details() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
-	const { setCatagory, posterText, setPosterText } = usePosterContent();
+	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
 	
 	const fetchData = (e) => {
 		e.preventDefault();
@@ -106,16 +104,17 @@ export default function Details() {
 							<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
 						</div>
 					</div>
-					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" on isLoading={isLoading} >Generate</Button>
+					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
 				</div>
-				{posterText.length &&
+				{posterText.length!==0 &&
 				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
 					{posterText.map((item, index) => {
 						return (
-							<div className="flex relative">
+							<div className="flex relative" key={index}>
 								<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
 									setSelectedText(index);
-								}} key={index}>{item}</p>
+									setIndex(index);
+								}} >{item}</p>
 								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
 							</div>
 						)

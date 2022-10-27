@@ -20,6 +20,11 @@ interface IPosterContext {
   setDescription: (value: string) => void,
   Font: Template[],
   setFont: (value: Template[]) => void,
+  index: number,
+  setIndex: (value: number) => void,
+  selectedPoster: number,
+  setSelectedPoster: (value: number) => void,
+
 }
 
 export const PosterContext = createContext<IPosterContext>({
@@ -41,18 +46,24 @@ export const PosterContext = createContext<IPosterContext>({
   setDescription: (value: string) => { },
   Font: [],
   setFont: (value: Template[]) => { },
+  index: 0,
+  setIndex: (value: number) => { },
+  selectedPoster:  0,
+  setSelectedPoster: (value: number) => { },
 })
 
 export const PosterContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [prompt, setPrompt] = useState<string>("")
   const [image, setImage] = useState<Template[]>([])
   const [catagory, setCatagory] = useState<string>("")
-  const [posterText, setPosterText] = useState<string[]>(["Some text", "some text2", "some text"])
+  const [posterText, setPosterText] = useState<string[]>([])
   const [Title, setTitle] = useState<string>("")
   const [Promotion, setPromotion] = useState<string>("")
   const [Contact, setContact] = useState<string>("")
   const [Description, setDescription] = useState<string>("")
   const [Font, setFont] = useState<Template[]>([])
+  const [index, setIndex] = useState<number>(0);
+  const [selectedPoster, setSelectedPoster] = useState<number>(0);
   const context = {
     prompt,
     setPrompt,
@@ -72,6 +83,10 @@ export const PosterContextProvider = ({ children }: { children: React.ReactNode 
     setDescription,
     Font,
     setFont,
+    index,
+    setIndex,
+    selectedPoster,
+    setSelectedPoster
   }
   return <PosterContext.Provider value={context}>{children}</PosterContext.Provider>
 }

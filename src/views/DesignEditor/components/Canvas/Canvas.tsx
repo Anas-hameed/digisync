@@ -11,44 +11,73 @@ import { IStaticText } from "@layerhub-io/types"
 import { nanoid } from "nanoid"
 import { images } from "~/constants/mock-data"
 import { useEditor } from "@layerhub-io/react"
+import { useState } from "react"
+
+
+import usePosterContent from "../../../../hooks/usePosterContent";
 
 const Canvas = () => {
   const { displayPlayback } = useDesignEditorContext();
-  const editor = useEditor()
+  const editor = useEditor();
+  const {
+    prompt,
+    setPrompt,
+    image,
+    setImage,
+    catagory,
+    setCatagory,
+    posterText,
+    setPosterText,
+    Title,
+    setTitle,
+    Promotion,
+    setPromotion,
+    Contact,
+    setContact,
+    Description,
+    setDescription,
+    Font,
+    setFont,
+    index,
+    setIndex,
+    selectedPoster,
+    setSelectedPoster } = usePosterContent();
+
+
+  const loadImage = async (source: string) => {
+    await editor.objects.add({
+      type: "StaticImage",
+      src: source
+    })
+  }
+
+  // const loadFont= async (font: FontItem) => {
+  //   await editor.objects.add({
+  //     type: "StaticText",
+  //     text: "Text",
+  //     font: font,
+  //     fontSize: 20,
+  //     color: "#000000",
+  //     x: 0,
+  //     y: 0,
+  //     width: 100,
+  //     height: 100,
+  //   })
+  // }
+  const [loaded, setloaded]= useState(false);
 
   useEffect(() => {
-    addObject();
-  }, [editor]);
-
-  const addObject = async () => {
+    console.log(image);
     if (editor) {
-      const font: FontItem = {
-        name: "OpenSans-Regular",
-        url: "https://fonts.gstatic.com/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0C4nY1M2xLER.ttf",
+      if (image.length > 0) {
+        if(!loaded){
+          loadImage(image[selectedPoster].image_path);
+        }else{
+          setloaded(false);
+        }
       }
-      await loadFonts([font])
-      const options = {
-        id: nanoid(),
-        type: "StaticText",
-        width: 420,
-        text: "lorem ipsum text here",
-        fontSize: 92,
-        fontFamily: font.name,
-        textAlign: "left",
-        fontStyle: "normal",
-        fontURL: font.url,
-        fill: "#ffffff",
-        metadata: {},
-        x: 0,
-        y: 0,
-      }
-      await editor.objects.add({
-        type: "StaticImage",
-        src: images[0].src.original,
-      })
-      editor.objects.add<IStaticText>(options)
     }
-  }
+  }, [selectedPoster, image,editor]);
 
   return (
     <div style={{ flex: 1, display: "flex", position: "relative" }}>

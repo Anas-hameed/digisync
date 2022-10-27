@@ -56,19 +56,19 @@ export default function Additionals() {
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid">
 					<div className="space-y-4">
 						<div className="space-y-2">
-							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.title} type="text" name="title" id="title" placeholder="Title" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.title} type="text" name="title" id="title" placeholder="Title" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
 							{formik.touched && formik.errors.title ? <p className="text-red-600 text-xs">{formik.errors.title}</p> : null}
 						</div>
 						<div className="space-y-2">
-							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.promotions} type={"text"} name="promotions" id="promotions" placeholder="Promotions" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.promotions} type={"text"} name="promotions" id="promotions" placeholder="Promotions" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
 							{formik.touched && formik.errors.promotions ? <p className="text-red-600 text-xs">{formik.errors.promotions}</p> : null}
 						</div>
 						<div className="space-y-2">
-							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.contact} type="tel" name="contact" id="contact" placeholder="Contact" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.contact} type="tel" name="contact" id="contact" placeholder="Contact" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
 
 						</div>
 						<div className="space-y-2">
-							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.description} type={"text"} name="description" id="description" placeholder="Description" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+							<input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.description} type={"text"} name="description" id="description" placeholder="Description" className="w-full px-3 py-2 border rounded-md bg-neutral-300 placeholder:text-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-[#1976d2]" />
 							{formik.touched && formik.errors.description ? <p className="text-red-600 text-xs">{formik.errors.description}</p> : null}
 						</div>
 						<Button onClick={handleSubmit} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white " >Add</Button>
