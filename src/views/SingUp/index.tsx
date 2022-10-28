@@ -20,11 +20,11 @@ function SignUp(){
         validationSchema:Yup.object({
             firstName: Yup.string()
                 .min(2, 'Too Short!')
-                .max(50, 'Too Long!')
+                .max(200, 'Too Long!')
                 .required('Required'),
             lastName: Yup.string()
                 .min(2, 'Too Short!')
-                .max(50, 'Too Long!')
+                .max(200, 'Too Long!')
                 .required('Required'),
             // country:Yup.string().required("Requierd"),    
             email:Yup.string().email('Invalid email').required('Required'),

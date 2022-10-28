@@ -21,13 +21,13 @@ export default function Additionals() {
 		validationSchema: Yup.object({
 			title: Yup.string()
 				.min(3, 'Too Short!')
-				.max(30, 'Too Long!'),
+				.max(200, 'Too Long!'),
 			promotions: Yup.string()
 				.min(3, 'Too Short!')
-				.max(30, 'Too Long!'),
+				.max(200, 'Too Long!'),
 			description: Yup.string()
 				.min(3, 'Too Short!')
-				.max(50, 'Too Long!')
+				.max(200, 'Too Long!')
 		}),
 
 		onSubmit: (values) => {

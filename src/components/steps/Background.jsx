@@ -20,7 +20,7 @@ export default function Background() {
 		validationSchema: Yup.object({
 			prompt: Yup.string()
 				.min(3, 'Too Short!')
-				.max(30, 'Too Long!')
+				.max(200, 'Too Long!')
 		}),
 		onSubmit: (values) => {
 			if(!loading){
