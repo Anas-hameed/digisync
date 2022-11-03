@@ -16,7 +16,7 @@ function Feature(){
                 
                 <FeatureCard imgSrc={poster} heading={"Poster Generation"} spanText={"Create, it's free"} paragraph={"Create amazing poster with AI in just few minutes.Now With simple prompt you can create an amazing poster for your next blog,social media post or maketing event."} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/poster-generation"}/>
                 
-                <FeatureCard imgSrc={email} heading={"Email Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Emails with AI in just few minutes. Now it is a click away for you to generate an awesome email for you next email marketing compaign"} buttonText={"Create"} flexDirection={" lg:flex-row-reverse"} buttonRef={"/email-generation"}/>
+                <FeatureCard imgSrc={email} heading={"Email Generation"} spanText={"Create, it's free"} paragraph={"Create amazing Emails with AI in just few minutes. Now it is a click away for you to generate an awesome email for your next email marketing compaign"} buttonText={"Create"} flexDirection={" lg:flex-row-reverse"} buttonRef={"/email-generation"}/>
                 
                 <FeatureCard imgSrc={sms} heading={"SMS Generation"} spanText={"Create, it's free"} paragraph={"Stop wasting your time on writing SMS for your audience. Now you can generate SMS with AI in just few minutes"} buttonText={"Create"} flexDirection={" lg:flex-row"} buttonRef={"/sms-generation"}/>
                 
