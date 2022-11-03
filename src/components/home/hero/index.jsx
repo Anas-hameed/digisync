@@ -10,7 +10,7 @@ function Hero() {
                     <h1 className="max-w-[350px] text-3xl font-medium font-poppins text-center md:text-4xl md:max-w-lg lg:text-start">Create Content with <span className="font-poppins font-bold">AI in just few minutes</span>
                     </h1>
                     <p className="text-center my-8 text-sm font-poppins md:text-lg xl:max-w-xl lg:max-w-lg lg:text-start">
-                        Artificial intelligence makes it fast & easy to create content. With a single you can generate a whole blog, or generate an email or generate an instant message for your audience
+                        Artificial intelligence makes it fast & easy to create content. With a single platform you can generate a whole Poster, or generate an email or generate an instant message for your audience
                     </p>
 
                     <div className="flex gap-4">
