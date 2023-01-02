@@ -1,5 +1,15 @@
 import { Link } from 'react-router-dom';
+
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import { useState } from 'react';
 export default function Final() {
+
+  const [accessToken,setAccessToken]=useState("")
+  const responseFacebook = (response) => {
+    console.log('access token:', response);
+    setAccessToken(response.accessToken)
+  }
+
   return (
     <div className="container md:mt-10">
       <div className="flex flex-col items-center">
@@ -23,6 +33,17 @@ export default function Final() {
             />
           </svg>
         </div>
+
+        <FacebookLogin
+        appId="945393626426416"
+        autoLoad={true}
+        fields="name,email,picture"
+        scope="ads_management,business_management,instagram_basic,instagram_content_publish,pages_read_engagement,pages_show_list,pages_manage_posts,public_profile"
+        callback={responseFacebook}
+        render={renderProps => (
+          <button onClick={renderProps.onClick}>This is my custom FB button</button>
+        )}
+        />
 
         <div className="mt-3 text-xl font-semibold uppercase text-[#1976d2]">
           Congratulations!
