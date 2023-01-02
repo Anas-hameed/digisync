@@ -8,6 +8,8 @@ import Final from "~/components/steps/Final";
 import Heading from "~/components/home/heading";
 import Paragraph from "~/components/home/paragraph";
 import Additionals from "~/components/steps/Additionals";
+import Caption from "~/components/steps/Caption";
+
 
 
 function PosterGeneration() {
@@ -17,6 +19,8 @@ function PosterGeneration() {
     "Background",
     "Text",
     "Additionals",
+    "Caption",
+    "Hashtag",
     "Complete",
   ];
 
@@ -29,6 +33,10 @@ function PosterGeneration() {
       case 3:
         return <Additionals />;
       case 4:
+        return <Caption/>;
+      case 5:
+        return <Additionals />;
+      case 6:
         return <Final />;
       default:
     }
