@@ -24,7 +24,7 @@ export default function Final() {
           </svg>
         </div>
 
-        <div className="mt-3 text-xl font-semibold uppercase text-violet-400">
+        <div className="mt-3 text-xl font-semibold uppercase text-[#1976d2]">
           Congratulations!
         </div>
         <div className=" text-black text-center">

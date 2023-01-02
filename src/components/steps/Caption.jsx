@@ -95,8 +95,8 @@ export default function Caption() {
 	return (
 		<div className="flex flex-col">
 			<div className="mx-2 w-full flex-1">
-				<h4 className="text-xl font-semibold">Description:</h4>
-				<p className="mb-10">Select a category from the options below to generate mind blowing captions. </p>
+				<h4 className="text-xl font-semibold">Caption Generation:</h4>
+				<p className="mb-10">Select a category from the options below to generate cool captions.</p>
 
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
 					<div className="space-y-4 flex-1">

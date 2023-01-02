@@ -9,7 +9,7 @@ import Heading from "~/components/home/heading";
 import Paragraph from "~/components/home/paragraph";
 import Additionals from "~/components/steps/Additionals";
 import Caption from "~/components/steps/Caption";
-
+import Hashtag from "~/components/steps/Hashtag";
 
 
 function PosterGeneration() {
@@ -35,7 +35,7 @@ function PosterGeneration() {
       case 4:
         return <Caption/>;
       case 5:
-        return <Additionals />;
+        return <Hashtag/>;
       case 6:
         return <Final />;
       default:
@@ -52,7 +52,7 @@ function PosterGeneration() {
   return (
     <section className="p-8 bg-white text-black font-poppins">
       <div className="container mx-auto flex flex-col items-center xl:max-w-3xl">
-        <Heading content={"Create Poster"} />
+        <Heading content={"Create Post"} />
         <Paragraph content={"Start creating poster in just few steps"} />
       </div>
       <div className="flex justify-center ">
