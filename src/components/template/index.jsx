@@ -1,7 +1,10 @@
 
 import usePosterContent from "../../hooks/usePosterContent";
 import EditIcon from '../../media/Images/edit.png';
+import InstaIcon from '../../media/Images/insta.png';
 import { useNavigate } from "react-router-dom";
+
+import Preview from '../preview/index';
 
 const fonts = [
 	{
@@ -88,11 +91,21 @@ const templatePreview = ({ data, index1 }) => {
 						</div>
 					</div>
 				</div>
-				<div className="z-20 absolute right-8 top-8">
+				<div className="z-20 absolute space-y-2 right-8 top-8">
 					<div className="hidden group-hover:flex relative">
 						<img className="absolute left-3 top-3" src={EditIcon} alt="Edit Icons" width="15px" height="15px" />
 						<button className="py-2 pl-8 pr-4 text-white text-md font-roboto font-bold rounded bg-black" onClick={handleClick} >Edit</button>
 					</div>
+
+					
+					{/* <div className="hidden group-hover:flex relative">
+						<Preview/>
+					</div> */}
+
+					
+					
+					
+					
 				</div>
 
 			</div>
