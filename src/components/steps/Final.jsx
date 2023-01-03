@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { useState } from 'react';
 import Preview from '../preview';
 
 export default function Final() {
 
-  const [accessToken,setAccessToken]=useState("")
-  const responseFacebook = (response) => {
-    console.log('access token:', response);
-    setAccessToken(response.accessToken)
-  }
+  // const [accessToken,setAccessToken]=useState("")
+  // const responseFacebook = (response) => {
+  //   console.log('access token:', response);
+  //   setAccessToken(response.accessToken)
+  // }
 
   return (
     <div className="container md:mt-10">
@@ -36,7 +36,7 @@ export default function Final() {
           </svg>
         </div>
 
-        <FacebookLogin
+        {/* <FacebookLogin
         appId="2812965265506326"
         autoLoad={true}
         fields="name,email,picture"
@@ -45,7 +45,7 @@ export default function Final() {
         render={renderProps => (
           <button className='h-10 px-5 bg-[#1976d2] hover:bg-blue-600 font-roboto font-bold rounded-lg text-white' onClick={renderProps.onClick}>This is my custom FB button</button>
         )}
-        />
+        /> */}
 
         <Preview/>
         <div className="mt-3 text-xl font-semibold uppercase text-[#1976d2]">
