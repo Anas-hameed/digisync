@@ -10,10 +10,15 @@ import Paragraph from "~/components/home/paragraph";
 import Additionals from "~/components/steps/Additionals";
 import Caption from "~/components/steps/Caption";
 import Hashtag from "~/components/steps/Hashtag";
+import Sidebar from "~/components/sidebar";
+
 
 
 function PosterGeneration() {
   const [currentStep, setCurrentStep] = useState(1);
+
+  const [insights,setInsights] = useState(false);
+  const [dashboard,setDashboard] =useState(true);
 
   const steps = [
     "Background",
@@ -55,8 +60,16 @@ function PosterGeneration() {
         <Heading content={"Create Post"} />
         <Paragraph content={"Start creating poster in just few steps"} />
       </div>
-      <div className="flex justify-center ">
-        <div className="w-full max-w-md  dark:bg-gray-900 dark:text-gray-100">
+      
+      <div className="flex justify-center sm:space-x-16 md:space-x-32">
+        <div className="hidden sm:block">
+            <Sidebar insights={insights} setInsights={setInsights} dashboard={dashboard} setDashboard={setDashboard}  />
+        </div>
+        {
+          dashboard ===true?
+          <div className="flex-1 ">
+        
+        <div className="w-full max-w-md  ">
 
           {/* Stepper */}
           <div className="horizontal container">
@@ -78,6 +91,22 @@ function PosterGeneration() {
           )}
         </div>
       </div>
+          :<>
+          <div className="flex-1 ">
+            <div className="w-full   dark:bg-gray-900 dark:text-gray-100">
+              <div className="horizontal container">
+                <div className="text-2xl text-black  font-poppins">
+                    Insights
+                </div>
+              </div>
+            </div>
+          </div>
+          </>
+        }
+        
+      </div>
+
+      
     </section>
 
   );
