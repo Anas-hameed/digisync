@@ -1,12 +1,15 @@
-function Sidebar({insights,setInsights,dashboard,setDashboard}){
+function Sidebar({setAccounts,setInsights,setDashboard}){
     return(
     <div className="min-h-full p-3 space-y-2 w-60 bg-gray-50 text-black">
         <div className="divide-y divide-gray-700">
             <ul className="pt-16 pb-4 space-y-4 text-sm">
-                {/* <li className="hover:bg-gray-200">
+                
+                
+                <li className="hover:bg-gray-200">
                     <button onClick={()=> {
                         setInsights(false);
                         setDashboard(false);
+                        setAccounts(true);
                     
                     }} rel="noopener noreferrer" className="flex items-center p-6 space-x-3 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
@@ -14,15 +17,14 @@ function Sidebar({insights,setInsights,dashboard,setDashboard}){
                         </svg>
                         <span>Connect accounts</span>
                     </button>
-                </li> */}
-                
-                
+                </li>
                 
                 
                 <li className="hover:bg-gray-200">
                     <button onClick={()=> {
                         setInsights(false);
                         setDashboard(true);
+                        setAccounts(false);
                     
                     }} rel="noopener noreferrer" className="flex items-center p-10 space-x-3 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
@@ -35,6 +37,7 @@ function Sidebar({insights,setInsights,dashboard,setDashboard}){
                     <button onClick={()=> {
                         setInsights(true);
                         setDashboard(false);
+                        setAccounts(false);
                     
                     }} rel="noopener noreferrer" href="" className="flex items-center p-10 space-x-3 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
