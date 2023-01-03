@@ -47,7 +47,7 @@ export default function Final() {
         )}
         /> */}
 
-        <Preview/>
+        {/* <Preview/> */}
         <div className="mt-3 text-xl font-semibold uppercase text-[#1976d2]">
           Congratulations!
         </div>

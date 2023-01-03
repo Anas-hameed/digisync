@@ -12,10 +12,10 @@ import Handles from '../../components/handles'
           <Hero/>
         </section>
 
-        <section id="connect handles">
+        {/* <section id="connect handles">
           <Handles/>
-        </section>
-          
+        </section> */}
+
         <section id='feature'>
           <Feature/>
         </section>
