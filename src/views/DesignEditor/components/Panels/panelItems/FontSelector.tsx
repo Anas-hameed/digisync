@@ -107,7 +107,7 @@ const FontSelector = () => {
                 })}
                 id={font.id}
               >
-                <img src={font.preview} />
+                <img src={font.preview} style={{height:'24px'}} />
               </div>
             )
           })}

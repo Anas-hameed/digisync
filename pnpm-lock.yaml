@@ -24,6 +24,7 @@ specifiers:
   baseui: ^12.0.0
   daisyui: ^2.46.1
   dalle-node: ^1.0.7
+  dom-to-image: ^2.6.0
   flowbite: ^1.6.0
   flowbite-react: ^0.3.7
   formik: ^2.2.9
@@ -73,6 +74,7 @@ dependencies:
   baseui: 12.0.0_vx6l3m7grhdjsdty3rfvukcune
   daisyui: 2.46.1_xkowlklhtk6sfvtndbucb3hfiy
   dalle-node: 1.0.7
+  dom-to-image: 2.6.0
   flowbite: 1.6.0
   flowbite-react: 0.3.7_zfv36yuafttocjsl4q6danlrry
   formik: 2.2.9_react@18.2.0
@@ -2358,6 +2360,10 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.6
       csstype: 3.1.0
+    dev: false
+
+  /dom-to-image/2.6.0:
+    resolution: {integrity: sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA==}
     dev: false
 
   /domexception/4.0.0:

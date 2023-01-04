@@ -1,8 +1,9 @@
-import { useEffect } from "react"
-import { Canvas as LayerhubCanvas } from "@layerhub-io/react"
-import Playback from "../Playback"
-import useDesignEditorContext from "~/hooks/useDesignEditorContext"
-import ContextMenu from "../ContextMenu"
+import React from "react";
+import { useEffect } from "react";
+import { Canvas as LayerhubCanvas } from "@layerhub-io/react";
+import Playback from "../Playback";
+import useDesignEditorContext from "~/hooks/useDesignEditorContext";
+import ContextMenu from "../ContextMenu";
 
 
 import { FontItem } from "~/interfaces/common"
@@ -12,7 +13,7 @@ import { nanoid } from "nanoid"
 import { images } from "~/constants/mock-data"
 import { useEditor } from "@layerhub-io/react"
 import { useState } from "react"
-
+import { SAMPLE_TEMPLATES } from "~/constants/editor"
 
 import usePosterContent from "../../../../hooks/usePosterContent";
 
@@ -41,43 +42,64 @@ const Canvas = () => {
     index,
     setIndex,
     selectedPoster,
-    setSelectedPoster } = usePosterContent();
+  setSelectedPoster } = usePosterContent();
+  
+  const { scenes,setScenes,setCurrentScene, currentScene } = useDesignEditorContext()
 
 
-  const loadImage = async (source: string) => {
-    await editor.objects.add({
-      type: "StaticImage",
-      src: source
-    })
-  }
+ 
 
-  // const loadFont= async (font: FontItem) => {
-  //   await editor.objects.add({
-  //     type: "StaticText",
-  //     text: "Text",
-  //     font: font,
-  //     fontSize: 20,
-  //     color: "#000000",
-  //     x: 0,
-  //     y: 0,
-  //     width: 100,
-  //     height: 100,
-  //   })
-  // }
-  const [loaded, setloaded]= useState(false);
+  const loadTemplate = React.useCallback(
+
+    async (template: any) => {
+      if (editor) {
+        const fonts: any[] = []
+        template.layers.forEach((object: any) => {
+          if (object.type === "StaticText" || object.type === "DynamicText") {
+            fonts.push({
+              name: object.fontFamily,
+              url: object.fontURL,
+              options: { style: "normal", weight: 400 },
+            })
+          }
+        })
+        const filteredFonts = fonts.filter((f) => !!f.url)
+        if (filteredFonts.length > 0) {
+          await loadFonts(filteredFonts)
+        }
+        setCurrentScene({ ...template , id: currentScene?.id })
+      }
+    },
+    [editor, currentScene]
+  )
+
+ 
+
+
+  const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
     console.log(image);
     if (editor) {
       if (image.length > 0) {
-        if(!loaded){
-          loadImage(image[selectedPoster].image_path);
-        }else{
-          setloaded(false);
-        }
+        if (!loaded) {
+          SAMPLE_TEMPLATES[selectedPoster].id= nanoid();
+          console.log(posterText[index]);
+          SAMPLE_TEMPLATES[selectedPoster].layers[0].src = image[selectedPoster].image_path;
+          SAMPLE_TEMPLATES[selectedPoster].layers[1].text= Title;
+          SAMPLE_TEMPLATES[selectedPoster].layers[2].text= posterText[index];
+          SAMPLE_TEMPLATES[selectedPoster].layers[3].text= Promotion;
+          SAMPLE_TEMPLATES[selectedPoster].layers[4].text= Description;
+          SAMPLE_TEMPLATES[selectedPoster].layers[5].text= prompt;
+          SAMPLE_TEMPLATES[selectedPoster].layers[6].text= Contact;
+          loadTemplate(SAMPLE_TEMPLATES[selectedPoster]);
+          setloaded(true);
+        } 
       }
+      console.log("Hello");
+      console.log(scenes);
     }
-  }, [selectedPoster, image,editor]);
+  }, [selectedPoster, editor, image]);
 
   return (
     <div style={{ flex: 1, display: "flex", position: "relative" }}>
@@ -101,4 +123,4 @@ const Canvas = () => {
   )
 }
 
-export default Canvas
+export default Canvas;
