@@ -13,6 +13,12 @@ const people = [
 	{ name: 'Cyber Security' },
 	{ name: 'Robotics' },
 	{ name: 'IoT' },
+	{ name: 'Artificial Intelligence' },
+	{ name: 'Software Engineering' },
+	{ name: 'Data Science' },
+	{ name: 'Cyber Security' },
+	{ name: 'Robotics' },
+	{ name: 'IoT' },
 	{ name: 'life' },
 	{ name: 'happiness' },
 	{ name: 'love' },
@@ -52,7 +58,8 @@ const people = [
 
 ]
 
-export default function Details() {
+export default function Hashtag() {
+
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
@@ -61,37 +68,35 @@ export default function Details() {
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
-		// axiosInstance.post('/post/posterContent', {
-		// 	"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
-		// 	"temperature": 0.7,
-		// 	"batch_size": 10
-		// }).then(
-		// 	result => {
-			// setPosterText(result.data);
-			setPosterText(["AI is controlling and moving the content creation to new ERA"]);
-
-			setCatagory(selected.name);
+		axiosInstance.post('/post/posterHashtag', {
+			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
+			"temperature": 0.7,
+			"batch_size": 10
+		}).then(
+			result => {
+				setLoading(false);
+				setPosterText(result.data);
+				setCatagory(selected.name);
+				toast.success('Text Generated, Move forward to next step');
+				console.log(result.data);
+			}
+		).catch(error => {
 			setLoading(false);
-			toast.success('Text Generated, Move forward to next step');
-		// 		console.log(result.data);
-		// 	}
-		// ).catch(error => {
-		// 	setLoading(false);
-		// 	console.log(error);
-		// 	if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-		// 		toast.error(error.response.data.message);
-		// 	}
-		// 	else {
-		// 		toast.error("Something went wrong! Please try again.");
-		// 	}
-		// });
+			console.log(error);
+			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+				toast.error(error.response.data.message);
+			}
+			else {
+				toast.error("Something went wrong! Please try again.");
+			}
+		});
 	}
 
 	return (
 		<div className="flex flex-col">
 			<div className="mx-2 w-full flex-1">
-				<h4 className="text-xl font-semibold">Text generation:</h4>
-				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
+				<h4 className="text-xl font-semibold">Hashtag generation:</h4>
+				<p className="mb-10">Select a category from the options below to generate awesome hashtags. </p>
 
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
 					<div className="space-y-4 flex-1">

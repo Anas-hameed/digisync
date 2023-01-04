@@ -2,7 +2,7 @@ import CTA from '../../components/home/cta'
 import FAQ from '../../components/home/faq'
 import Feature from '../../components/home/feature'
 import Hero from '../../components/home/hero'
-
+import Handles from '../../components/handles'
 
  function Home() {
   return (
@@ -11,6 +11,10 @@ import Hero from '../../components/home/hero'
         <section id='hero'>
           <Hero/>
         </section>
+
+        {/* <section id="connect handles">
+          <Handles/>
+        </section> */}
 
         <section id='feature'>
           <Feature/>
