@@ -25,7 +25,7 @@ export default function Background() {
 		onSubmit: (values) => {
 			if(!loading){
 				setloading(true);
-				axiosInstance.post('/post/graphics', {
+				axiosInstance.post('/post/midJourneyGraphics', {
 					"prompt": values.prompt
 	
 				}).then(result => {
