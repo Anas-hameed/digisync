@@ -58,7 +58,8 @@ const people = [
 
 ]
 
-export default function Details() {
+export default function Caption() {
+
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
@@ -67,7 +68,7 @@ export default function Details() {
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
-		axiosInstance.post('/post/posterContent', {
+		axiosInstance.post('/post/posterCaption', {
 			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
 			"temperature": 0.7,
 			"batch_size": 10
@@ -94,8 +95,8 @@ export default function Details() {
 	return (
 		<div className="flex flex-col">
 			<div className="mx-2 w-full flex-1">
-				<h4 className="text-xl font-semibold">Text generation:</h4>
-				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
+				<h4 className="text-xl font-semibold">Caption Generation:</h4>
+				<p className="mb-10">Select a category from the options below to generate cool captions.</p>
 
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
 					<div className="space-y-4 flex-1">

@@ -57,7 +57,7 @@ export default function Background() {
 		<>
 			<div className="flex flex-col ">
 				<div className="mx-2 w-full flex-1">
-					<h4 className="text-xl font-semibold">Description:</h4>
+					<h4 className="text-xl font-semibold">Background generation:</h4>
 					<p className="mb-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>
 					<form onSubmit={formik.handleSubmit} action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
 						<div className="space-y-4">

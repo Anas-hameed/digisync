@@ -50,7 +50,7 @@ export default function Additionals() {
 	return (
 		<div className="flex flex-col">
 			<div className="w-full mx-2 flex-1">
-				<h4 className="text-xl font-semibold">Description:</h4>
+				<h4 className="text-xl font-semibold">Additionals:</h4>
 				<p className="mb-10">Enter the following details to create a stunning poster with CTA and logos etc. </p>
 
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid">
@@ -72,9 +72,10 @@ export default function Additionals() {
 							{formik.touched && formik.errors.description ? <p className="text-red-600 text-xs">{formik.errors.description}</p> : null}
 						</div>
 						<Button onClick={handleSubmit} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white " >Add</Button>
-						{error?.length?
-						<p className="mt-10">{error}</p>:
-						<p className="mt-10">Sucessfully added the imformation</p>
+						{
+						// error?.length?
+						// <p className="mt-10">{error}</p>:
+						// <p className="mt-10">Sucessfully added the imformation</p>
 						}
 
 					</div>
