@@ -14,6 +14,7 @@ import Sidebar from "~/components/sidebar";
 import axiosInstance from "~/axios/axiosinstance";
 import Handles from "~/components/handles";
 import {toast} from 'react-toastify';
+import MyTabs from "~/components/tabs";
 
 
 function PosterGeneration() {
@@ -87,8 +88,8 @@ function PosterGeneration() {
 
   return (
     <section className="p-8 bg-white text-black font-poppins">
-      
-      <div className="flex justify-center sm:space-x-16 md:space-x-32">
+      {/* for desktop */}
+      <div className=" hidden sm:flex sm:justify-center sm:space-x-16 md:space-x-32">
         <div className="hidden sm:block w-[80]">
             <Sidebar accounts={accounts} setAccounts={setAccounts} insights={insights} setInsights={setInsights} dashboard={dashboard} setDashboard={setDashboard}  />
         </div>
@@ -168,6 +169,107 @@ function PosterGeneration() {
           </div>
           </>
         }
+        
+      </div>
+
+      {/* for mobile */}
+
+      <div className="block sm:hidden  ">
+        <div className="  sm:hidden ">
+            <MyTabs tab1={'Accounts'} tab2={'Dashboard'} tab3={'Insights'}tab4={'Gallery'}
+            content1={
+              <div className="flex-1 ">
+              <div className="w-full max-w-md  ">
+                <div className="horizontal container">
+                  <div className="text-4xl text-bold text-black p-10 font-poppins " >Accounts</div>
+                  <Handles/>
+                </div>
+              </div>
+            </div>
+            }
+            content2={
+              <div className="flex-1">
+        
+        <div className="w-full max-w-md">
+
+          {/* Stepper */}
+          <div className="horizontal container ">
+
+            <Stepper steps={steps} currentStep={currentStep} />
+
+            <div className="my-10 p-10">
+              <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
+            </div>
+          </div>
+
+          {/* navigation button */}
+          {currentStep !== steps.length && (
+            <StepperControl
+              handleClick={handleClick}
+              currentStep={currentStep}
+              steps={steps}
+            />
+          )}
+        </div>
+      </div>
+
+            }
+
+            content3={
+              <div className="flex-1 ">
+            <div className="w-full   dark:bg-gray-900 dark:text-gray-100">
+              <div className="horizontal container">
+                <div className="text-4xl text-bold text-black p-10 font-poppins " > Insights</div>
+                <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
+                    {                        
+                      data.map((item)=>(
+                        <div className="text-black font-poppins m-8 p-4 border rounded-md bg-gray-50 ">
+                          {item.title}
+
+                          {
+                            item.values.map((index)=>(
+                              <div>
+                                  <div className="text-base text-black">
+                                  Value: {index.value}
+                                  </div>
+                                  <div  className="text-base text-black">
+                                  End time: {index.end_time}
+                                  </div>
+                                    
+                              </div> 
+                            )
+                            )
+
+                          }
+                          
+                          
+
+                        </div>
+                        
+                        
+
+                      ))  
+                    }
+                </div>
+              </div>
+            </div>
+          </div>
+
+            }
+
+            content4={
+              <div className="flex-1 ">
+              <div className="w-full max-w-md  ">
+                <div className="horizontal container">
+                  <div className="text-4xl text-bold text-black p-10 font-poppins " >Gallery</div>
+                </div>
+              </div>
+              </div>
+            }
+            />
+
+        </div>
+        
         
       </div>
 
