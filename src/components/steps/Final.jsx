@@ -48,7 +48,7 @@ export default function Final() {
         /> */}
 
         {/* <Preview/> */}
-        <div className="mt-3 text-xl font-semibold uppercase text-[#1976d2]">
+        <div className="mt-3 text-xl font-semibold uppercase text-[#1565c0]">
           Congratulations!
         </div>
         <div className=" text-black text-center">
@@ -56,7 +56,7 @@ export default function Final() {
           Press continue to see.
         </div>
         <Link className="mt-10" to="/templates">
-          <button className="h-10 px-5 bg-[#1976d2] text-white font-roboto font-bold transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-[#1565c0] ">
+          <button className="h-10 px-5 bg-[#1565c0] text-white font-roboto font-bold transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-[#1565c0] ">
             Continue
           </button>
         </Link>

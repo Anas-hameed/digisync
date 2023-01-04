@@ -4,7 +4,6 @@ const baseURL = "http://localhost:4000/digsync/api/v0.1";
 
 var loginToken = localStorage.getItem('token');
 
-console.log("Token: "+loginToken);
 
 const axiosInstance = axios.create({
     baseURL: baseURL,

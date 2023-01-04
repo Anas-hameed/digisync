@@ -57,7 +57,7 @@ export default function Details() {
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
 	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
-	
+
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -67,12 +67,12 @@ export default function Details() {
 		// 	"batch_size": 10
 		// }).then(
 		// 	result => {
-			// setPosterText(result.data);
-			setPosterText(["AI is controlling and moving the content creation to new ERA"]);
+		// setPosterText(result.data);
+		setPosterText(["AI is controlling and moving the content creation to new ERA"]);
 
-			setCatagory(selected.name);
-			setLoading(false);
-			toast.success('Text Generated, Move forward to next step');
+		setCatagory(selected.name);
+		setLoading(false);
+		toast.success('Text Generated, Move forward to next step');
 		// 		console.log(result.data);
 		// 	}
 		// ).catch(error => {
@@ -102,20 +102,22 @@ export default function Details() {
 					</div>
 					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
 				</div>
-				{posterText.length!==0 &&
-				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
-					{posterText.map((item, index) => {
-						return (
-							<div className="flex relative" key={index}>
-								<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
-									setSelectedText(index);
-									setIndex(index);
-								}} >{item}</p>
-								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
-							</div>
-						)
-					})}
-				</div>}
+				{
+					posterText.length !== 0 &&
+					<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
+						{posterText.map((item, index) => {
+							return (
+								<div className="flex relative" key={index}>
+									<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
+										setSelectedText(index);
+										setIndex(index);
+									}} >{item}</p>
+									{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
+								</div>
+							)
+						})}
+					</div>
+				}
 			</div>
 		</div>
 	);

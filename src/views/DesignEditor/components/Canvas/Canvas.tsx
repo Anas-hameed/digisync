@@ -79,12 +79,10 @@ const Canvas = () => {
   const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
-    console.log(image);
     if (editor) {
       if (image.length > 0) {
         if (!loaded) {
           SAMPLE_TEMPLATES[selectedPoster].id= nanoid();
-          console.log(posterText[index]);
           SAMPLE_TEMPLATES[selectedPoster].layers[0].src = image[selectedPoster].image_path;
           SAMPLE_TEMPLATES[selectedPoster].layers[1].text= Title;
           SAMPLE_TEMPLATES[selectedPoster].layers[2].text= posterText[index];

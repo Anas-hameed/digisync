@@ -24,7 +24,10 @@ interface IPosterContext {
   setIndex: (value: number) => void,
   selectedPoster: number,
   setSelectedPoster: (value: number) => void,
-
+  caption: string, 
+  setCaption: (value: string) => void,
+  hastag: Template[],
+  setHastag: (value: string[]) => void,
 }
 
 export const PosterContext = createContext<IPosterContext>({
@@ -50,6 +53,10 @@ export const PosterContext = createContext<IPosterContext>({
   setIndex: (value: number) => { },
   selectedPoster:  0,
   setSelectedPoster: (value: number) => { },
+  caption: "",
+  setCaption: (value: string) => { },
+  hastag: [],
+  setHastag: (value: string[]) => { },
 })
 
 export const PosterContextProvider = ({ children }: { children: React.ReactNode }) => {
@@ -64,6 +71,8 @@ export const PosterContextProvider = ({ children }: { children: React.ReactNode 
   const [Font, setFont] = useState<Template[]>([])
   const [index, setIndex] = useState<number>(0);
   const [selectedPoster, setSelectedPoster] = useState<number>(0);
+  const [caption, setCaption] = useState<string>("dodod");
+  const [hastag, setHastag] = useState<Template[]>([]);
   const context = {
     prompt,
     setPrompt,
@@ -86,7 +95,11 @@ export const PosterContextProvider = ({ children }: { children: React.ReactNode 
     index,
     setIndex,
     selectedPoster,
-    setSelectedPoster
+    setSelectedPoster,
+    caption,
+    setCaption,
+    hastag,
+    setHastag,
   }
   return <PosterContext.Provider value={context}>{children}</PosterContext.Provider>
 }

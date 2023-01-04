@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import axiosInstance from '../../axios/axiosinstance';
 import selectIcon from '../../media/Images/check.png';
 import usePosterContent from "~/hooks/usePosterContent";
+
 const people = [
 	{ name: 'Artificial Intelligence' },
 	{ name: 'Software Engineering' },
@@ -60,25 +61,35 @@ const people = [
 
 export default function Hashtag() {
 
-	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
-	const [selectedText, setSelectedText] = useState(0);
-	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
-	
+	const [hashtags, setHashtags] = useState([]);
+	const { prompt, caption, setHastag } = usePosterContent();
+	const [selectedHashtags, setSelectedHashtags] = useState('');
+
+
+	const makeSelection = (index) => {
+		let temp = [...hashtags];
+		temp[index].selected = !temp[index].selected;
+		// filter the selected hashtags
+		let selectedHashtags = temp.filter(item => item.selected);
+		// make a string of selected hashtags
+		let hashtagsString = selectedHashtags.map(item => item.name).join(' #');
+		setSelectedHashtags(`#${hashtagsString}`);
+		setHastag(`#${hashtagsString}`);
+	}
+
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
-		axiosInstance.post('/post/posterHashtag', {
-			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
-			"temperature": 0.7,
-			"batch_size": 10
+		axiosInstance.post('/post/hashtags', {
+			"caption": caption,
 		}).then(
 			result => {
 				setLoading(false);
-				setPosterText(result.data);
-				setCatagory(selected.name);
 				toast.success('Text Generated, Move forward to next step');
-				console.log(result.data);
+				setHashtags(result.data);
+				setSelectedHashtags('');
+				setHastag(``);
 			}
 		).catch(error => {
 			setLoading(false);
@@ -96,31 +107,29 @@ export default function Hashtag() {
 		<div className="flex flex-col">
 			<div className="mx-2 w-full flex-1">
 				<h4 className="text-xl font-semibold">Hashtag generation:</h4>
-				<p className="mb-10">Select a category from the options below to generate awesome hashtags. </p>
+				<p className="mb-10">{prompt} <br />{caption}<br />
+					<span className="font-bold">
+						{selectedHashtags}
+					</span>
+				</p>
 
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
-					<div className="space-y-4 flex-1">
-						<div className="space-y-2">
-							<label htmlFor="prompt" className="block text-sm">Category</label>
-							<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
-						</div>
-					</div>
 					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
 				</div>
-				{posterText.length!==0 &&
-				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
-					{posterText.map((item, index) => {
-						return (
-							<div className="flex relative" key={index}>
-								<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
-									setSelectedText(index);
-									setIndex(index);
-								}} >{item}</p>
-								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
-							</div>
-						)
-					})}
-				</div>}
+				{hashtags.length !== 0 &&
+					<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
+						<div className="flex flex-row flex-wrap">
+							{
+								hashtags.map((item, index) => {
+									return (
+										<div className="relative" key={item.id}>
+											<p className={`m-4 p-4 box-shadow-custom rounded-lg mt-4 text-sm font-poppins ${item.selected && 'border-green-600 border-2'} `} onClick={() => { makeSelection(index) }}>#{item.name}</p>
+											{item.selected && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
+										</div>
+									)
+								})}
+						</div>
+					</div>}
 			</div>
 		</div>
 	);

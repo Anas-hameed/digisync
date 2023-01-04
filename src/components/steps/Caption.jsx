@@ -63,33 +63,35 @@ export default function Caption() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
-	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
+	const [captionList, setCaptionList] = useState(["If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you", "Security is mostly a superstition. Life is either a daring adventure or nothing."]);
+
+	const { setCaption  } = usePosterContent();
 	
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
-		axiosInstance.post('/post/posterCaption', {
-			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
-			"temperature": 0.7,
-			"batch_size": 10
-		}).then(
-			result => {
+		// axiosInstance.post('/post/captions', {
+		// 	"prefix": `_TOPIC_ ${selected.name} _QUOTE_`
+		// }).then(
+		// 	result => {
+				// console.log(selected.name);
+				// setCaptionList(result.data);
+				// setCaption(result.data[0]);
+				setCaption(captionList[0]);
 				setLoading(false);
-				setPosterText(result.data);
-				setCatagory(selected.name);
-				toast.success('Text Generated, Move forward to next step');
-				console.log(result.data);
-			}
-		).catch(error => {
-			setLoading(false);
-			console.log(error);
-			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-				toast.error(error.response.data.message);
-			}
-			else {
-				toast.error("Something went wrong! Please try again.");
-			}
-		});
+
+				toast.success('Caption Generated Successfully!');
+				// 	}
+		// ).catch(error => {
+		// 	setLoading(false);
+		// 	console.log(error);
+		// 	if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+		// 		toast.error(error.response.data.message);
+		// 	}
+		// 	else {
+		// 		toast.error("Something went wrong! Please try again.");
+		// 	}
+		// });
 	}
 
 	return (
@@ -107,14 +109,14 @@ export default function Caption() {
 					</div>
 					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
 				</div>
-				{posterText.length!==0 &&
+				{captionList.length!==0 &&
 				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
-					{posterText.map((item, index) => {
+					{captionList.map((item, index) => {
 						return (
 							<div className="flex relative" key={index}>
-								<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
+								<p className={`m-4 cursor-pointer p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
 									setSelectedText(index);
-									setIndex(index);
+									setCaption(item);
 								}} >{item}</p>
 								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
 							</div>
