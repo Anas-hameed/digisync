@@ -87,13 +87,9 @@ function PosterGeneration() {
 
   return (
     <section className="p-8 bg-white text-black font-poppins">
-      <div className="container mx-auto flex flex-col items-center xl:max-w-3xl">
-        <Heading content={"Post and Insights"} />
-        <Paragraph content={"Start creating poster in just few steps or see insights of posts"} />
-      </div>
       
       <div className="flex justify-center sm:space-x-16 md:space-x-32">
-        <div className="hidden sm:block">
+        <div className="hidden sm:block w-[80]">
             <Sidebar accounts={accounts} setAccounts={setAccounts} insights={insights} setInsights={setInsights} dashboard={dashboard} setDashboard={setDashboard}  />
         </div>
         {
@@ -107,9 +103,9 @@ function PosterGeneration() {
             </div>
           </div>
           :dashboard==true?
-          <div className="flex-1 ">
+          <div className="flex-1">
         
-        <div className="w-full max-w-md  ">
+        <div className="w-full max-w-md">
 
           {/* Stepper */}
           <div className="horizontal container ">
