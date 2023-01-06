@@ -13,6 +13,7 @@ const Graphic = () => {
     if (editor) {
       const template = editor.scene.exportToJSON()
       const image = (await editor.renderer.render(template)) as string
+      console.log(image)
       setState({ image })
       setLoading(false)
     }
@@ -23,9 +24,12 @@ const Graphic = () => {
   }, [editor])
 
   return (
-    <Block $style={{ flex: 1, alignItems: "center", justifyContent: "center", display: "flex", padding: "5rem" }}>
+    <div className="m-auto my-8">
       {!loading && <img width="auto" height="100%" src={state.image} />}
-    </Block>
+
+    </div>
+    // <Block $style={{ flex: 1, alignItems: "center", justifyContent: "center", display: "flex", padding: "5rem" }}>
+    // </Block>
   )
 }
 

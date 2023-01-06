@@ -14,6 +14,10 @@ import { loadVideoEditorAssets } from "~/utils/video"
 import DesignTitle from "./DesignTitle"
 import { IDesign } from "~/interfaces/DesignEditor"
 import Github from "~/components/Icons/Github"
+import axiosInstance from '~/axios/axiosinstance';
+import { toast } from 'react-toastify';
+import usePosterContent from "~/hooks/usePosterContent";
+
 
 const Container = styled<"div", {}, Theme>("div", ({ $theme }) => ({
   height: "64px",
@@ -25,7 +29,7 @@ const Container = styled<"div", {}, Theme>("div", ({ $theme }) => ({
 }))
 
 const Navbar = () => {
-  const { setDisplayPreview, setScenes, setCurrentDesign, currentDesign, scenes } = useDesignEditorContext()
+  const { setDisplayPreview, setScenes, setCurrentDesign, currentDesign, scenes } = useDesignEditorContext();
   const editorType = useEditorType()
   const editor = useEditor()
   const inputFileRef = React.useRef<HTMLInputElement>(null)
@@ -149,7 +153,7 @@ const Navbar = () => {
       } else if (editorType === "PRESENTATION") {
         return parsePresentationJSON()
       } else {
-      return parseVideoJSON()
+        return parseVideoJSON()
       }
     }
   }
@@ -258,14 +262,40 @@ const Navbar = () => {
     }
   }
 
+  const { caption, hastag } = usePosterContent();
+
+  const handleClick = async () => {
+    const template = editor.scene.exportToJSON()
+    const image = (await editor.renderer.render(template)) as string
+    console.log(image);
+    let data = new FormData();
+    data.append('data', image);
+    data.append('message', `${caption}\n${hastag}`);
+    axiosInstance.post(`/meta/postOnInsta`, data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      }, timeout: 5000000
+    })
+      .then(res => {
+        console.log(res);
+        if (res.status === 201) {
+          toast.success("Successfully posted on Instagram");
+        }
+      }).catch(err => {
+        console.log(err.message);
+        toast.error(err.message);
+      });
+  }
+
+
   return (
     // @ts-ignore
     <ThemeProvider theme={DarkTheme}>
-      <Container>
+      <Container style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ color: "#ffffff" }}>
           <Logo size={36} />
         </div>
-        <DesignTitle />
+        {/* <DesignTitle /> */}
         <Block $style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
           <input
             multiple={false}
@@ -321,7 +351,7 @@ const Navbar = () => {
 
           <Button
             size="compact"
-            onClick={() => window.location.replace("https://github.com/layerhub-io/react-design-editor")}
+            onClick={() => window.location.replace("https://github.com/Anas-hameed/digisync")}
             kind={KIND.tertiary}
           >
             <Github size={24} />
@@ -330,10 +360,10 @@ const Navbar = () => {
           <Button
             style={{ marginLeft: "0.5rem" }}
             size="compact"
-            onClick={() => window.location.replace("https://editor.layerhub.io")}
+            onClick={() => handleClick()}
             kind={KIND.primary}
           >
-            Try PRO
+            Publish
           </Button>
         </Block>
       </Container>

@@ -4,6 +4,7 @@ import Router from "./Router";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from "./components/navbar";
+import Footer from "./components/footer/footer";
 
 
 type MyProps = any;
@@ -41,7 +42,8 @@ class App extends React.Component<MyProps, MyState> {
 
 
   render() {
-	const logout= () => {  
+    console.log(location.pathname);
+	  const logout= () => {  
 
 		this.setState({
 			...this.state, 
@@ -68,6 +70,7 @@ class App extends React.Component<MyProps, MyState> {
             draggable
             pauseOnHover
           />
+          <Footer />
         </>
       )
     }
