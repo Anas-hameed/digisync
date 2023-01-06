@@ -22,7 +22,7 @@ function PosterGeneration() {
   const [insights,setInsights] = useState(false);
   const [dashboard,setDashboard] =useState(false);
   const [accounts,setAccounts] =useState(true);
-  const [data,setData] = useState();
+  const [data,setData] = useState([]);
 
 
   useEffect(()=>{
@@ -41,7 +41,8 @@ function PosterGeneration() {
           toast.error("Network Error!");
       }
       else if('response' in error && 'data' in error.response && 'message' in error?.response?.data){
-          toast.error(error.response.data.message);
+          // toast.error(error.response.data.message);
+          console.log(error.response.data.message);
       }
       else
       {
@@ -106,7 +107,7 @@ function PosterGeneration() {
           :dashboard==true?
           <div className="flex-1">
         
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-[600px]">
 
           {/* Stepper */}
           <div className="horizontal container ">
@@ -135,7 +136,7 @@ function PosterGeneration() {
                 <div className="text-4xl text-bold text-black p-10 font-poppins " > Insights</div>
                 <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
                     {                        
-                      data.map((item)=>(
+                      data.length!==0 && data.map((item)=>(
                         <div className="text-black font-poppins m-8 p-4 border rounded-md bg-gray-50 ">
                           {item.title}
 
@@ -152,10 +153,7 @@ function PosterGeneration() {
                               </div> 
                             )
                             )
-
-                          }
-                          
-                          
+                          }     
 
                         </div>
                         
@@ -174,7 +172,7 @@ function PosterGeneration() {
 
       {/* for mobile */}
 
-      <div className="block sm:hidden  ">
+      <div className="block sm:hidden ">
         <div className="  sm:hidden ">
             <MyTabs tab1={'Accounts'} tab2={'Dashboard'} tab3={'Insights'}tab4={'Gallery'}
             content1={
@@ -222,7 +220,7 @@ function PosterGeneration() {
                 <div className="text-4xl text-bold text-black p-10 font-poppins " > Insights</div>
                 <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
                     {                        
-                      data.map((item)=>(
+                      data.length!==0 && data.map((item)=>(
                         <div className="text-black font-poppins m-8 p-4 border rounded-md bg-gray-50 ">
                           {item.title}
 

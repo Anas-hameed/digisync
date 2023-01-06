@@ -28,7 +28,6 @@ class App extends React.Component<MyProps, MyState> {
       firstName: UserProfile.getFirstName(),
       lastName: UserProfile.getLastName(),
     };
-    console.log(user);
     return user;
   }
   async componentDidMount() {

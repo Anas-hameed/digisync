@@ -24,7 +24,11 @@ const usePosterContent = () => {
         index,
         setIndex,
         selectedPoster,
-        setSelectedPoster
+        setSelectedPoster, 
+        caption,
+        setCaption,
+        hastag,
+        setHastag
     } = useContext(PosterContext);
 
     return {
@@ -49,7 +53,11 @@ const usePosterContent = () => {
         index,
         setIndex,
         selectedPoster,
-        setSelectedPoster
+        setSelectedPoster,
+        caption,
+        setCaption,
+        hastag,
+        setHastag
     };
 }
 

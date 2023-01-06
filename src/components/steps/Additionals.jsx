@@ -31,7 +31,6 @@ export default function Additionals() {
 		}),
 
 		onSubmit: (values) => {
-			console.log(values,"dkdkddk");
 			setTitle(values.title);
 			setPromotion(values.promotions);
 			setContact(values.contact);

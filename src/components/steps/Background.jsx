@@ -28,7 +28,7 @@ export default function Background() {
 				axiosInstance.post('/post/midJourneyGraphics', {
 					"prompt": values.prompt
 	
-				}).then(result => {
+				}, {timeout:120000000}).then(result => {
 					console.log(result.data);
 					setImage(result.data.generation);
 					setPrompt(values.prompt);
