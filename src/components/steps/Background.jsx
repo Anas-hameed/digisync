@@ -10,27 +10,6 @@ import { useState } from "react";
 import { Button, SIZE } from "baseui/button";
 import usePosterContent  from "../../hooks/usePosterContent";
 
-const result ={
-	"generation": [
-	  {
-		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/1.png"
-	  }
-	  ,
-	  {
-		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/2.png"
-	  }
-	  ,{
-		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/3.png"
-	  }
-	  ,
-	  {
-		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/4.png"
-	  }
-	],
-	"prompt": "A rebot learning to program itself in purple background"
-}
-
-
 export default function Background() {
 	const [loading, setloading]= useState(false);
 	const { prompt,setPrompt,image,setImage}= usePosterContent();
@@ -44,42 +23,32 @@ export default function Background() {
 				.max(200, 'Too Long!')
 		}),
 		onSubmit: (values) => {
-
-			setImage(result.generation);
-			setPrompt(result.prompt);
-			// setloading(false);
-			toast.success('Background Generated, Move forward to next step');
-
-
-			// if(!loading){
-			// 	setloading(true);
-			// 	axiosInstance.post('/post/midJourneyGraphics', {
-			// 		"prompt": values.prompt
+			if(!loading){
+				setloading(true);
+				axiosInstance.post('/post/midJourneyGraphics', {
+					"prompt": values.prompt
 	
-			// 	}, {timeout:120000000}).then(result => {
-			// 		console.log(result.data);
-			// 		setImage(result.data.generation);
-			// 		setPrompt(values.prompt);
-			// 		setloading(false);
-			// 		toast.success('Background Generated, Move forward to next step');
+				}, {timeout:120000000}).then(result => {
+					console.log(result.data);
+					setImage(result.data.generation);
+					setPrompt(values.prompt);
+					setloading(false);
+					toast.success('Background Generated, Move forward to next step');
 
-			// 	}
-			// 	).catch(error => {
-			// 		setloading(false);
-			// 		console.log(error);
-			// 		if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-			// 			toast.error(error.response.data.message);
-			// 		}
-			// 		else {
-			// 			toast.error("Something went wrong! Please try again.");
-			// 		}
-			// 	})
-
-
-
-			// }else{
-			// 	toast.error("Please wait for the previous request to complete");
-			// }
+				}
+				).catch(error => {
+					setloading(false);
+					console.log(error);
+					if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+						toast.error(error.response.data.message);
+					}
+					else {
+						toast.error("Something went wrong! Please try again.");
+					}
+				})
+			}else{
+				toast.error("Please wait for the previous request to complete");
+			}
 		}
 	});
 

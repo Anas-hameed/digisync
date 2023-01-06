@@ -69,37 +69,29 @@ export default function Caption() {
 	
 	const fetchData = (e) => {
 		e.preventDefault();
-		
-		
-		setCaption(captionList[0]);
-		
+		setLoading(true);
+		axiosInstance.post('/post/captions', {
+			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`
+		}).then(
+			result => {
+				console.log(selected.name);
+				setCaptionList(result.data);
+				setCaption(result.data[0]);
+				// setCaption(captionList[0]);
+				setLoading(false);
 
-		toast.success('Caption Generated Successfully!');
-		
-		// setLoading(true);
-
-		// axiosInstance.post('/post/captions', {
-		// 	"prefix": `_TOPIC_ ${selected.name} _QUOTE_`
-		// }).then(
-		// 	result => {
-		// 		console.log(selected.name);
-		// 		setCaptionList(result.data);
-		// 		setCaption(result.data[0]);
-		// 		// setCaption(captionList[0]);
-		// 		setLoading(false);
-
-		// 		toast.success('Caption Generated Successfully!');
-		// 	}
-		// ).catch(error => {
-		// 	setLoading(false);
-		// 	console.log(error);
-		// 	if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-		// 		toast.error(error.response.data.message);
-		// 	}
-		// 	else {
-		// 		toast.error("Something went wrong! Please try again.");
-		// 	}
-		// });
+				toast.success('Caption Generated Successfully!');
+			}
+		).catch(error => {
+			setLoading(false);
+			console.log(error);
+			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+				toast.error(error.response.data.message);
+			}
+			else {
+				toast.error("Something went wrong! Please try again.");
+			}
+		});
 	}
 
 	return (

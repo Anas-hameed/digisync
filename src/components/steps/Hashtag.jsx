@@ -59,40 +59,6 @@ const people = [
 
 ]
 
-
-
-const result ={
-	"data": [
-		{
-			"id": "17841562951098922",
-			"name": "happiness",
-			"mediaCount": "170581800",
-			"selected": false,
-			"isHidden": false,
-			"isSmart": false,
-			"isInstaRelated": false
-		},
-		{
-			"id": "178415629510989223",
-			"name": "peace",
-			"mediaCount": "170581800",
-			"selected": false,
-			"isHidden": false,
-			"isSmart": false,
-			"isInstaRelated": false
-		},
-		{
-		"id": "178415629510989221",
-		"name": "joy",
-		"mediaCount": "170581800",
-		"selected": false,
-		"isHidden": false,
-		"isSmart": false,
-		"isInstaRelated": false
-		},
-	]
-}
-
 export default function Hashtag() {
 
 	const [isLoading, setLoading] = useState(false);
@@ -115,34 +81,27 @@ export default function Hashtag() {
 
 	const fetchData = (e) => {
 		e.preventDefault();
-		setLoading(false);
-		toast.success('Text Generated, Move forward to next step');
-		setHashtags(result.data);
-		setSelectedHashtags('');
-		setHastag(``);
-
-
-		// setLoading(true);
-		// axiosInstance.post('/post/hashtags', {
-		// 	"caption": caption,
-		// }).then(
-		// 	result => {
-		// 		setLoading(false);
-		// 		toast.success('Text Generated, Move forward to next step');
-		// 		setHashtags(result.data);
-		// 		setSelectedHashtags('');
-		// 		setHastag(``);
-		// 	}
-		// ).catch(error => {
-		// 	setLoading(false);
-		// 	console.log(error);
-		// 	if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-		// 		toast.error(error.response.data.message);
-		// 	}
-		// 	else {
-		// 		toast.error("Something went wrong! Please try again.");
-		// 	}
-		// });
+		setLoading(true);
+		axiosInstance.post('/post/hashtags', {
+			"caption": caption,
+		}).then(
+			result => {
+				setLoading(false);
+				toast.success('Text Generated, Move forward to next step');
+				setHashtags(result.data);
+				setSelectedHashtags('');
+				setHastag(``);
+			}
+		).catch(error => {
+			setLoading(false);
+			console.log(error);
+			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+				toast.error(error.response.data.message);
+			}
+			else {
+				toast.error("Something went wrong! Please try again.");
+			}
+		});
 	}
 
 	return (

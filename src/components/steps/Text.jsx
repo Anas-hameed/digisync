@@ -60,42 +60,31 @@ export default function Details() {
 
 	const fetchData = (e) => {
 		e.preventDefault();
-
-
-		//setPosterText(result.data);
-		setPosterText(["The best way to predict the future is to implement it"]);
+		setLoading(true);
+		axiosInstance.post('/post/posterContent', {
+			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
+			"temperature": 0.7,
+			"batch_size": 10
+		}).then(
+			result => {
+		setPosterText(result.data);
+		// setPosterText(["AI is controlling and moving the content creation to new ERA"]);
 
 		setCatagory(selected.name);
 		setLoading(false);
 		toast.success('Text Generated, Move forward to next step');
-		//console.log(result.data);
-		
-
-		// setLoading(true);
-		// axiosInstance.post('/post/posterContent', {
-		// 	"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
-		// 	"temperature": 0.7,
-		// 	"batch_size": 10
-		// }).then(
-		// 	result => {
-		// setPosterText(result.data);
-		// // setPosterText(["AI is controlling and moving the content creation to new ERA"]);
-
-		// setCatagory(selected.name);
-		// setLoading(false);
-		// toast.success('Text Generated, Move forward to next step');
-		// 		console.log(result.data);
-		// 	}
-		// ).catch(error => {
-		// 	setLoading(false);
-		// 	console.log(error);
-		// 	if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-		// 		toast.error(error.response.data.message);
-		// 	}
-		// 	else {
-		// 		toast.error("Something went wrong! Please try again.");
-		// 	}
-		// });
+				console.log(result.data);
+			}
+		).catch(error => {
+			setLoading(false);
+			console.log(error);
+			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+				toast.error(error.response.data.message);
+			}
+			else {
+				toast.error("Something went wrong! Please try again.");
+			}
+		});
 	}
 
 	return (
