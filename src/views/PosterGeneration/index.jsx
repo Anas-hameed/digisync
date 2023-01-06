@@ -55,7 +55,6 @@ function PosterGeneration() {
 
   const steps = [
     "Background",
-    "Text",
     "Additionals",
     "Caption",
     "Hashtag",
@@ -67,14 +66,12 @@ function PosterGeneration() {
       case 1:
         return <Background />;
       case 2:
-        return <Text />;
-      case 3:
         return <Additionals />;
-      case 4:
+      case 3:
         return <Caption/>;
-      case 5:
+      case 4:
         return <Hashtag/>;
-      case 6:
+      case 5:
         return <Final />;
       default:
     }
