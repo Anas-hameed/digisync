@@ -10,6 +10,27 @@ import { useState } from "react";
 import { Button, SIZE } from "baseui/button";
 import usePosterContent  from "../../hooks/usePosterContent";
 
+const result ={
+	"generation": [
+	  {
+		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/1.png"
+	  }
+	  ,
+	  {
+		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/2.png"
+	  }
+	  ,{
+		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/3.png"
+	  }
+	  ,
+	  {
+		"image_path": "http://localhost:4000/digsync/api/v0.1/uploads/midJourney/4.png"
+	  }
+	],
+	"prompt": "A rebot learning to program itself in purple background"
+}
+
+
 export default function Background() {
 	const [loading, setloading]= useState(false);
 	const { prompt,setPrompt,image,setImage}= usePosterContent();
@@ -23,39 +44,49 @@ export default function Background() {
 				.max(200, 'Too Long!')
 		}),
 		onSubmit: (values) => {
-			if(!loading){
-				setloading(true);
-				axiosInstance.post('/post/midJourneyGraphics', {
-					"prompt": values.prompt
-	
-				}, {timeout:120000000}).then(result => {
-					console.log(result.data);
-					setImage(result.data.generation);
-					setPrompt(values.prompt);
-					setloading(false);
-					toast.success('Background Generated, Move forward to next step');
 
-				}
-				).catch(error => {
-					setloading(false);
-					console.log(error);
-					if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-						toast.error(error.response.data.message);
-					}
-					else {
-						toast.error("Something went wrong! Please try again.");
-					}
-				})
-			}else{
-				toast.error("Please wait for the previous request to complete");
-			}
+			setImage(result.generation);
+			setPrompt(result.prompt);
+			// setloading(false);
+			toast.success('Background Generated, Move forward to next step');
+
+
+			// if(!loading){
+			// 	setloading(true);
+			// 	axiosInstance.post('/post/midJourneyGraphics', {
+			// 		"prompt": values.prompt
+	
+			// 	}, {timeout:120000000}).then(result => {
+			// 		console.log(result.data);
+			// 		setImage(result.data.generation);
+			// 		setPrompt(values.prompt);
+			// 		setloading(false);
+			// 		toast.success('Background Generated, Move forward to next step');
+
+			// 	}
+			// 	).catch(error => {
+			// 		setloading(false);
+			// 		console.log(error);
+			// 		if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+			// 			toast.error(error.response.data.message);
+			// 		}
+			// 		else {
+			// 			toast.error("Something went wrong! Please try again.");
+			// 		}
+			// 	})
+
+
+
+			// }else{
+			// 	toast.error("Please wait for the previous request to complete");
+			// }
 		}
 	});
 
 
 	return (
 		<>
-			<div className="flex flex-col ">
+			<div className="flex flex-col  ">
 				<div className="mx-2 w-full flex-1">
 					<h4 className="text-xl font-semibold">Background generation:</h4>
 					<p className="mb-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>

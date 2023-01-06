@@ -60,35 +60,46 @@ export default function Details() {
 
 	const fetchData = (e) => {
 		e.preventDefault();
-		setLoading(true);
-		axiosInstance.post('/post/posterContent', {
-			"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
-			"temperature": 0.7,
-			"batch_size": 10
-		}).then(
-			result => {
-		setPosterText(result.data);
-		// setPosterText(["AI is controlling and moving the content creation to new ERA"]);
+
+
+		//setPosterText(result.data);
+		setPosterText(["The best way to predict the future is to implement it"]);
 
 		setCatagory(selected.name);
 		setLoading(false);
 		toast.success('Text Generated, Move forward to next step');
-				console.log(result.data);
-			}
-		).catch(error => {
-			setLoading(false);
-			console.log(error);
-			if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
-				toast.error(error.response.data.message);
-			}
-			else {
-				toast.error("Something went wrong! Please try again.");
-			}
-		});
+		//console.log(result.data);
+		
+
+		// setLoading(true);
+		// axiosInstance.post('/post/posterContent', {
+		// 	"prefix": `_TOPIC_ ${selected.name} _QUOTE_`,
+		// 	"temperature": 0.7,
+		// 	"batch_size": 10
+		// }).then(
+		// 	result => {
+		// setPosterText(result.data);
+		// // setPosterText(["AI is controlling and moving the content creation to new ERA"]);
+
+		// setCatagory(selected.name);
+		// setLoading(false);
+		// toast.success('Text Generated, Move forward to next step');
+		// 		console.log(result.data);
+		// 	}
+		// ).catch(error => {
+		// 	setLoading(false);
+		// 	console.log(error);
+		// 	if ('response' in error && 'data' in error.response && 'message' in error.response.data) {
+		// 		toast.error(error.response.data.message);
+		// 	}
+		// 	else {
+		// 		toast.error("Something went wrong! Please try again.");
+		// 	}
+		// });
 	}
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col font-tilson">
 			<div className="mx-2 w-full flex-1">
 				<h4 className="text-xl font-semibold">Text generation:</h4>
 				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>

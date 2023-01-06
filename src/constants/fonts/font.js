@@ -1,15 +1,15 @@
 const fonts = [
 	{
-		"headingfont": "Poppins",
-		"paragraphfont1": "Poppins",
-		"paragraphfont2": "Poppins",
-		"paragraphfont3": "Poppins"
+		"headingfont": "Salute Riches Free",
+		"paragraphfont1": "Tilson",
+		"paragraphfont2": "Tilson",
+		"paragraphfont3": "Tilson"
 	},
 	{
-		"headingfont": "Reef",
-		"paragraphfont1": "Reef",
-		"paragraphfont2": "Reef",
-		"paragraphfont3": "Reef"
+		"headingfont": "Tilson",
+		"paragraphfont1": "Hollies Big Ink",
+		"paragraphfont2": "Salute-riches",
+		"paragraphfont3": "Salute-riches"
 	},
 	{
 		"headingfont": "Action Man",

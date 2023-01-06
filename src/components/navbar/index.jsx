@@ -28,7 +28,7 @@ const Navbar = (props) => {
                 }
             })}
         >
-            <div className='mx-auto 2xl:max-w-[1400px]'>
+            <div className='mx-auto 2xl:max-w-[1400px] '>
                 <nav className=" bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
                     <div className="container flex flex-wrap justify-between items-center mx-auto">
                         <div onClick={() => { navigate("/home"); }} className="flex-grow-[1] ml-5 lg:ml-12">
