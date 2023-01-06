@@ -86,7 +86,7 @@ export default function Background() {
 
 	return (
 		<>
-			<div className="flex flex-col  ">
+			<div className="flex flex-col ">
 				<div className="mx-2 w-full flex-1">
 					<h4 className="text-xl font-semibold">Background generation:</h4>
 					<p className="mb-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>

@@ -99,7 +99,7 @@ export default function Details() {
 	}
 
 	return (
-		<div className="flex flex-col font-tilson">
+		<div className="flex flex-col">
 			<div className="mx-2 w-full flex-1">
 				<h4 className="text-xl font-semibold">Text generation:</h4>
 				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
