@@ -258,6 +258,62 @@
 }
 
 
+/* new fonts here */
+
+@font-face {
+    font-family: "Abang";
+    src: url("../media/fonts/abang-cdnfonts/Abang.otf");
+}
+
+@font-face {
+    font-family: "Fast-Sc-regular";
+    src: url("../media/fonts/fastup-sc-cdnfonts/FastupScRegular-Yzjgv.ttf");
+}
+
+@font-face {
+    font-family: "Fast-Sc-bold";
+    src: url("../media/fonts/fastup-sc-cdnfonts/FastupScBold-8MXzz.ttf");
+}
+
+@font-face {
+    font-family: "Primediva";
+    src: url("../media/fonts/primediva-cdnfonts/Primediva-axjzJ.otf");
+}
+@font-face {
+    font-family: "Qasbyne";
+    src: url("../media/fonts/qasbyne-cdnfonts/Qasbyne-8MXxB.otf");
+}
+@font-face {
+    font-family: "Salute-riches";
+    src: url("../media/fonts/salute-riches-free-cdnfonts/Salute_Riches_Free.otf");
+}
+@font-face {
+    font-family: "Tilson";
+    src: url("../media/fonts/tilson-cdnfonts/tilson-bold-demo.otf");
+}
+
+@font-face {
+    font-family: "Two-weekends";
+    src: url("../media/fonts/two-weekends-sans-cdnfonts/twoweekendssans-regular.otf");
+}
+
+@font-face {
+    font-family: "Water-splash-1";
+    src: url("../media/fonts/water-splash-2-cdnfonts/WaterSplashMonoline-w14A8.otf");
+}
+
+@font-face {
+    font-family: "Water-splash-2";
+    src: url("../media/fonts/water-splash-2-cdnfonts/WaterSplashOutline-7BLAR.otf");
+}
+
+@font-face {
+    font-family: "Water-splash-3";
+    src: url("../media/fonts/water-splash-2-cdnfonts/WaterSplashScript-mLvJa.otf");
+}
+
+
+/* new fonts ends here */
 
 
 

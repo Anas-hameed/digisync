@@ -1,28 +1,28 @@
 const fonts = [
 	{
-		"headingfont": "Poppins",
-		"paragraphfont1": "Poppins",
-		"paragraphfont2": "Poppins",
-		"paragraphfont3": "Poppins"
+		"headingfont": "Two-weekends",
+		"paragraphfont1": "Two-weekends",
+		"paragraphfont2": "Abang",
+		"paragraphfont3": "Two-weekends"
 	},
 	{
-		"headingfont": "Reef",
-		"paragraphfont1": "Reef",
-		"paragraphfont2": "Reef",
-		"paragraphfont3": "Reef"
+		"headingfont": "Abang",
+		"paragraphfont1": "Fast-Sc-regular",
+		"paragraphfont2": "Abang",
+		"paragraphfont3": "Two-weekends"
 	},
 	{
-		"headingfont": "Action Man",
-		"paragraphfont1": "morish",
-		"paragraphfont2": "Action Man",
-		"paragraphfont3": "Action Man"
+		"headingfont": "Fast-Sc-regular",
+		"paragraphfont1": "Fast-Sc-regular",
+		"paragraphfont2": "Fast-Sc-regular",
+		"paragraphfont3": "Two-weekends"
 	},
 	{
-		"headingfont": "Action Man Bold",
-		"paragraphfont1": "Action Man Bold",
-		"paragraphfont2": "Action Man Bold",
-		"paragraphfont3": "Action Man"
-	}
+		"headingfont": "Abang",
+		"paragraphfont1": "Two-weekends",
+		"paragraphfont2": "Abang",
+		"paragraphfont3": "Two-weekends"
+	},
 ];
 
 export default fonts;
