@@ -7,7 +7,7 @@ function Handles(){
 
     const [accessToken,setAccessToken]=useState("");
     const responseFacebook = (response) => {
-        setAccessToken(response.accessToken)
+        setAccessToken(response.accessToken);
         //here i will call the function to store access token
 
         axiosInstance.post('/meta/addCredential', {
@@ -16,6 +16,7 @@ function Handles(){
             result => {
                 if (result.status === 201) {
                     console.log(result);
+                    console.log("Acess token"+ accessToken);
                 }
             }
         ).catch(error => {
@@ -25,6 +26,7 @@ function Handles(){
             }
             else if('response' in error && 'data' in error.response && 'message' in error?.response?.data){
                 toast.error(error.response.data.message);
+                console.log(error.response.data.message);
             }
             else
             {
@@ -34,7 +36,6 @@ function Handles(){
 
     }
     
-
     return(
     <section className="sm:py-4 dark:bg-gray-800 dark:text-gray-10">
         <div className="container px-6 mx-auto space-y-8">

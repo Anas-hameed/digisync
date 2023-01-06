@@ -75,7 +75,8 @@ export default function Hashtag() {
 		// make a string of selected hashtags
 		let hashtagsString = selectedHashtags.map(item => item.name).join(' #');
 		setSelectedHashtags(`#${hashtagsString}`);
-		setHastag(`#${hashtagsString}`);
+		let hashtagsString1 = selectedHashtags.map(item => item.name).join(' %23');
+		setHastag(`%23${hashtagsString1} %23digisync`);
 	}
 
 	const fetchData = (e) => {
@@ -122,10 +123,10 @@ export default function Hashtag() {
 							{
 								hashtags.map((item, index) => {
 									return (
-										<div className="relative" key={item.id}>
+										!item.isHidden &&(<div className="relative" key={item.id}>
 											<p className={`m-4 p-4 box-shadow-custom rounded-lg mt-4 text-sm font-poppins ${item.selected && 'border-green-600 border-2'} `} onClick={() => { makeSelection(index) }}>#{item.name}</p>
 											{item.selected && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
-										</div>
+										</div>)
 									)
 								})}
 						</div>

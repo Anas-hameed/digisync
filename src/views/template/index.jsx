@@ -1,11 +1,13 @@
 import TemplatePreview from "../../components/template";
 import usePosterContent from "../../hooks/usePosterContent";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Preview from '../../components/preview/index';
 
 
 const Templates = () => {
-    const { image } = usePosterContent();
-    console.log(image);
+    const { image, selectedPoster } = usePosterContent();
+    const [isOpen, setIsOpen] = useState(false);
 
     if (image.length === 0) {
         return <div className="flex flex-col justify-center items-center h-[75vh]">
@@ -21,11 +23,12 @@ const Templates = () => {
                     image.map((item, index) => {
                         return (
                             <div key={index} className="m-8">
-                                <TemplatePreview data={item} index1={index} />
+                                <TemplatePreview data={item} index1={index} setIsOpen={setIsOpen} />
                             </div>
                         )
                     })
                 }
+                {isOpen &&<Preview previewIndex={selectedPoster} data={image[selectedPoster]} setIsOpen={setIsOpen} />}
             </div>
         )
     }
