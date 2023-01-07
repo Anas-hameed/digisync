@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { styled, ThemeProvider, DarkTheme } from "baseui"
 import { Theme } from "baseui/theme"
 import { Button, KIND } from "baseui/button"
@@ -17,7 +17,7 @@ import Github from "~/components/Icons/Github"
 import axiosInstance from '~/axios/axiosinstance';
 import { toast } from 'react-toastify';
 import usePosterContent from "~/hooks/usePosterContent";
-
+import SelectMenu from '../selectMenu/index'
 
 const Container = styled<"div", {}, Theme>("div", ({ $theme }) => ({
   height: "64px",
@@ -28,7 +28,31 @@ const Container = styled<"div", {}, Theme>("div", ({ $theme }) => ({
   alignItems: "center",
 }))
 
+
+
+
+
 const Navbar = () => {
+
+  const options = [
+
+    { label: 'Facebook', value: 'facebook' },
+ 
+    { label: 'Instagram', value: 'instagram' },
+ 
+ 
+  ];
+ 
+  const [value, setValue] = useState('facebook');
+ 
+  const handleChange = (event:any) => {
+ 
+    setValue(event.target.value);
+    console.log(event.target.value);
+ 
+  };
+
+
   const { setDisplayPreview, setScenes, setCurrentDesign, currentDesign, scenes } = useDesignEditorContext();
   const editorType = useEditorType()
   const editor = useEditor()
@@ -264,6 +288,9 @@ const Navbar = () => {
 
   const { caption, hastag } = usePosterContent();
 
+  // added path state for social media posts
+  const [path,setPath] = useState('/meta/postOnFB');
+
   const handleClick = async () => {
     const template = editor.scene.exportToJSON()
     const image = (await editor.renderer.render(template)) as string
@@ -271,7 +298,16 @@ const Navbar = () => {
     let data = new FormData();
     data.append('data', image);
     data.append('message', `${caption}\n${hastag}`);
-    axiosInstance.post(`/meta/postOnInsta`, data, {
+
+    if(value==="instagram")
+    {
+      setPath('/meta/postOnInsta');
+    }
+    else{
+      setPath('/meta/postOnFB')
+    }  
+
+    axiosInstance.post(path, data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       }, timeout: 5000000
@@ -356,6 +392,18 @@ const Navbar = () => {
           >
             <Github size={24} />
           </Button>
+
+          <SelectMenu
+
+              label="Where to post?"
+
+              options={options}
+
+              value={value}
+
+              onChange={handleChange}
+
+          />
 
           <Button
             style={{ marginLeft: "0.5rem" }}

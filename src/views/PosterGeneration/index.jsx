@@ -23,6 +23,7 @@ function PosterGeneration() {
   const [dashboard,setDashboard] =useState(false);
   const [accounts,setAccounts] =useState(true);
   const [data,setData] = useState([]);
+  const [instadata,setInstaData] = useState([]);
 
 
   useEffect(()=>{
@@ -50,12 +51,37 @@ function PosterGeneration() {
       }
     })
 
+    // insta
+    axiosInstance.get('/meta/getInstaInsights')
+    .then(
+      result => {
+          if (result.status === 201) {
+              console.log("my results = ",result.data.data);
+              setInstaData(result.data.data);
+          }
+      }
+    ).catch(error => {
+      console.log(error);
+      if(error?.code==="ERR_NETWORK"){
+          // toast.error("Network Error!");
+          console.log("network err")
+      }
+      else if('response' in error && 'data' in error.response && 'message' in error?.response?.data){
+          // toast.error(error.response.data.message);
+          console.log(error.response.data.message);
+      }
+      else
+      {
+        console.log('insta insights error');
+          // toast.error("Something went wrong! Please try again.");
+      }
+    })
+
   },[insights])
 
 
   const steps = [
     "Background",
-    "Text",
     "Additionals",
     "Caption",
     "Hashtag",
@@ -67,14 +93,12 @@ function PosterGeneration() {
       case 1:
         return <Background />;
       case 2:
-        return <Text />;
-      case 3:
         return <Additionals />;
-      case 4:
+      case 3:
         return <Caption/>;
-      case 5:
+      case 4:
         return <Hashtag/>;
-      case 6:
+      case 5:
         return <Final />;
       default:
     }
@@ -133,7 +157,7 @@ function PosterGeneration() {
           <div className="flex-1 ">
             <div className="w-full   dark:bg-gray-900 dark:text-gray-100">
               <div className="horizontal container">
-                <div className="text-4xl text-bold text-black p-10 font-poppins " > Insights</div>
+                <div className="text-4xl text-bold text-black p-10 font-poppins " >Facebook Insights</div>
                 <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
                     {                        
                       data.length!==0 && data.map((item)=>(
@@ -162,6 +186,37 @@ function PosterGeneration() {
                       ))  
                     }
                 </div>
+                {/* insta */}
+                <div className="text-4xl text-bold text-black p-10 font-poppins " >Instagram Insights</div>
+                <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
+                    {                        
+                      instadata.length!==0 && instadata.map((item)=>(
+                        <div className="text-black font-poppins m-8 p-4 border rounded-md bg-gray-50 ">
+                          {item.title}
+
+                          {
+                            item.values.map((index)=>(
+                              <div>
+                                  <div className="text-base text-black">
+                                  Value: {index.value}
+                                  </div>
+                                  <div  className="text-base text-black">
+                                  End time: {index.end_time}
+                                  </div>
+                                    
+                              </div> 
+                            )
+                            )
+                          }     
+
+                        </div>
+                        
+                        
+
+                      ))  
+                    }
+                </div>
+
               </div>
             </div>
           </div>
@@ -217,7 +272,7 @@ function PosterGeneration() {
               <div className="flex-1 ">
             <div className="w-full   dark:bg-gray-900 dark:text-gray-100">
               <div className="horizontal container">
-                <div className="text-4xl text-bold text-black p-10 font-poppins " > Insights</div>
+                <div className="text-4xl text-bold text-black p-10 font-poppins " >Facebook Insights</div>
                 <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
                     {                        
                       data.length!==0 && data.map((item)=>(
@@ -249,6 +304,41 @@ function PosterGeneration() {
                       ))  
                     }
                 </div>
+
+                {/* insta insights */}
+                <div className="text-4xl text-bold text-black p-10 font-poppins " >Instagram Insights</div>
+                <div className="flex flex-col sm:flex-row p-2 flex-wrap  text-2xl text-black font-poppins">
+                    {                        
+                      instadata.length!==0 && instadata.map((item)=>(
+                        <div className="text-black font-poppins m-8 p-4 border rounded-md bg-gray-50 ">
+                          {item.title}
+
+                          {
+                            item.values.map((index)=>(
+                              <div>
+                                  <div className="text-base text-black">
+                                  Value: {index.value}
+                                  </div>
+                                  <div  className="text-base text-black">
+                                  End time: {index.end_time}
+                                  </div>
+                                    
+                              </div> 
+                            )
+                            )
+
+                          }
+                          
+                          
+
+                        </div>
+                        
+                        
+
+                      ))  
+                    }
+                </div>
+
               </div>
             </div>
           </div>
