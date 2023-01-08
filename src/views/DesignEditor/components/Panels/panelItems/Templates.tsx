@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useEditor } from "@layerhub-io/react"
 import { Block } from "baseui/block"
 import { loadFonts } from "~/utils/fonts"
@@ -10,15 +10,48 @@ import useSetIsSidebarOpen from "~/hooks/useSetIsSidebarOpen"
 import useDesignEditorContext from "~/hooks/useDesignEditorContext"
 import useEditorType from "~/hooks/useEditorType"
 import { loadVideoEditorAssets } from "~/utils/video"
+import usePosterContent from "~/hooks/usePosterContent";
 
 const Templates = () => {
   const editor = useEditor()
   const setIsSidebarOpen = useSetIsSidebarOpen()
-  const { setCurrentScene, currentScene } = useDesignEditorContext()
+  const { setCurrentScene, currentScene } = useDesignEditorContext();
+
+  const {
+    prompt,
+    image,
+    posterText,
+    Title,
+    Promotion,
+    Contact,
+    Description,
+    index,
+    selectedPoster,
+    setSelectedPoster } = usePosterContent();
+
+
+  useEffect(() => {
+    for (let i = 0; i < image.length; i++) {
+      SAMPLE_TEMPLATES[i].preview= image[i].image_path;
+    }
+
+    }, []);
+
+
+
 
   const loadTemplate = React.useCallback(
-    async (template: any) => {
+    async (template: any, index: any) => {
       if (editor) {
+        console.log(image[selectedPoster].image_path)
+        template.layers[0].src = image[index].image_path;
+        template.layers[1].text = Title;
+        template.layers[2].text = posterText[index];
+        template.layers[3].text = Promotion;
+        template.layers[4].text = Description;
+        template.layers[6].text = `prompt: ${prompt}`;
+        template.layers[8].text = Contact;
+
         const fonts: any[] = []
         template.layers.forEach((object: any) => {
           if (object.type === "StaticText" || object.type === "DynamicText") {
@@ -61,7 +94,7 @@ const Templates = () => {
         <div style={{ padding: "0 1.5rem" }}>
           <div style={{ display: "grid", gap: "0.5rem", gridTemplateColumns: "1fr 1fr" }}>
             {SAMPLE_TEMPLATES.map((item, index) => {
-              return <ImageItem onClick={() => loadTemplate(item)} key={index} preview={`${item.preview}?tr=w-320`} />
+              return <ImageItem onClick={() => loadTemplate(item, index)} key={index} preview={`${item.preview}?tr=w-320`} />
             })}
           </div>
         </div>

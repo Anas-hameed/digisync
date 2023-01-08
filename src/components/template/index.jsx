@@ -49,7 +49,7 @@ const templatePreview = ({ data, index1, setIsOpen }) => {
 							{Promotion}
 						</h4>
 						<p style={{ "fontFamily": `${fonts[index1].paragraphfont2}` }}
-							className={`text-sm text-gray-100 `}>{Description} </p>
+							className={`text-sm text-gray-100 max-w-[420px]`}>{Description} </p>
 					</div>
 					<div className="absolute bottom-2 left-0 px-6">
 						<div className="relative">

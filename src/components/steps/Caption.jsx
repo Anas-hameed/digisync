@@ -128,6 +128,9 @@ export default function Caption() {
 									}
 									{(index === selectedText && editCaption == true) && (
 										<textarea rows={3} onBlur={handleBlue} className={`resize-none h-fit overflow-hidden focus:outline-0 m-4 p-4 w-full rounded-lg mt-4 text-sm font-poppins  border-green-600 border-2 shadow-none`} value={caption} onChange={(e) => {
+											const captionNewText= [...captionList];
+											captionNewText[index] = e.target.value;
+											setCaptionList(captionNewText);
 											setCaption(e.target.value);
 										}} />)}
 
