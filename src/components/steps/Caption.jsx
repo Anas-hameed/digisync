@@ -1,5 +1,5 @@
 import { useStepperContext } from "../contexts/StepperContext";
-import ListBox from "../listBox";
+import ListBox from "./listBox";
 import { useState } from 'react';
 import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
@@ -63,10 +63,14 @@ export default function Caption() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
-	const [captionList, setCaptionList] = useState(["If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you", "Security is mostly a superstition. Life is either a daring adventure or nothing."]);
+	const [captionList, setCaptionList] = useState([]);
+	const [editCaption, setEditCaption] = useState(false);
 
-	const { setCaption  } = usePosterContent();
-	
+	const { caption,setCaption } = usePosterContent();
+	const handleBlue= (e)=>{
+		setEditCaption(false);
+	}
+
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -79,7 +83,6 @@ export default function Caption() {
 				setCaption(result.data[0]);
 				// setCaption(captionList[0]);
 				setLoading(false);
-
 				toast.success('Caption Generated Successfully!');
 			}
 		).catch(error => {
@@ -104,25 +107,35 @@ export default function Caption() {
 					<div className="space-y-4 flex-1">
 						<div className="space-y-2">
 							<label htmlFor="prompt" className="block text-sm">Category</label>
-							<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
+							<div className="box-shadow-custom rounded-lg">
+								<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
+							</div>
 						</div>
 					</div>
 					<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
 				</div>
-				{captionList.length!==0 &&
-				<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
-					{captionList.map((item, index) => {
-						return (
-							<div className="flex relative" key={index}>
-								<p className={`m-4 cursor-pointer p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
-									setSelectedText(index);
-									setCaption(item);
-								}} >{item}</p>
-								{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
-							</div>
-						)
-					})}
-				</div>}
+				{captionList.length !== 0 &&
+					<div className="h-[200px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
+						{captionList.map((item, index) => {
+							return (
+								<div className="flex relative" key={index}>
+									{(editCaption === false || index !== selectedText) &&
+										<p className={`m-4 cursor-pointer p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
+											setSelectedText(index);
+											setCaption(item);
+											setEditCaption(true);
+										}} >{item}</p>
+									}
+									{(index === selectedText && editCaption == true) && (
+										<textarea rows={3} onBlur={handleBlue} className={`resize-none h-fit overflow-hidden focus:outline-0 m-4 p-4 w-full rounded-lg mt-4 text-sm font-poppins  border-green-600 border-2 shadow-none`} value={caption} onChange={(e) => {
+											setCaption(e.target.value);
+										}} />)}
+
+									{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
+								</div>
+							)
+						})}
+					</div>}
 			</div>
 		</div>
 	);

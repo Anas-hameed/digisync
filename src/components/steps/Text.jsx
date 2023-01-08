@@ -1,6 +1,6 @@
 import { useStepperContext } from "../contexts/StepperContext";
-import ListBox from "../listBox";
-import { useState } from 'react';
+import ListBox from "./listBox";
+import { useEffect, useState } from 'react';
 import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
 import axiosInstance from '../../axios/axiosinstance';
@@ -50,14 +50,16 @@ const people = [
 	{ name: 'technology' },
 	{ name: 'food' }
 
-]
+];
 
 export default function Details() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
 	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
+	const [selecttext, setSelectText] = useState("");
 
+	
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -67,12 +69,11 @@ export default function Details() {
 			"batch_size": 10
 		}).then(
 			result => {
-		setPosterText(result.data);
-		// setPosterText(["AI is controlling and moving the content creation to new ERA"]);
-
-		setCatagory(selected.name);
-		setLoading(false);
-		toast.success('Text Generated, Move forward to next step');
+				setPosterText(result.data);
+				// setPosterText(["AI is controlling and moving the content creation to new ERA"]);
+				setCatagory(selected.name);
+				setLoading(false);
+				toast.success('Text Generated, Move forward to next step');
 				console.log(result.data);
 			}
 		).catch(error => {
@@ -90,7 +91,6 @@ export default function Details() {
 	return (
 		<div className="flex flex-col">
 			<div className="mx-2 w-full flex-1">
-				<h4 className="text-xl font-semibold">Text generation:</h4>
 				<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
 
 				<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
@@ -111,7 +111,9 @@ export default function Details() {
 									<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
 										setSelectedText(index);
 										setIndex(index);
+										setSelectText(item);
 									}} >{item}</p>
+									{(index === selectedText) && (<input type="text" value={selecttext} />)}
 									{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
 								</div>
 							)

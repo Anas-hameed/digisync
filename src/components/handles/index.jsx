@@ -25,7 +25,7 @@ function Handles(){
                 toast.error("Network Error!");
             }
             else if('response' in error && 'data' in error.response && 'message' in error?.response?.data){
-                toast.error(error.response.data.message);
+                // toast.error(error.response.data.message);
                 console.log(error.response.data.message);
             }
             else

@@ -2,15 +2,53 @@ import { Link } from 'react-router-dom';
 
 // import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { useState } from 'react';
-import Preview from '../preview';
+import Preview from '../template/preview';
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '~/axios/axiosinstance';
+import usePosterContent from "~/hooks/usePosterContent";
+
 
 export default function Final() {
+  const { prompt, image, catagory, posterText,
+    Title, Promotion, Contact, Description, selectedPoster,
+    caption, hastag, leftImage, bottomRightImage, bottomLeftImage } = usePosterContent();
 
-  // const [accessToken,setAccessToken]=useState("")
-  // const responseFacebook = (response) => {
-  //   console.log('access token:', response);
-  //   setAccessToken(response.accessToken)
-  // }
+  const navigate = useNavigate();
+  const handleClick = () => {
+    // join the array of hashtag 
+    console.log(hastag);
+    const obj = image.map((item, index) => {
+      return {
+        image_path: item.image_path,
+        variation: {
+          top_left: leftImage[index].image_path,
+          bottom_left: bottomLeftImage[index].image_path,
+          bottom_right: bottomRightImage[index].image_path,
+        }
+      };
+    });
+    axiosInstance.post('/post/savePoster', {
+      prompt: prompt,
+      image: obj,
+      catagory: catagory,
+      selectedText: posterText[selectedPoster],
+      title: Title,
+      promotion: Promotion,
+      contact: Contact,
+      description: Description,
+      caption: caption,
+      hashtag: hastag,
+
+    }).then((res) => {
+      console.log(res);
+      navigate('/templates');
+    }).catch((err) => {
+      console.log(err);
+    })
+
+
+  }
+
 
   return (
     <div className="container md:mt-10">
@@ -35,18 +73,6 @@ export default function Final() {
             />
           </svg>
         </div>
-
-        {/* <FacebookLogin
-        appId="2812965265506326"
-        autoLoad={true}
-        fields="name,email,picture"
-        scope="ads_management,business_management,instagram_basic,instagram_content_publish,pages_read_engagement,pages_show_list,pages_manage_posts,public_profile"
-        callback={responseFacebook}
-        render={renderProps => (
-          <button className='h-10 px-5 bg-[#1976d2] hover:bg-blue-600 font-roboto font-bold rounded-lg text-white' onClick={renderProps.onClick}>This is my custom FB button</button>
-        )}
-        /> */}
-
         {/* <Preview/> */}
         <div className="mt-3 text-xl font-semibold uppercase text-[#1565c0]">
           Congratulations!
@@ -55,11 +81,11 @@ export default function Final() {
           Your templates have been created.<br />
           Press continue to see.
         </div>
-        <Link className="mt-10" to="/templates">
+        <div className="mt-10" onClick={handleClick}>
           <button className="h-10 px-5 bg-[#1565c0] text-white font-roboto font-bold transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-[#1565c0] ">
             Continue
           </button>
-        </Link>
+        </div>
       </div>
     </div>
   );

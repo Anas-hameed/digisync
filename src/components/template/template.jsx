@@ -1,15 +1,15 @@
-import TemplatePreview from "../../components/template";
-import LeftPreview from "../../components/template/LeftPreview";
-import BottomRightPreview from "../../components/template/BottomRightPreview";
-import BottomLeftPreview from "../../components/template/BottomLeftPreview";
+import TemplatePreview from "./template";
+import LeftPreview from "./LeftPreview";
+import BottomRightPreview from "./BottomRightPreview";
+import BottomLeftPreview from "./BottomLeftPreview";
 
-import usePosterContent from "../../hooks/usePosterContent";
+import usePosterContent from "~/hooks/usePosterContent";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Preview from '../../components/template/preview/index';
-import LeftPreviewModel from '../../components/template/preview/LeftPreviewModel';
-import BottomRightPreviewModel from '../../components/template/preview/BottomRightPreviewModel';
-import BottomLeftPreviewModel from '../../components/template/preview/BottomLeftPreviewModel';
+import Preview from './preview/index';
+import LeftPreviewModel from './preview/LeftPreviewModel';
+import BottomRightPreviewModel from './preview/BottomRightPreviewModel';
+import BottomLeftPreviewModel from './preview/BottomLeftPreviewModel';
 
 const Templates = () => {
     const { image, setImage, selectedPoster, leftImage, rightImage, bottomRightImage, bottomLeftImage } = usePosterContent();
@@ -34,18 +34,6 @@ const Templates = () => {
         return (
             <div className="flex flex-wrap py-24 px-8">
                 <div className="flex flex-wrap relative">
-                    {
-                        image.map((item, index) => {
-                            return (
-                                <div key={index} className="m-8">
-                                    <TemplatePreview data={item} index1={index} setIsOpen={setIsOpen} />
-                                </div>
-                            )
-                        })
-                    }
-                    {isOpen && <Preview previewIndex={selectedPoster} data={image[selectedPoster]} setIsOpen={setIsOpen} />}
-                </div>
-                <div className="flex flex-wrap relative">
                     {/* left map  */}
                     {
                         leftImage.map((item, index) => {
@@ -67,6 +55,18 @@ const Templates = () => {
                     }
                     {rightIsOpen && <BottomRightPreviewModel previewIndex={selectedPoster} data={bottomRightImage[selectedPoster]} setIsOpen={setRightIsOpen} />}
                 </div>
+                <div className="flex flex-wrap relative">
+                    {
+                        image.map((item, index) => {
+                            return (
+                                <div key={index} className="m-8">
+                                    <TemplatePreview data={item} index1={index} setIsOpen={setIsOpen} />
+                                </div>
+                            )
+                        })
+                    }
+                    {isOpen && <Preview previewIndex={selectedPoster} data={image[selectedPoster]} setIsOpen={setIsOpen} />}
+                </div> 
                 <div className="flex flex-wrap relative">
                     {/* bottom left map  */}
                     {

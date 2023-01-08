@@ -1,4 +1,4 @@
-import SectionIntro from "../../sectionIntro";
+import SectionIntro from "../sectionIntro";
 import FeatureCard from "../featureCard";
 
 import email from "../../../media/Images/email.svg";

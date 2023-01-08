@@ -1,5 +1,5 @@
 import { useStepperContext } from "../contexts/StepperContext";
-import ListBox from "../listBox";
+import ListBox from "./listBox";
 import { useState } from 'react';
 import { Button, SIZE } from 'baseui/button';
 import { toast } from 'react-toastify';
@@ -83,7 +83,7 @@ export default function Hashtag() {
 		e.preventDefault();
 		setLoading(true);
 		axiosInstance.post('/post/hashtags', {
-			"caption": caption,
+			"caption": `${prompt} ${caption}`,
 		}).then(
 			result => {
 				setLoading(false);

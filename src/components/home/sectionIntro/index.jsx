@@ -1,4 +1,4 @@
-import Paragraph from "../home/paragraph";
+import Paragraph from "../paragraph";
 function SectionIntro({ heading, paragraph }) {
     return (
         <div className="container mx-auto flex flex-col items-center px-4 py-8 text-center md:py-8 md:px-10 lg:px-32 xl:max-w-3xl">
