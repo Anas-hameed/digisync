@@ -71,6 +71,7 @@ const GenerationGallary = () => {
 
 
     const openTemplate = (index) => {
+        console.log(gallary);
         if(gallary[index].image.length!=0){ 
             const rightImage = gallary[index].image.map((item) => {
                 return { image_path: item.image_path };
@@ -97,7 +98,7 @@ const GenerationGallary = () => {
             setPromotion(gallary[index].promotion);
             setPrompt(gallary[index].prompt);
             setCatagory(gallary[index].catagory);
-            setPosterText([gallary[index].poster_text]);
+            setPosterText([gallary[index].selectedText]);
             setIndex(0);
             setSelectedPoster(0);
             nav("/templates");
