@@ -7,6 +7,14 @@ const usePosterContent = () => {
         setPrompt,
         image,
         setImage,
+        rightImage,
+        setRightImage,
+        leftImage,
+        setLeftImage,
+        bottomLeftImage,
+        setBottomLeftImage,
+        bottomRightImage,
+        setBottomRightImage,
         catagory,
         setCatagory,
         posterText,
@@ -57,7 +65,15 @@ const usePosterContent = () => {
         caption,
         setCaption,
         hastag,
-        setHastag
+        setHastag,
+        rightImage,
+        setRightImage,
+        leftImage,
+        setLeftImage,
+        bottomLeftImage,
+        setBottomLeftImage,
+        bottomRightImage,
+        setBottomRightImage
     };
 }
 

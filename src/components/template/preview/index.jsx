@@ -1,10 +1,10 @@
 import fonts from '~/constants/fonts/font';
-import usePosterContent from "../../hooks/usePosterContent";
-import EditIcon from '../../media/Images/edit.png';
+import usePosterContent from "../../../hooks/usePosterContent";
+import EditIcon from '~/media/Images/edit.png';
 import { useRef } from 'react';
 import domtoimage from 'dom-to-image';
 import axiosInstance from '~/axios/axiosinstance';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 export default function Preview({ previewIndex, data, setIsOpen }) {
@@ -13,7 +13,6 @@ export default function Preview({ previewIndex, data, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
   }
-
 
   const handleImage = () => {
     console.log("Hello");
@@ -28,14 +27,14 @@ export default function Preview({ previewIndex, data, setIsOpen }) {
           axiosInstance.post(`/meta/postOnInsta`, data, {
             headers: {
               'Content-Type': 'multipart/form-data',
-            },timeout:5000000
+            }, timeout: 5000000
           })
             .then(res => {
               console.log(res);
-              if(res.data.status === 201){
+              if (res.data.status === 201) {
                 toast.success(res.message);
               }
-            }).catch(err=>{
+            }).catch(err => {
               console.log(err.message);
               toast.error(err.message);
             });
@@ -44,13 +43,13 @@ export default function Preview({ previewIndex, data, setIsOpen }) {
     }
   }
 
-
+  // replace %23 with # in hastag
+  const texthashtag= hastag.replace(/%23/g, "#");
 
   return (
     <div className="z-40 h-[1000px]">
       <div className="fixed inset-0 bg-black bg-opacity-25" onClick={closeModal} />
       <div className='fixed right-8 top-10' onClick={closeModal}>
-
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={4} stroke="currentColor" className="w-6 h-6 text-bold">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -106,19 +105,24 @@ export default function Preview({ previewIndex, data, setIsOpen }) {
               </div>
             </div>
           </div>
-          <div className="flex w-full items-end justify-end gap-4 p-2">
-            <div className="relative">
-              <img className="absolute left-3 top-3" src={EditIcon} alt="Edit Icons" width="15px" height="15px" />
-              <button className="py-2 pl-8 pr-4 text-white text-md font-roboto font-bold rounded bg-black" onClick={closeModal} >Edit</button>
+          <div className="flex w-full items-center justify-between gap-4 p-2">
+            <div className='text-md max-w-[800px] font-poppins'>
+              <p>{caption} __{texthashtag}</p>
             </div>
-            <div className="relative">
-              <img className="absolute left-3 top-3 text-black" src={EditIcon} alt="Edit Icons" width="15px" height="15px" />
-              <button className="py-2 pl-8 pr-4 text-white text-md font-roboto font-bold rounded bg-[#1976d2]" onClick={handleImage} >Publish</button>
+            <div className='flex gap-x-4'>
+              <div className="relative">
+                <img className="absolute left-3 top-3" src={EditIcon} alt="Edit Icons" width="15px" height="15px" />
+                <button className="py-2 pl-8 pr-4 text-white text-md font-roboto font-bold rounded bg-black" onClick={closeModal} >Edit</button>
+              </div>
+              <div className="relative">
+                <img className="absolute left-3 top-3 text-black" src={EditIcon} alt="Edit Icons" width="15px" height="15px" />
+                <button className="py-2 pl-8 pr-4 text-white text-md font-roboto font-bold rounded bg-[#1976d2]" onClick={handleImage} >Publish</button>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
   )
 }

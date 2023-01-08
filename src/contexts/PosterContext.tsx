@@ -5,7 +5,18 @@ interface IPosterContext {
   prompt: string,
   setPrompt: (value: string) => void,
   image: Template[]
-  setImage: (templates: Template[]) => void
+  setImage: (templates: Template[]) => void,
+  rightImage: Template[]
+  setRightImage: (templates: Template[]) => void,
+  leftImage: Template[]
+  setLeftImage: (templates: Template[]) => void,
+  bottomLeftImage: Template[]
+  setBottomLeftImage: (templates: Template[]) => void,
+  bottomRightImage: Template[]
+  setBottomRightImage: (templates: Template[]) => void,
+
+
+
   catagory: string,
   setCatagory: (value: string) => void,
   posterText: string[]
@@ -35,6 +46,16 @@ export const PosterContext = createContext<IPosterContext>({
   setPrompt: (value: string) => { },
   image: [],
   setImage: (templates: Template[]) => { },
+  rightImage: [],
+  setRightImage: (templates: Template[]) => { },
+  leftImage: [],
+  setLeftImage: (templates: Template[]) => { },
+  bottomLeftImage: [],
+  setBottomLeftImage: (templates: Template[]) => { },
+  bottomRightImage: [],
+  setBottomRightImage: (templates: Template[]) => { },
+
+
   catagory: "",
   setCatagory: (value: string) => { },
   posterText: [],
@@ -62,6 +83,11 @@ export const PosterContext = createContext<IPosterContext>({
 export const PosterContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [prompt, setPrompt] = useState<string>("")
   const [image, setImage] = useState<Template[]>([])
+  const [rightImage, setRightImage] = useState<Template[]>([])
+  const [leftImage, setLeftImage] = useState<Template[]>([])
+  const [bottomLeftImage, setBottomLeftImage] = useState<Template[]>([])
+  const [bottomRightImage, setBottomRightImage] = useState<Template[]>([])
+  
   const [catagory, setCatagory] = useState<string>("")
   const [posterText, setPosterText] = useState<string[]>([])
   const [Title, setTitle] = useState<string>("")
@@ -78,6 +104,14 @@ export const PosterContextProvider = ({ children }: { children: React.ReactNode 
     setPrompt,
     image,
     setImage,
+    leftImage, 
+    rightImage,
+    setRightImage,
+    setLeftImage,
+    bottomLeftImage,
+    setBottomLeftImage,
+    bottomRightImage,
+    setBottomRightImage,
     catagory,
     setCatagory,
     posterText,

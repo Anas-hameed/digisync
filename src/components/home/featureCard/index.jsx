@@ -1,6 +1,6 @@
 
-import Heading3 from "../../heading3";
-import CardParagraph from "../../cardParagraph";
+import Heading3 from "../heading3";
+import CardParagraph from "../cardParagraph";
 import {useNavigate} from 'react-router-dom';
 function FeatureCard({imgSrc,spanText,heading,paragraph,buttonText,flexDirection,buttonRef}){
     const navigate = useNavigate();

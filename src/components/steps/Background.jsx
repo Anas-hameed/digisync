@@ -1,16 +1,16 @@
 // import { useStepperContext } from "../../contexts/StepperContext";
-import Accordion from "../accordion";
+import Accordion from "./accordion";
 import { Disclosure } from '@headlessui/react'
-import Card from "../card";
+import Card from "./card";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axiosInstance from '../../axios/axiosinstance';
 import { toast } from 'react-toastify';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, SIZE } from "baseui/button";
-import usePosterContent  from "../../hooks/usePosterContent";
+import usePosterContent from "../../hooks/usePosterContent";
 
-import ListBox from "../listBox";
+import ListBox from "./listBox";
 import selectIcon from '../../media/Images/check.png';
 
 const people = [
@@ -65,11 +65,12 @@ const people = [
 
 
 
-
-
 export default function Background() {
-	const [loading, setloading]= useState(false);
-	const { prompt,setPrompt,image,setImage}= usePosterContent();
+
+	const [loading, setloading] = useState(false);
+	const { setCatagory, posterText, setPosterText, setIndex, prompt, setPrompt, image, setImage, setRightImage, setLeftImage, setBottomLeftImage, setBottomRightImage, } = usePosterContent();
+
+
 	const formik = useFormik({
 		initialValues: {
 			prompt: prompt,
@@ -80,18 +81,35 @@ export default function Background() {
 				.max(200, 'Too Long!')
 		}),
 		onSubmit: (values) => {
-			if(!loading){
+			if (!loading) {
 				setloading(true);
 				axiosInstance.post('/post/midJourneyGraphics', {
 					"prompt": values.prompt
-	
-				}, {timeout:120000000}).then(result => {
+
+				}, { timeout: 120000000 }).then(result => {
 					console.log(result.data);
-					setImage(result.data.generation);
+					if (result.data.generation.length !== 0) {
+						const rightImage = result.data.generation.map((item) => {
+							return { image_path: item.image_path };
+						});
+						const botton_right = result.data.generation.map((item) => {
+							return { image_path: item.variation.bottom_right };
+						});
+						const botton_left = result.data.generation.map((item) => {
+							return { image_path: item.variation.bottom_left };
+						});
+						const top_left = result.data.generation.map((item) => {
+							return { image_path: item.variation.top_left };
+						});
+						setImage(rightImage);
+						setRightImage(rightImage);
+						setLeftImage(top_left);
+						setBottomLeftImage(botton_left);
+						setBottomRightImage(botton_right);
+					}
 					setPrompt(values.prompt);
 					setloading(false);
 					toast.success('Background Generated, Move forward to next step');
-
 				}
 				).catch(error => {
 					setloading(false);
@@ -103,7 +121,7 @@ export default function Background() {
 						toast.error("Something went wrong! Please try again.");
 					}
 				})
-			}else{
+			} else {
 				toast.error("Please wait for the previous request to complete");
 			}
 		}
@@ -113,8 +131,16 @@ export default function Background() {
 	const [selected, setSelected] = useState(people[0]);
 	const [isLoading, setLoading] = useState(false);
 	const [selectedText, setSelectedText] = useState(0);
-	const { setCatagory, posterText, setPosterText, setIndex } = usePosterContent();
+	const [editSelectText, setEditSelectText] = useState(false);
 
+	useEffect(() => {
+		setPosterText([]);
+		setImage([]);
+	}, []);
+
+	const handleBlue = (e) => {
+		setEditSelectText(false);
+	}
 	const fetchData = (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -124,12 +150,12 @@ export default function Background() {
 			"batch_size": 10
 		}).then(
 			result => {
-		setPosterText(result.data);
-		// setPosterText(["AI is controlling and moving the content creation to new ERA"]);
+				setPosterText(result.data);
+				// setPosterText(["AI is controlling and moving the content creation to new ERA"]);
 
-		setCatagory(selected.name);
-		setLoading(false);
-		toast.success('Text Generated, Move forward to next step');
+				setCatagory(selected.name);
+				setLoading(false);
+				toast.success('Text Generated, Move forward to next step');
 				console.log(result.data);
 			}
 		).catch(error => {
@@ -147,10 +173,49 @@ export default function Background() {
 
 	return (
 		<>
-			<div className="flex flex-col ">
+			<div className="flex flex-col">
 				<div className="mx-2 w-full flex-1">
-					<h4 className="text-xl font-semibold">Background generation:</h4>
-					<p className="mb-10">Enter a prompt to generate Background Image for your poster.For example, A robot trying to learn programming. </p>
+					<h4 className="text-xl font-semibold font-roboto">Background & Text Generation:</h4>
+					<p className="mb-10">Enter a prompt and select catagory to generate Background Image and text for your poster.</p>
+					<div className="space-y-8 ng-untouched ng-pristine ng-valid flex items-center gap-x-4 w-full z-20">
+						<div className="space-y-4 flex-1">
+							<div className="space-y-4">
+								<label htmlFor="prompt" className="block text-sm">Category</label>
+								<div className="box-shadow-custom rounded-lg">
+									<ListBox setSelected={setSelected} selected={selected} className=" border-2 px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded " />
+								</div>
+							</div>
+						</div>
+						<div className="pt-2">
+							<Button onClick={fetchData} size={SIZE.compact} className="px-12 text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
+						</div>
+					</div>
+					{
+						posterText.length !== 0 &&
+						<div className="h-[200px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
+							{posterText.map((item, index) => {
+								return (
+									<div className="flex relative" key={index}>
+										{(editSelectText === false || index !== selectedText) &&
+											<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'}`} onClick={() => {
+												setSelectedText(index);
+												setIndex(index);
+												setEditSelectText(true);
+											}} >{item}</p>}
+										{(index === selectedText && editSelectText == true) && (
+											<textarea rows={3} onBlur={handleBlue} className={`resize-none h-fit overflow-hidden focus:outline-0 m-4 p-4 w-full rounded-lg mt-4 text-sm font-poppins  border-green-600 border-2 shadow-none`} value={item} onChange={(e) => {
+												const postertextNew = [...posterText];
+												postertextNew[index] = e.target.value;
+												setPosterText(postertextNew);
+											}} />)}
+										{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
+									</div>
+								)
+							})}
+						</div>
+					}
+				</div>
+				<div className="mx-2 w-full flex-1 mt-6">
 					<form onSubmit={formik.handleSubmit} action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
 						<div className="space-y-4">
 							<div className="space-y-2">
@@ -170,37 +235,6 @@ export default function Background() {
 							})}
 						</Disclosure.Panel>
 					} />
-				</div>
-				
-				<div className="mx-2 w-full flex-1">
-					<h4 className="text-xl font-semibold">Text generation:</h4>
-					<p className="mb-10">Select a category  from the options below to generate mind blowing text for your Poster. </p>
-
-					<div className="space-y-8 ng-untouched ng-pristine ng-valid flex flex-col gap-x-4 w-full z-20">
-						<div className="space-y-4 flex-1">
-							<div className="space-y-2">
-								<label htmlFor="prompt" className="block text-sm">Category</label>
-								<ListBox setSelected={setSelected} selected={selected} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold rounded border-2" />
-							</div>
-						</div>
-						<Button onClick={fetchData} size={SIZE.compact} className="px-10 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={isLoading} >Generate</Button>
-					</div>
-					{
-						posterText.length !== 0 &&
-						<div className="h-[300px] overflow-y-scroll mt-8 scroll-smooth -webkit-scrollbar-track:rounded scroll_r_adjust scroll_w_adjust scroll_t_adjust z-0">
-							{posterText.map((item, index) => {
-								return (
-									<div className="flex relative" key={index}>
-										<p className={`m-4 p-4 w-full shadow-lg rounded-lg mt-4 text-sm font-poppins ${(index === selectedText) && 'border-green-600 border-2'} `} onClick={() => {
-											setSelectedText(index);
-											setIndex(index);
-										}} >{item}</p>
-										{(index === selectedText) && <img src={selectIcon} width="22px" height="22px" className="absolute right-[10px] top-[10px] bg-white" alt="SelectedIcon" />}
-									</div>
-								)
-							})}
-						</div>
-					}
 				</div>
 			</div>
 		</>

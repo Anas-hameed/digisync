@@ -22,25 +22,13 @@ const Canvas = () => {
   const editor = useEditor();
   const {
     prompt,
-    setPrompt,
     image,
-    setImage,
-    catagory,
-    setCatagory,
     posterText,
-    setPosterText,
     Title,
-    setTitle,
     Promotion,
-    setPromotion,
     Contact,
-    setContact,
     Description,
-    setDescription,
-    Font,
-    setFont,
     index,
-    setIndex,
     selectedPoster,
   setSelectedPoster } = usePosterContent();
   
