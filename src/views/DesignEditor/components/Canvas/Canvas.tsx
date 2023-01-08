@@ -76,8 +76,8 @@ const Canvas = () => {
           SAMPLE_TEMPLATES[selectedPoster].layers[2].text= posterText[index];
           SAMPLE_TEMPLATES[selectedPoster].layers[3].text= Promotion;
           SAMPLE_TEMPLATES[selectedPoster].layers[4].text= Description;
-          SAMPLE_TEMPLATES[selectedPoster].layers[5].text= prompt;
-          SAMPLE_TEMPLATES[selectedPoster].layers[6].text= Contact;
+          SAMPLE_TEMPLATES[selectedPoster].layers[6].text= prompt;
+          SAMPLE_TEMPLATES[selectedPoster].layers[8].text= Contact;
           loadTemplate(SAMPLE_TEMPLATES[selectedPoster]);
           setloaded(true);
         } 

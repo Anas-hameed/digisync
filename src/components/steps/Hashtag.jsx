@@ -87,7 +87,7 @@ export default function Hashtag() {
 		}).then(
 			result => {
 				setLoading(false);
-				toast.success('Text Generated, Move forward to next step');
+				toast.success('Hashtag Generated, Move to next step');
 				setHashtags(result.data);
 				setSelectedHashtags('');
 				setHastag(``);

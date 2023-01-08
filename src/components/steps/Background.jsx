@@ -135,7 +135,6 @@ export default function Background() {
 
 	useEffect(() => {
 		setPosterText([]);
-		setImage([]);
 	}, []);
 
 	const handleBlue = (e) => {
