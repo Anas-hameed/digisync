@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { styled, ThemeProvider, DarkTheme } from "baseui"
 import { Theme } from "baseui/theme"
-import { Button, KIND } from "baseui/button"
+import { Button, KIND, SIZE } from "baseui/button"
 import Logo from "~/components/Icons/Logo"
 import useDesignEditorContext from "~/hooks/useDesignEditorContext"
 import Play from "~/components/Icons/Play"
@@ -17,7 +17,9 @@ import Github from "~/components/Icons/Github"
 import axiosInstance from '~/axios/axiosinstance';
 import { toast } from 'react-toastify';
 import usePosterContent from "~/hooks/usePosterContent";
-import SelectMenu from '../selectMenu/index'
+import SelectMenu from '../selectMenu/index';
+import { createTheme, lightThemePrimitives } from "baseui";
+
 
 const Container = styled<"div", {}, Theme>("div", ({ $theme }) => ({
   height: "64px",
@@ -37,19 +39,19 @@ const Navbar = () => {
   const options = [
 
     { label: 'Facebook', value: 'facebook' },
- 
+
     { label: 'Instagram', value: 'instagram' },
- 
- 
+
+
   ];
- 
+
   const [value, setValue] = useState('facebook');
- 
-  const handleChange = (event:any) => {
- 
+
+  const handleChange = (event: any) => {
+
     setValue(event.target.value);
     console.log(event.target.value);
- 
+
   };
 
 
@@ -289,38 +291,49 @@ const Navbar = () => {
   const { caption, hastag } = usePosterContent();
 
   // added path state for social media posts
-  const [path,setPath] = useState('/meta/postOnFB');
+  const [path, setPath] = useState('/meta/postOnFB');
+  const [loading, setLoading] = useState(false);
+
+  const [scedulePost, setScedulePost] = useState([]);
+
+  const [textArea, setTextArea] = useState(false);
 
   const handleClick = async () => {
-    const template = editor.scene.exportToJSON()
-    const image = (await editor.renderer.render(template)) as string
-    console.log(image);
-    let data = new FormData();
-    data.append('data', image);
-    data.append('message', `${caption}\n${hastag}`);
+    if (loading === false) {
+      setLoading(true);
+      const template = editor.scene.exportToJSON()
+      const image = (await editor.renderer.render(template)) as string;
+      console.log(image);
+      let data = new FormData();
+      data.append('data', image);
+      if (value === "instagram") {
+        data.append('message', `${caption}\n${hastag}`);
+        setPath('/meta/postOnInsta');
+      }
+      else {
+        const texthashtag = hastag.replace(/%23/g, "#");
+        data.append('message', `${caption}\n${texthashtag}`);
+        setPath('/meta/postOnFB');
+      }
 
-    if(value==="instagram")
-    {
-      setPath('/meta/postOnInsta');
+      axiosInstance.post(path, data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }, timeout: 5000000
+      })
+        .then(res => {
+          console.log(res);
+          if (res.status === 201) {
+            toast.success(`Successfully posted on ${value}`);
+            setLoading(false);
+          }
+        }).catch(err => {
+          console.log(err.message);
+          console.log(err);
+          toast.error(err.message);
+          setLoading(false);
+        });
     }
-    else{
-      setPath('/meta/postOnFB')
-    }  
-
-    axiosInstance.post(path, data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      }, timeout: 5000000
-    })
-      .then(res => {
-        console.log(res);
-        if (res.status === 201) {
-          toast.success("Successfully posted on Instagram");
-        }
-      }).catch(err => {
-        console.log(err.message);
-        toast.error(err.message);
-      });
   }
 
 
@@ -394,25 +407,33 @@ const Navbar = () => {
           </Button>
 
           <SelectMenu
-
-              label="Where to post?"
-
-              options={options}
-
-              value={value}
-
-              onChange={handleChange}
+            label="Where to post?"
+            options={options}
+            value={value}
+            onChange={handleChange}
 
           />
 
-          <Button
-            style={{ marginLeft: "0.5rem" }}
-            size="compact"
-            onClick={() => handleClick()}
-            kind={KIND.primary}
-          >
-            Publish
-          </Button>
+
+          {/* <div className="ml-4 relative" onMouseOver={() => { setTextArea(true) }}>
+            <Button type="button" size={SIZE.compact} className="px-10 py-1 mt-2 w-full text-md font-roboto font-bold border rounded bg-black hover:bg-gray-800 text-white" isLoading={loading}>schedule Post</Button>
+
+            <div className={`${textArea?'block':'hidden'} absolute border-2 border-black w-[20px]`}>
+            </div>
+
+          </div> */}
+
+
+          <div className="ml-4 mr-[40px]">
+
+              <Button
+                style={{ padding: "14px 30px", letterSpacing: '1px', fontSize: '18px' }}
+                onClick={() => handleClick()}
+                size={SIZE.compact}>
+                Post
+              </Button>
+          </div>
+
         </Block>
       </Container>
     </ThemeProvider>

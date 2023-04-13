@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const Footer = (props) => {
-
     const location = useLocation();
-    if (location.pathname === '/design-editor') {
+    if (location.pathname === '/design-editor' || location.pathname.startsWith('/generation/email/email-editor/template')) {
         return <></>;
     } else {
         return (
@@ -32,10 +31,10 @@ const Footer = (props) => {
                             <h2 className="mb-6 text-sm font-semibold font-poppins text-gray-900 uppercase">Follow us</h2>
                             <ul className="text-gray-600 font-poppins">
                                 <li className="mb-4">
-                                    <Link to="https://github.com/themesberg/flowbite" className="hover:underline ">Github</Link>
+                                    <a href="https://github.com/FYP-DigiSync" className="hover:underline ">Github</a>
                                 </li>
                                 <li>
-                                    <Link to="https://discord.gg/4eeurUVvTy" className="hover:underline">Twitter</Link>
+                                    <a href="https://www.instagram.com/digisync.fast/" className="hover:underline">Instagram</a>
                                 </li>
                             </ul>
                         </div>

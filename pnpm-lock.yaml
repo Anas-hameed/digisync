@@ -11,6 +11,7 @@ specifiers:
   '@layerhub-io/react-custom-scrollbar': ^0.0.1
   '@layerhub-io/types': ^0.3.0
   '@layerhub-io/use-timer': ^0.1.1
+  '@react-oauth/google': ^0.9.0
   '@reduxjs/toolkit': ^1.8.1
   '@types/lodash': ^4.14.182
   '@types/mime': ^2.0.3
@@ -40,6 +41,7 @@ specifiers:
   react: ^18.0.0
   react-colorful: ^5.5.1
   react-dom: ^18.0.0
+  react-email-editor: ^1.7.7
   react-facebook-login: ^4.1.1
   react-i18next: ^11.18.0
   react-player: ^2.10.1
@@ -67,6 +69,7 @@ dependencies:
   '@layerhub-io/react': 0.3.0
   '@layerhub-io/react-custom-scrollbar': 0.0.1_react@18.2.0
   '@layerhub-io/use-timer': 0.1.1_react@18.2.0
+  '@react-oauth/google': 0.9.0_biqbaboplfbrettd7655fr4n2y
   '@reduxjs/toolkit': 1.8.2_kkwg4cbsojnjnupd3btipussee
   '@types/node': 17.0.45
   are-passive-events-supported: 1.1.1
@@ -89,6 +92,7 @@ dependencies:
   react: 18.2.0
   react-colorful: 5.5.1_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
+  react-email-editor: 1.7.7_react@18.2.0
   react-facebook-login: 4.1.1_react@18.2.0
   react-i18next: 11.18.0_zqwsj3zkvc6lj2if6vhvnllc7u
   react-player: 2.10.1_react@18.2.0
@@ -1161,6 +1165,16 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
+  /@react-oauth/google/0.9.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-iq9I6A4uwZezU/BixqLM6UET6an559ufC4Nh0lEIeIaKC3TJRvcPNWCjjHny56yAhgdT6ivUicLIvEoiSMjnmg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@reduxjs/toolkit/1.8.2_kkwg4cbsojnjnupd3btipussee:
@@ -4054,6 +4068,15 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       prop-types: 15.8.1
+    dev: false
+
+  /react-email-editor/1.7.7_react@18.2.0:
+    resolution: {integrity: sha512-GhK2qtOXtxWfYH2cIzTS5SKrvZ071ZC6rnWJ6Je9JlabO3eShXh5NqVbfjMOAJM9MmYqCmLTIevEjkO7NS88BA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=15'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-facebook-login/4.1.1_react@18.2.0:
