@@ -1,8 +1,7 @@
-import CTA from '../../components/home/cta'
-import FAQ from '../../components/home/faq'
-import Feature from '../../components/home/feature'
-import Hero from '../../components/home/hero'
-import Handles from '../../components/handles'
+import CTA from '~/components/home/LandingPage/cta';
+import FAQ from '~/components/home/LandingPage/faq';
+import Feature from '~/components/home/LandingPage/feature';
+import Hero from '~/components/home/LandingPage/hero';
 
  function Home() {
   return (

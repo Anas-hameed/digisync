@@ -1,15 +1,15 @@
-import TemplatePreview from "../../components/template";
-import LeftPreview from "../../components/template/LeftPreview";
-import BottomRightPreview from "../../components/template/BottomRightPreview";
-import BottomLeftPreview from "../../components/template/BottomLeftPreview";
+import TemplatePreview from "~/components/home/Gallary/template";
+import LeftPreview from "~/components/home/Gallary/template/LeftPreview";
+import BottomRightPreview from "~/components/home/Gallary/template/BottomRightPreview";
+import BottomLeftPreview from "~/components/home/Gallary/template/BottomLeftPreview";
 
 import usePosterContent from "../../hooks/usePosterContent";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Preview from '../../components/template/preview/index';
-import LeftPreviewModel from '../../components/template/preview/LeftPreviewModel';
-import BottomRightPreviewModel from '../../components/template/preview/BottomRightPreviewModel';
-import BottomLeftPreviewModel from '../../components/template/preview/BottomLeftPreviewModel';
+import Preview from '~/components/home/Gallary/template/preview/index';
+import LeftPreviewModel from '~/components/home/Gallary/template/preview/LeftPreviewModel';
+import BottomRightPreviewModel from '~/components/home/Gallary/template/preview/BottomRightPreviewModel';
+import BottomLeftPreviewModel from '~/components/home/Gallary/template/preview/BottomLeftPreviewModel';
 
 const Templates = () => {
     const { image, setImage, selectedPoster, leftImage, rightImage, bottomRightImage, bottomLeftImage } = usePosterContent();
