@@ -40,13 +40,14 @@ const EmailEditorComponent = () => {
     const [smsOutput, setSmsOutput] = useState('Greeting there,\n\n I am a AI powered bot. The key to creating effective marketing campaigns is to deliver value to your audience by providing relevant, informative, and engaging content that helps them solve a problem or meet a need.\n\n I am here to help you with your work. I can help you generate content. Please Provide a simple subject with some keyword and I will try my best to generate the quality content for your email marketing or email marketing needs \n\nRegards:\n your AI powered text generation Copilot\n\n');
 
     // submit the mail 
-    const submitMail = (mailList) => {
+    const submitMail = (mailList,name) => {
         if (mailList.length !== 0) {
             let body = {};
             if (checkboxes[0] !== checkboxes[1]) {
                 emailEditorRef.current.editor.exportHtml((data) => {
                     const { html } = data;
                     body = {
+                        name: name,
                         "template": 1,
                         "html": JSON.stringify(html),
                         "mailList": mailList
@@ -72,6 +73,7 @@ const EmailEditorComponent = () => {
                 });
             } else {
                 body = {
+                    name: name,
                     // stringfy the html
                     "template": 0,
                     "html": JSON.stringify(smsOutput),
