@@ -37,12 +37,8 @@ const Container = styled<"div", {}, Theme>("div", ({ $theme }) => ({
 const Navbar = () => {
 
   const options = [
-
     { label: 'Facebook', value: 'facebook' },
-
     { label: 'Instagram', value: 'instagram' },
-
-
   ];
 
   const [value, setValue] = useState('facebook');
@@ -306,17 +302,20 @@ const Navbar = () => {
       console.log(image);
       let data = new FormData();
       data.append('data', image);
-      if (value === "instagram") {
+      let pathTOpost=  '/meta/postOnInsta';
+
+      if (value.toLowerCase() === "instagram") {
         data.append('message', `${caption}\n${hastag}`);
-        setPath('/meta/postOnInsta');
+        // setPath('/meta/postOnInsta');
       }
       else {
         const texthashtag = hastag.replace(/%23/g, "#");
         data.append('message', `${caption}\n${texthashtag}`);
-        setPath('/meta/postOnFB');
+        pathTOpost= '/meta/postOnFB';
+        // setPath('/meta/postOnFB');
       }
 
-      axiosInstance.post(path, data, {
+      axiosInstance.post(pathTOpost, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }, timeout: 5000000
@@ -324,7 +323,7 @@ const Navbar = () => {
         .then(res => {
           console.log(res);
           if (res.status === 201) {
-            toast.success(`Successfully posted on ${value}`);
+            toast.success(`Successfully posted on facebook`);
             setLoading(false);
           }
         }).catch(err => {

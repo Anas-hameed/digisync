@@ -15,13 +15,13 @@ function CTA() {
                     <button className="px-8 py-3 text-lg font-bold font-roboto border rounded bg-black text-white border-gray-300">Learn more</button>
                 </div>
             </div>
-            <div className={`relative overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 ${triggerScroll?'-translate-x-[600px]':'translate-x-[200]'}`} onBlur={()=>setTriggerScroll(false)} onScroll={()=>setTriggerScroll(true)}>
+            {/* <div className={`relative overflow-hidden transition-all duration-500 ease-in-out transform hover:scale-105 ${triggerScroll?'-translate-x-[600px]':'translate-x-[200]'}`} onBlur={()=>setTriggerScroll(false)} onScroll={()=>setTriggerScroll(true)}>
                 <div className="absolute inset-0 bg-gray-100 opacity-0 hover:opacity-100 transition-opacity"></div>
                 <div className="relative bg-white rounded-lg shadow-lg p-6">
                     <h2 className="text-gray-900 font-bold mb-2 text-xl">Card Title</h2>
                     <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
                 </div>
-            </div>
+            </div> */}
         </section>
 
     );
